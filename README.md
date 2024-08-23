@@ -17,7 +17,6 @@ Este repositorio contiene el código fuente y la documentación relacionada con 
 
 <table align="center">
   <tbody align="center">
-    <!-- Fila 1 -->
     <tr>
       <td>
         <div align="center">
@@ -70,8 +69,7 @@ Este repositorio contiene el código fuente y la documentación relacionada con 
           </a>
         </div>
       </td>
-    </tr>
-    <!-- Fila 2 -->
+    </tr
     <tr>
       <td>
         <div align="center">
@@ -125,7 +123,6 @@ Este repositorio contiene el código fuente y la documentación relacionada con 
         </div>
       </td>
     </tr>
-    <!-- Fila 3 -->
     <tr>
       <td>
         <div align="center">
@@ -179,7 +176,6 @@ Este repositorio contiene el código fuente y la documentación relacionada con 
         </div>
       </td>
     </tr>
-    <!-- Nueva fila agregada -->
     <tr>
       <td>
         <div align="center">
@@ -201,7 +197,5 @@ Este repositorio contiene el código fuente y la documentación relacionada con 
     </tr>
   </tbody>
 </table>
-
-
 
 ## 🚀 INSTRUCCIONES PARA CLONAR Y EJECUTAR EL PROYECTO LOCALMENTE: 
