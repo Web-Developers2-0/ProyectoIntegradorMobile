@@ -69,7 +69,7 @@ Este repositorio contiene el código fuente y la documentación relacionada con 
           </a>
         </div>
       </td>
-    </tr
+    </tr>
     <tr>
       <td>
         <div align="center">
@@ -127,13 +127,13 @@ Este repositorio contiene el código fuente y la documentación relacionada con 
       <td>
         <div align="center">
           <a href="https://www.linkedin.com/in/jorge-pegoraro-40939a275/" target="_blank" rel="author">
-            <img width="110" src="https://media.licdn.com/dms/image/D4D03AQGv4Pf7uApEdw/profile-displayphoto-shrink_200_200/0/1688173320197?e=2147483647&v=beta&t=0bJmeLKs8sq9XjZ0ZntE9tmS8yXy_C-q06kxvRI" style="margin-top: 10px;"/>
+            <img width="110" src="https://media.licdn.com/dms/image/D4D03AQGv5Vxn2NR-7A/profile-displayphoto-shrink_200_200/0/1674822722973?e=2147483647&v=beta&t=Nm8i8Ho-SfA0Y03eLpu2BFTxyoQ5H2f-vfId9b1sP68" style="margin-top: 10px;"/>
           </a>
           <a href="https://www.linkedin.com/in/jorge-pegoraro-40939a275/" target="_blank" rel="author">
             <h4 style="margin-top: 1rem;">Pegoraro, Jorge</h4>
             <h4 style="margin-top: 1rem;">Fullstack Developer</h4>
           </a>
-          <a href="https://github.com/JorgePegoraro" target="_blank">
+          <a href="https://github.com/jorge-pegoraro" target="_blank">
             <img src="https://img.shields.io/static/v1?style=for-the-badge&message=GitHub&color=172B4D&logo=GitHub&logoColor=FFFFFF&label="/>
           </a>
           <a href="https://www.linkedin.com/in/jorge-pegoraro-40939a275/" target="_blank">
@@ -143,53 +143,34 @@ Este repositorio contiene el código fuente y la documentación relacionada con 
       </td>
       <td>
         <div align="center">
-          <a href="https://www.linkedin.com/in/fabianlufrano/" target="_blank" rel="author">
-            <img width="110" src="https://media.licdn.com/dms/image/D4D03AQGBxlCffEoN3Q/profile-displayphoto-shrink_200_200/0/1679560595172?e=2147483647&v=beta&t=gdVtEvShEbIccj1XU05wffgLn8gZtr2V5n06iJvnzOM" style="margin-top: 10px;"/>
+          <a href="https://www.linkedin.com/in/renzo-rey/" target="_blank" rel="author">
+            <img width="110" src="https://media.licdn.com/dms/image/D4D03AQFUDnsUwT2lGw/profile-displayphoto-shrink_200_200/0/1665561536606?e=2147483647&v=beta&t=SB24Hh3Gm_65_Fq32YIugTle9TPBDV5HVdFj4Y6iy9w" style="margin-top: 10px;"/>
           </a>
-          <a href="https://www.linkedin.com/in/fabianlufrano/" target="_blank" rel="author">
-            <h4 style="margin-top: 1rem;">Lufrano, Fabian</h4>
+          <a href="https://www.linkedin.com/in/renzo-rey/" target="_blank" rel="author">
+            <h4 style="margin-top: 1rem;">Rey, Renzo</h4>
             <h4 style="margin-top: 1rem;">Fullstack Developer</h4>
           </a>
-          <a href="https://github.com/FabianLufrano" target="_blank">
+          <a href="https://github.com/renzo-rey" target="_blank">
             <img src="https://img.shields.io/static/v1?style=for-the-badge&message=GitHub&color=172B4D&logo=GitHub&logoColor=FFFFFF&label="/>
           </a>
-          <a href="https://www.linkedin.com/in/fabianlufrano/" target="_blank">
+          <a href="https://www.linkedin.com/in/renzo-rey/" target="_blank">
             <img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/>
           </a>
         </div>
       </td>
       <td>
         <div align="center">
-          <a href="https://www.linkedin.com/in/marcelo-gutierrez-20b99220b/" target="_blank" rel="author">
-            <img width="110" src="https://media.licdn.com/dms/image/D4D03AQFrxX1FqWxQyA/profile-displayphoto-shrink_200_200/0/1677907874391?e=2147483647&v=beta&t=wRmE-nlxnkwZYjD2ABgQzeCtdw3cQF_Ek6fLsfDOt8o" style="margin-top: 10px;"/>
+          <a href="https://www.linkedin.com/in/sergio-acosta-879928260/" target="_blank" rel="author">
+            <img width="110" src="https://media.licdn.com/dms/image/D4D03AQF5kN3heQxFJw/profile-displayphoto-shrink_200_200/0/1676472370658?e=2147483647&v=beta&t=Z-Jn8bMMhL9eXcF2OTwp_fv31nN0H2PP1TuW4YkCWEg" style="margin-top: 10px;"/>
           </a>
-          <a href="https://www.linkedin.com/in/marcelo-gutierrez-20b99220b/" target="_blank" rel="author">
-            <h4 style="margin-top: 1rem;">Gutierrez, Marcelo</h4>
+          <a href="https://www.linkedin.com/in/sergio-acosta-879928260/" target="_blank" rel="author">
+            <h4 style="margin-top: 1rem;">Acosta, Sergio</h4>
             <h4 style="margin-top: 1rem;">Fullstack Developer</h4>
           </a>
-          <a href="https://github.com/Marcelo-Gutierrez" target="_blank">
+          <a href="https://github.com/sergio-acosta" target="_blank">
             <img src="https://img.shields.io/static/v1?style=for-the-badge&message=GitHub&color=172B4D&logo=GitHub&logoColor=FFFFFF&label="/>
           </a>
-          <a href="https://www.linkedin.com/in/marcelo-gutierrez-20b99220b/" target="_blank">
-            <img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/>
-          </a>
-        </div>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <div align="center">
-          <a href="https://www.linkedin.com/in/juan-perez/" target="_blank" rel="author">
-            <img width="110" src="https://via.placeholder.com/110" style="margin-top: 10px;"/>
-          </a>
-          <a href="https://www.linkedin.com/in/juan-perez/" target="_blank" rel="author">
-            <h4 style="margin-top: 1rem;">Perez, Juan</h4>
-            <h4 style="margin-top: 1rem;">Frontend Developer</h4>
-          </a>
-          <a href="https://github.com/juanperez" target="_blank">
-            <img src="https://img.shields.io/static/v1?style=for-the-badge&message=GitHub&color=172B4D&logo=GitHub&logoColor=FFFFFF&label="/>
-          </a>
-          <a href="https://www.linkedin.com/in/juan-perez/" target="_blank">
+          <a href="https://www.linkedin.com/in/sergio-acosta-879928260/" target="_blank">
             <img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/>
           </a>
         </div>
@@ -197,5 +178,6 @@ Este repositorio contiene el código fuente y la documentación relacionada con 
     </tr>
   </tbody>
 </table>
+
 
 ## 🚀 INSTRUCCIONES PARA CLONAR Y EJECUTAR EL PROYECTO LOCALMENTE: 
