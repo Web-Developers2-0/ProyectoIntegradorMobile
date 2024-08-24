@@ -181,7 +181,7 @@ Este repositorio contiene el código fuente y la documentación relacionada con 
           <a href="https://www.linkedin.com/in/pamela-ponce-193095142/" target="_blank" rel="author">
             <img width="110" src="https://via.placeholder.com/110"/>
           </a>
-          <a href="https://www.linkedin.com/in/juan-perez/" target="_blank" rel="author">
+          <a href="https://www.linkedin.com/in/pamela-ponce-193095142/" target="_blank" rel="author">
             <h4 style="margin-top: 1rem;">Ponce, Pamela Grisel</h4>
             <h4 style="margin-top: 1rem;">Frontend Developer</h4>
           </a>
