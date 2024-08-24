@@ -179,7 +179,7 @@ Este repositorio contiene el código fuente y la documentación relacionada con 
       <td style="width: 25%; padding: 10px;">
         <div align="center">
           <a href="https://www.linkedin.com/in/pamela-ponce-193095142/" target="_blank" rel="author">
-            <img width="110" src="https://via.placeholder.com/110"/>
+            <img width="110" src="https://github.com/1pame"/>
           </a>
           <a href="https://www.linkedin.com/in/pamela-ponce-193095142/" target="_blank" rel="author">
             <h4 style="margin-top: 1rem;">Ponce, Pamela Grisel</h4>
