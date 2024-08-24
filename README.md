@@ -142,17 +142,17 @@ Este repositorio contiene el código fuente y la documentación relacionada con 
       </td>
       <td style="width: 25%; padding: 10px;">
         <div align="center">
-          <a href="https://www.linkedin.com/in/fabianlufrano/" target="_blank" rel="author">
-            <img width="110" src="https://media.licdn.com/dms/image/D4D03AQGBxlCffEoN3Q/profile-displayphoto-shrink_200_200/0/1679560595172?e=2147483647&v=beta&t=gdVtEvShEbIccj1XU05wffgLn8gZtr2V5n06iJvnzOM"/>
+          <a href="https://www.linkedin.com/in/gonzalo-olmedo-desweb?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BFNQ8iQGKQrK6ifWctMZCMg%3D%3D" target="_blank" rel="author">
+            <img width="110" src="https://media.licdn.com/dms/image/v2/C4D03AQFPG9SiKUIlnQ/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1659578735244?e=1729728000&v=beta&t=KCbDkSgPxxiy-JG5cxCzxXaDjFKdalOd9BEkIcMBGak">
           </a>
-          <a href="https://www.linkedin.com/in/fabianlufrano/" target="_blank" rel="author">
-            <h4 style="margin-top: 1rem;">Lufrano, Fabian</h4>
+          <a href="https://www.linkedin.com/in/gonzalo-olmedo-desweb/" target="_blank" rel="author">
+            <h4 style="margin-top: 1rem;">Gonzalo Olmedo</h4>
             <h4 style="margin-top: 1rem;">Fullstack Developer</h4>
           </a>
-          <a href="https://github.com/FabianLufrano" target="_blank">
+          <a href="https://github.com/gonzalo-olmedo" target="_blank">
             <img src="https://img.shields.io/static/v1?style=for-the-badge&message=GitHub&color=172B4D&logo=GitHub&logoColor=FFFFFF&label="/>
           </a>
-          <a href="https://www.linkedin.com/in/fabianlufrano/" target="_blank">
+          <a href="https://www.linkedin.com/in/gonzalo-olmedo-desweb" target="_blank">
             <img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/>
           </a>
         </div>
