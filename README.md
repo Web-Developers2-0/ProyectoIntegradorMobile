@@ -76,7 +76,7 @@ Este repositorio contiene el código fuente y la documentación relacionada con 
             <img width="110" src="https://media.licdn.com/dms/image/D4D03AQGdG6jRzYt4Qg/profile-displayphoto-shrink_200_200/0/1701139531054?e=2147483647&v=beta&t=BCyiakYkN-LtbVf59o2EcyTPtKdsMcXaIm4bn-2xsso"/>
           </a>
           <a href="https://www.linkedin.com/in/hernan-zazzarini-16b71a280/" target="_blank" rel="author">
-            <h4 style="margin-top: 1rem;">Hernan, Zazzarini</h4>
+            <h4 style="margin-top: 1rem;">Otro integrante</h4>
             <h4 style="margin-top: 1rem;">Fullstack Developer</h4>
           </a>
           <a href="https://github.com/Hernanzazzarini" target="_blank">
