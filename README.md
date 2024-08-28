@@ -10,6 +10,7 @@ Este repositorio contiene el código fuente y la documentación relacionada con 
 <br/>
 
 ## 🎨 PROTOTIPO DEL DISEÑO:
+Prototipo en Figma: https://www.figma.com/proto/hqPUf4Nwd2JQWRW7fNFqpy/Prototipo-App-Planet-Super-Heroes?node-id=1-22&node-type=CANVAS&t=yFsLAhnZdhqD0mw1-0&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A22&show-proto-sidebar=1 
 
 ## 🙌 FEATURES DESTACADAS:
 
