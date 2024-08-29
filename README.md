@@ -181,16 +181,16 @@ Prototipo en Figma: https://www.figma.com/proto/hqPUf4Nwd2JQWRW7fNFqpy/Prototipo
       <td style="width: 25%; padding: 10px;">
         <div align="center">
           <a href="https://www.linkedin.com/in/pamela-ponce-193095142/" target="_blank" rel="author">
-            <img width="110" src="https://github.com/1pame"/>
+            <img width="110" src="https://media.licdn.com/dms/image/v2/D4E03AQFOr-BaV06Yvg/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1687573687507?e=1730332800&v=beta&t=EaE8Z-EoES9_evLXPq0xBW1mgZoWlqpG-2v4oLp_NEA"/>
           </a>
           <a href="https://www.linkedin.com/in/pamela-ponce-193095142/" target="_blank" rel="author">
             <h4 style="margin-top: 1rem;">Ponce, Pamela Grisel</h4>
             <h4 style="margin-top: 1rem;">Frontend Developer</h4>
           </a>
-          <a href="https://github.com/juanperez" target="_blank">
+          <a href="https://www.github.com/1pame" target="_blank">
             <img src="https://img.shields.io/static/v1?style=for-the-badge&message=GitHub&color=172B4D&logo=GitHub&logoColor=FFFFFF&label="/>
           </a>
-          <a href="https://www.linkedin.com/in/juan-perez/" target="_blank">
+          <a href="https://www.linkedin.com/in/pamela-ponce-193095142/" target="_blank">
             <img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/>
           </a>
         </div>
