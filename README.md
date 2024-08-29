@@ -6,7 +6,7 @@ Continuación de este proyecto 👉 https://github.com/Web-Developers2-0/Proyect
 Este repositorio contiene el código fuente y la documentación relacionada con nuestro Proyecto Integrador para el Módulo Programador de Aplicaciones Móviles de la Tecnicatura Superior en Desarrollo Web y Aplicaciones Digitales.
 
 ## 💻 STACK TECNOLÓGICO :
-![Figma](https://img.shields.io/static/v1?style=for-the-badge&message=Figma&color=4169E1&logo=Figma&logoColor=fff&label=) ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white) ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)\ ![Django](https://img.shields.io/badge/django-%23092E20.svg?style=for-the-badge&logo=django&logoColor=white)  ![DjangoREST](https://img.shields.io/badge/DJANGO-REST-ff1709?style=for-the-badge&logo=django&logoColor=white&color=ff1709&labelColor=gray)  ![MySQL](https://img.shields.io/badge/mysql-4479A1.svg?style=for-the-badge&logo=mysql&logoColor=white) 
+![Figma](https://img.shields.io/static/v1?style=for-the-badge&message=Figma&color=4169E1&logo=Figma&logoColor=fff&label=) ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white) ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white) ![Django](https://img.shields.io/badge/django-%23092E20.svg?style=for-the-badge&logo=django&logoColor=white)  ![DjangoREST](https://img.shields.io/badge/DJANGO-REST-ff1709?style=for-the-badge&logo=django&logoColor=white&color=ff1709&labelColor=gray)  ![MySQL](https://img.shields.io/badge/mysql-4479A1.svg?style=for-the-badge&logo=mysql&logoColor=white) 
 ![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white) ![Postman](https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=postman&logoColor=white) ![Swagger](https://img.shields.io/badge/-Swagger-%23Clojure?style=for-the-badge&logo=swagger&logoColor=white) ![Trello](https://img.shields.io/badge/Trello-%23026AA7.svg?style=for-the-badge&logo=Trello&logoColor=white) ![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white) ![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white) ![MySQL](https://img.shields.io/badge/mysql-4479A1.svg?style=for-the-badge&logo=mysql&logoColor=white)
 <br/>
 
@@ -72,9 +72,21 @@ Prototipo en Figma: https://www.figma.com/proto/hqPUf4Nwd2JQWRW7fNFqpy/Prototipo
       </td>
     </tr>
     <tr>
-      <td style="width: 25%; padding: 10px;">
+        <td style="width: 25%; padding: 10px;">
         <div align="center">
-      
+          <a href="https://www.linkedin.com/in/marco-virinni/" target="_blank" rel="author">
+            <img width="110" src="https://avatars.githubusercontent.com/u/97301587?v=4"/>
+          </a>
+          <a href="https://www.linkedin.com/in/marco-virinni/" target="_blank" rel="author">
+            <h4 style="margin-top: 1rem;">participante </h4>
+            <h4 style="margin-top: 1rem;">Fullstack Developer</h4>
+          </a>
+          <a href="https://github.com/alanapolitana" target="_blank">
+            <img src="https://img.shields.io/static/v1?style=for-the-badge&message=GitHub&color=172B4D&logo=GitHub&logoColor=FFFFFF&label="/>
+          </a>
+          <a href="https://www.linkedin.com/in/marco-virinni/" target="_blank">
+            <img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/>
+          </a>
         </div>
       </td>
       <td style="width: 25%; padding: 10px;">
