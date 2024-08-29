@@ -75,7 +75,7 @@ Prototipo en Figma: https://www.figma.com/proto/hqPUf4Nwd2JQWRW7fNFqpy/Prototipo
         <td style="width: 25%; padding: 10px;">
         <div align="center">
           <a href="https://www.linkedin.com/in/santiago-bertorello-6bb071166/" target="_blank" rel="author">
-            <img width="110" src="https://avatars.githubusercontent.com/u/97301587?v=4"/>
+            <img width="110" src="https://media.licdn.com/dms/image/v2/D4D03AQFMDBlCEUIGWA/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1724948385736?e=1730332800&v=beta&t=tpi0i1PCe6NfTEbR8ADrKaTgZOQ3LyVNzqYUqgt61mk"/>
           </a>
           <a href="https://www.linkedin.com/in/santiago-bertorello-6bb071166/" target="_blank" rel="author">
             <h4 style="margin-top: 1rem;">Bertorello, Santiago Nicolás</h4>
