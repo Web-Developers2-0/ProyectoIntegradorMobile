@@ -38,7 +38,7 @@ Prototipo en Figma: https://www.figma.com/proto/hqPUf4Nwd2JQWRW7fNFqpy/Prototipo
       <td style="width: 25%; padding: 10px;">
         <div align="center">
           <a href="https://www.linkedin.com/in/paula-velez/" target="_blank" rel="author">
-            <img width="110" src="https://media.licdn.com/dms/image/D4D03AQEJSeZUsugThQ/profile-displayphoto-shrink_200_200/0/1706310164105?e=1721260800&v=beta&t=4Nhrw4Y2l6e_ivc_LGxpjdmkaUqne0gLBnsNdqkqOPc"/>
+            <img width="110" src="https://avatars.githubusercontent.com/u/107881749?v=4"/>
           </a>
           <a href="https://www.linkedin.com/in/paula-velez/" target="_blank" rel="author">
             <h4 style="margin-top: 1rem;">Velez, Paula</h4>
