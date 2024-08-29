@@ -74,19 +74,7 @@ Prototipo en Figma: https://www.figma.com/proto/hqPUf4Nwd2JQWRW7fNFqpy/Prototipo
     <tr>
       <td style="width: 25%; padding: 10px;">
         <div align="center">
-          <a href="https://www.linkedin.com/in/hernan-zazzarini-16b71a280/" target="_blank" rel="author">
-            <img width="110" src="https://media.licdn.com/dms/image/D4D03AQGdG6jRzYt4Qg/profile-displayphoto-shrink_200_200/0/1701139531054?e=2147483647&v=beta&t=BCyiakYkN-LtbVf59o2EcyTPtKdsMcXaIm4bn-2xsso"/>
-          </a>
-          <a href="https://www.linkedin.com/in/hernan-zazzarini-16b71a280/" target="_blank" rel="author">
-            <h4 style="margin-top: 1rem;">Otro integrante</h4>
-            <h4 style="margin-top: 1rem;">Fullstack Developer</h4>
-          </a>
-          <a href="https://github.com/Hernanzazzarini" target="_blank">
-            <img src="https://img.shields.io/static/v1?style=for-the-badge&message=GitHub&color=172B4D&logo=GitHub&logoColor=FFFFFF&label="/>
-          </a>
-          <a href="https://www.linkedin.com/in/hernan-zazzarini-16b71a280/" target="_blank">
-            <img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/>
-          </a>
+      
         </div>
       </td>
       <td style="width: 25%; padding: 10px;">
