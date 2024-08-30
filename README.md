@@ -128,13 +128,13 @@ Prototipo en Figma: https://www.figma.com/proto/hqPUf4Nwd2JQWRW7fNFqpy/Prototipo
       <td style="width: 25%; padding: 10px;">
         <div align="center">
           <a href="https://www.linkedin.com/in/jorge-pegoraro-40939a275/" target="_blank" rel="author">
-            <img width="110" src="https://media.licdn.com/dms/image/D4E03AQHuhm0dm-9C2g/profile-displayphoto-shrink_200_200/0/1685327667912?e=1721260800&v=beta&t=phOm33eAOvC2TIS9DoR0ZntE9tmS8yXy_C-q06kxvRI"/>
+            <img width="110" src="https://media.licdn.com/dms/image/v2/D4D03AQGdB6BRfLH5TQ/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1724975423203?e=2147483647&v=beta&t=yPlbVMPoggiTi4SqC5-4SkiNmMR5SmM4wt7ycT8zAN0"/>
           </a>
           <a href="https://www.linkedin.com/in/jorge-pegoraro-40939a275/" target="_blank" rel="author">
             <h4 style="margin-top: 1rem;">Pegoraro, Jorge</h4>
             <h4 style="margin-top: 1rem;">Fullstack Developer</h4>
           </a>
-          <a href="https://github.com/JorgePegoraro" target="_blank">
+          <a href="https://github.com/escuelamedia" target="_blank">
             <img src="https://img.shields.io/static/v1?style=for-the-badge&message=GitHub&color=172B4D&logo=GitHub&logoColor=FFFFFF&label="/>
           </a>
           <a href="https://www.linkedin.com/in/jorge-pegoraro-40939a275/" target="_blank">
