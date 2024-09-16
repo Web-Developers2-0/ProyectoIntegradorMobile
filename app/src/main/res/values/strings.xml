@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">Planet Superheroes</string>
+
+    <!-- agrego strings para el formulario de contacto -->
+    <string name="contact_title">Contáctanos</string>
+    <string name="contact_name_input">Ingrese un Nombre</string>
+    <string name="contact_email_input">Ingrese un Email Valido</string>
+    <string name="contact_message_input">Escriba un Mensaje</string>
+    <string name="contact_btn">Enviar Mensaje</string>
+
+    <string name="go_contact_btn">Ir a Contact Us</string>
+
 </resources>
