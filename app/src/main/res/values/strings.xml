@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Planet Superheroes</string>
+    <string name="volverAlInicio">Volver al Inicio</string>
+    <string name="product_image_description" />
+    <string name="star_icon_description" />
+    <string name="go_to_second_activity">Go to Second Activity</string>
+
+
 </resources>
