@@ -66,9 +66,6 @@
                 android:orientation="horizontal"
                 android:padding="8dp"
                 tools:listitem="@layout/item_cardview" />
-
-
-
         </LinearLayout>
     </ScrollView>
 
