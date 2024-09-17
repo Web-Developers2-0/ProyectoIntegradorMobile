@@ -49,7 +49,7 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="367dp"
                     android:background="@color/colorBackground"
                     android:orientation="vertical"
                     android:padding="16dp">
@@ -61,7 +61,6 @@
                         android:layout_gravity="start"
                         android:background="@drawable/product_category_green"
                         android:padding="4dp"
-                        android:text="DC especial"
                         android:textColor="#FFFFFF"
                         android:textSize="12sp" />
 
@@ -147,6 +146,7 @@
                 android:textStyle="bold" />
 
             <!-- CardView 2 -->
+
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -163,24 +163,25 @@
                     android:padding="16dp">
 
                     <!-- Etiqueta "DC especial" -->
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="start"
                         android:background="@drawable/product_category_red"
                         android:padding="4dp"
-                        android:text="DC especial"
                         android:textColor="#FFFFFF"
                         android:textSize="12sp" />
 
                     <!-- Imagen del producto -->
+
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="200dp"
                         android:layout_marginTop="8dp"
                         android:background="@color/colorHighlight"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/product_card3" />
+                        android:src= "@drawable/batman_respaldo" />
 
                     <!-- Título del producto -->
                     <TextView

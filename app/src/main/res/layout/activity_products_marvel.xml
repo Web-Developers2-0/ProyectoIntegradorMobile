@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
@@ -8,94 +9,81 @@
     android:background="@color/colorBackground"
     tools:context=".Products_Marvel">
 
-    <!-- ScrollView to allow vertical scrolling -->
+    <!-- ScrollView para permitir scroll vertical -->
     <ScrollView
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="0dp"
         android:fillViewport="true"
         android:padding="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:visibility="visible"
-            tools:visibility="visible">
+        <!-- GridLayout para organizar las CardViews en filas de dos columnas -->
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:columnCount="2"
+            android:orientation="horizontal"
+            android:padding="16dp"
+            android:rowCount="2">
 
-            <!-- Title: DESTACADOS -->
-
-            <TextView
-                android:id="@+id/titleDestacados"
-                android:layout_width="wrap_content"
+            <!-- Primera CardView (más delgada) -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/bangersregular"
-                android:text="DESTACADOS"
-                android:textColor="#FFFFFF"
-                android:textSize="24sp"
-                android:textStyle="bold" />
-
-            <!-- Horizontal layout for featured products -->
-
-            <!-- Title: PRE-VENTA -->
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:orientation="horizontal">
-
-                <!-- CardView for product 1 -->
-                <androidx.cardview.widget.CardView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="8dp"
-                    android:background="#000000"
-                    app:cardCornerRadius="16dp">
-
-                </androidx.cardview.widget.CardView>
+                android:layout_columnWeight="1"
+                android:layout_margin="8dp"
+                android:elevation="8dp"
+                app:cardCornerRadius="16dp">
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@color/cardview_dark_background"
+                    android:background="@color/colorBackground"
                     android:orientation="vertical"
-                    android:padding="8dp">
+                    android:padding="16dp">
 
+                    <!-- Etiqueta "DC especial" -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        android:background="@drawable/product_category_green"
+                        android:padding="4dp"
+                        android:text="DC especial"
+                        android:textColor="#FFFFFF"
+                        android:textSize="12sp" />
 
+                    <!-- Imagen del producto -->
                     <ImageView
-                        android:layout_width="100dp"
+                        android:layout_width="match_parent"
                         android:layout_height="150dp"
+                        android:layout_marginTop="8dp"
+                        android:scaleType="centerCrop"
                         android:src="@drawable/product_card4" />
 
+                    <!-- Título del producto -->
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
-                        android:text="Lorem de un comic"
-                        android:textColor="@color/cardview_light_background"
+                        android:text="La muerte de Superman"
+                        android:textColor="@color/white"
+                        android:textSize="16sp"
                         android:textStyle="bold" />
 
+                    <!-- Descripción del producto -->
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Lorem comics hunted?"
-                        android:textColor="#FFFFFF" />
+                        android:layout_marginBottom="8dp"
+                        android:text="Un cómic icónico de DC Comics."
+                        android:textColor="@color/white"
+                        android:textSize="14sp" />
 
-                    <!-- Rating and cart -->
-
-                    <Button
-                        android:id="@+id/button"
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
-                        android:background="@color/colorAccent"
-                        android:text="Button"
-                        android:textColor="#5D4037" />
-
+                    <!-- Rating y carrito -->
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -103,136 +91,129 @@
                         android:gravity="center_vertical"
                         android:orientation="horizontal">
 
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_marginTop="8dp"
-                            android:gravity="center_vertical"
-                            android:orientation="horizontal">
+                        <!-- Icono del carrito -->
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_gravity="start"
+                            android:background="@color/colorText"
+                            android:src="@drawable/product_vector_carrito" />
 
-                        </LinearLayout>
+                        <!-- Espacio -->
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1" />
 
+                        <!-- Rating y estrella -->
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="4dp"
+                            android:layout_marginEnd="4dp"
                             android:text="4.9"
-                            android:textColor="#FFFFFF" />
+                            android:textColor="#FFD700" />
 
                         <ImageView
                             android:layout_width="24dp"
                             android:layout_height="24dp"
-                            android:contentDescription="@string/star_icon_description"
-                            android:src="@drawable/ProductStar" />
-
+                            android:layout_gravity="end"
+                            android:src="@drawable/product_star" />
                     </LinearLayout>
-
                 </LinearLayout>
+            </androidx.cardview.widget.CardView>
 
-                <!-- Add more CardViews for additional featured products here -->
-            </LinearLayout>
-
-            <!-- Horizontal layout for pre-sale products -->
-            <TextView
-                android:id="@+id/titlePreventa"
-                android:layout_width="wrap_content"
+            <!-- Segunda CardView -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:background="@color/cardview_dark_background"
-                android:fontFamily="@font/bangersregular"
-                android:text="PRE-VENTA"
-                android:textColor="#FFD700"
-                android:textSize="24sp"
-                android:textStyle="bold" />
+                android:layout_columnWeight="1"
+                android:layout_margin="8dp"
+                android:elevation="8dp"
+                app:cardCornerRadius="16dp">
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:background="@color/cardview_dark_background"
-                android:orientation="vertical">
-
-                <!-- CardView for pre-sale product 1 -->
-                <androidx.cardview.widget.CardView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="8dp"
-                    android:background="#000000"
-                    app:cardCornerRadius="16dp">
-
-                </androidx.cardview.widget.CardView>
-
-                <!-- Add more CardViews for additional pre-sale products here -->
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@color/cardview_dark_background"
-                android:orientation="vertical"
-                android:padding="8dp">
-
-                <ImageView
-                    android:layout_width="100dp"
-                    android:layout_height="150dp"
-                    android:src="@drawable/product_card3" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="Superman"
-                    android:textColor="#FFFFFF"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Lorem comics hunted?"
-                    android:textColor="#FFFFFF" />
-
-                <!-- Rating and cart -->
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="8dp"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorBackground"
+                    android:orientation="vertical"
+                    android:padding="16dp">
 
-                    <ImageView
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:src="@drawable/product_vector_carrito" />
-
-                    <LinearLayout
+                    <!-- Etiqueta "Pre-Venta" -->
+                    <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
+                        android:layout_gravity="start"
+                        android:background="@drawable/product_category_red"
+                        android:padding="4dp"
+                        android:text="Pre-Venta"
+                        android:textColor="#FFFFFF"
+                        android:textSize="12sp" />
+
+                    <!-- Imagen del producto -->
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        android:layout_marginTop="8dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/batman_respaldo" />
+
+                    <!-- Título del producto -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="El regreso del Caballero Oscuro"
+                        android:textColor="@color/white"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <!-- Descripción del producto -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:text="Una historia clásica de Batman."
+                        android:textColor="@color/white"
+                        android:textSize="14sp" />
+
+                    <!-- Rating y carrito -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
                         android:gravity="center_vertical"
                         android:orientation="horizontal">
 
+                        <!-- Icono del carrito -->
                         <ImageView
                             android:layout_width="24dp"
                             android:layout_height="24dp"
-                            android:contentDescription="@string/star_icon_description"
-                            android:src="@drawable/ProductStar" />
+                            android:layout_gravity="start"
+                            android:background="@color/colorText"
+                            android:src="@drawable/product_vector_carrito" />
 
+                        <!-- Espacio -->
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1" />
+
+                        <!-- Rating y estrella -->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="4dp"
+                            android:text="4.8"
+                            android:textColor="#FFD700" />
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_gravity="end"
+                            android:src="@drawable/product_star" />
                     </LinearLayout>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="4dp"
-                        android:text="4.9"
-                        android:textColor="#FFFFFF" />
-
                 </LinearLayout>
-
-            </LinearLayout>
-
-        </LinearLayout>
+            </androidx.cardview.widget.CardView>
+        </GridLayout>
     </ScrollView>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

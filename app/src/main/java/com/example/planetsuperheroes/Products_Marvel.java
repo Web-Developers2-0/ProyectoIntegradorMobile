@@ -21,7 +21,4 @@ public class Products_Marvel extends AppCompatActivity {
             return insets;
         });
     }
-
-
-
 }
