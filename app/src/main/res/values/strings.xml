@@ -1,5 +1,22 @@
 <resources>
     <string name="app_name">Planet Superheroes</string>
+    <!--login-->
+
+    <string name="ingresa_tus_datos">INGRESA TUS DATOS</string>
+    <string name="mail">Mail</string>
+    <string name="clave">Clave</string>
+    <string name="olvide_contrasena">Olvidé mi contraseña</string>
+    <string name="iniciar_sesion">INICIAR SESIÓN</string>
+    <string name="registrate">¿No tenés cuenta? <b>Regístrate</b></string>
+    <string name="desc_google">Botón para iniciar sesión con Google</string>
+    <string name="desc_facebook">Botón para iniciar sesión con Facebook</string>
+
+    <!--Productos-->
+    <string name="product_image_desc">Product Image</string>
+    <string name="marvel_category">Marvel Category</string>
+    <string name="dc_category">DC Category</string>
+
+    <!--Info personal-->
     <string name="user_act_name">User</string>
     <string name="user_title">Info Personal</string>
     <string name="user_name">Nombre de usuario</string>
@@ -7,4 +24,14 @@
     <string name="user_email">Email de usuario</string>
     <string name="user_adress">Dirección de usuario</string>
     <string name="save_btn">Guardar cambios</string>
+
+
+
+
+
+
+
+
+
+
 </resources>
