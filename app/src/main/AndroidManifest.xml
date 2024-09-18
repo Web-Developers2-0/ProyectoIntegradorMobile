@@ -19,6 +19,13 @@
             android:name=".HomeActivity"
             android:exported="false" />
         <activity
+            android:name=".infoPersonal"
+            android:exported="false"/>
+
+        <activity
+            android:name=".LoginActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
@@ -27,9 +34,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".LoginActivity"
-            android:exported="false" />
+
     </application>
 
 </manifest>
