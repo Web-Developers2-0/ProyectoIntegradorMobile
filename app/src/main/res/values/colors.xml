@@ -7,7 +7,7 @@
     <color name="colorBackground">#1E1E1E</color>
     <color name="colorText">#FDD6A7</color>
     <color name="colorHighlight">#FFFCFB</color>
-    <color name="background_color">#FBE9E7</color>
+    <color name="background_color_claro">#FBE9E7</color>
     <color name="text_color">#000000</color>
     <color name="text_color_secondary">#757575</color>
     <color name="button_register">#FF7043</color>

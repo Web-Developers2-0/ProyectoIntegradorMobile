@@ -48,4 +48,11 @@
     <string name="google_button_description">Sign in with Google</string>
     <string name="facebook_button_description">Sign in with Facebook</string>
 
+    <!-- Textos para la Actividad Main -->
+
+    <string name="welcome_title">¡BIENVENIDOS A PLANET SUPER HEROES!</string>
+    <string name="description_text">Sumérgete en el universo de tus héroes y villanos favoritos. Aquí encontrarás las últimas novedades y clásicos de Marvel y DC, listos para llevarte a aventuras épicas.\n\n¡Explora, descubre y disfruta de los mejores cómics en un solo lugar!</string>
+    <string name="register_button">REGISTRARME</string>
+    <string name="login_button">INICIAR SESIÓN</string>
+
 </resources>
