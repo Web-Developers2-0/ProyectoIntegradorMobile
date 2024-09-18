@@ -7,5 +7,7 @@
     <color name="colorBackground">#1E1E1E</color>
     <color name="colorText">#FDD6A7</color>
     <color name="colorHighlight">#FFFCFB</color>
+    <color name="labelinfoPersonal">#DFD8CC</color>
+    <color name="textdellabedlinfoPersonal">#808080</color>
 </resources>
 
