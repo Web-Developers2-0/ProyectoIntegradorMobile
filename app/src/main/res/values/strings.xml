@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Planet Superheroes</string>
-    <!--login-->
+    <!--Strings para login-->
 
     <string name="ingresa_tus_datos">INGRESA TUS DATOS</string>
     <string name="mail">Mail</string>
@@ -11,12 +11,12 @@
     <string name="desc_google">Botón para iniciar sesión con Google</string>
     <string name="desc_facebook">Botón para iniciar sesión con Facebook</string>
 
-    <!--Productos-->
+    <!--Strings para Productos-->
     <string name="product_image_desc">Product Image</string>
     <string name="marvel_category">Marvel Category</string>
     <string name="dc_category">DC Category</string>
 
-    <!--Info personal-->
+    <!--Strings para Info personal-->
     <string name="user_act_name">User</string>
     <string name="user_title">Info Personal</string>
     <string name="user_name">Nombre de usuario</string>
@@ -25,13 +25,33 @@
     <string name="user_adress">Dirección de usuario</string>
     <string name="save_btn">Guardar cambios</string>
 
-    <!-- agrego strings para el formulario de contacto -->
+    <!-- Strings para el formulario de contacto -->
     <string name="contact_title">Contáctanos</string>
     <string name="contact_name_input">Ingrese un Nombre</string>
     <string name="contact_email_input">Ingrese un Email Valido</string>
     <string name="contact_message_input">Escriba un Mensaje</string>
     <string name="contact_btn">Enviar Mensaje</string>
 
-    <string name="go_contact_btn">Ir a Contact Us</string>
+    <!-- Strings para la Actividad de Registro -->
+
+    <string name="btn_registrar">REGÍSTRATE</string>
+    <string name="decripción_logo">Logo de la aplicación Planet Superheroes</string>
+    <string name="hint_ingresar_email">Introduce tu email</string>
+    <string name="hint_ingresar_nombre">Introduce tu nombre</string>
+    <string name="hint_ingresar_password">Introduce tu contraseña</string>
+    <string name="nombre_usuario">Nombre de Usuario</string>
+    <string name="registrarse">REGISTRARSE</string>
+    <string name="text_contraseña">Contraseña</string>
+    <string name="text_email">Email</string>
+    <string name="text_login">¿Ya tienes una cuenta? <b>Inicia sesión aquí</b></string>
+    <string name="google_button_description">Sign in with Google</string>
+    <string name="facebook_button_description">Sign in with Facebook</string>
+
+    <!-- Strings para la Actividad Main -->
+
+    <string name="welcome_title">¡BIENVENIDOS A PLANET SUPER HEROES!</string>
+    <string name="description_text">Sumérgete en el universo de tus héroes y villanos favoritos. Aquí encontrarás las últimas novedades y clásicos de Marvel y DC, listos para llevarte a aventuras épicas.\n\n¡Explora, descubre y disfruta de los mejores cómics en un solo lugar!</string>
+    <string name="register_button">REGISTRARME</string>
+    <string name="login_button">INICIAR SESIÓN</string>
 
 </resources>
