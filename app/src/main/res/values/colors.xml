@@ -7,6 +7,13 @@
     <color name="colorBackground">#1E1E1E</color>
     <color name="colorText">#FDD6A7</color>
     <color name="colorHighlight">#FFFCFB</color>
+    <color name="background_color">#FBE9E7</color>
+    <color name="text_color">#000000</color>
+    <color name="text_color_secondary">#757575</color>
+    <color name="button_register">#FF7043</color>
+    <color name="button_login">#FFA726</color>
+    <color name="colorPrimary2">#F7C272</color> <!-- Naranja -->
+    <color name="orange_border">#FF5722</color>
     <color name="labelinfoPersonal">#DFD8CC</color>
     <color name="textdellabedlinfoPersonal">#808080</color>
 </resources>
