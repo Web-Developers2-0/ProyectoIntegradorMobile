@@ -1,0 +1,30 @@
+{
+  "productos_destacados": [
+    {
+      "title": "La muerte de Superman",
+      "description": "Un cómic icónico de DC Comics.",
+      "imageUrl": "url_de_imagen1",
+      "rating": 4.9
+    },
+    {
+      "title": "El regreso del Caballero Oscuro",
+      "description": "Una historia clásica de Batman.",
+      "imageUrl": "url_de_imagen2",
+      "rating": 4.8
+    }
+  ],
+  "productos_preventa": [
+    {
+      "title": "Batman: Año Uno",
+      "description": "Un relanzamiento fundamental del origen de Batman.",
+      "imageUrl": "url_de_imagen3",
+      "rating": 4.7
+    },
+    {
+      "title": "Wonder Woman: Tierra de Nadie",
+      "description": "Una emocionante historia de la amazona.",
+      "imageUrl": "url_de_imagen4",
+      "rating": 4.6
+    }
+  ]
+}

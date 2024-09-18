@@ -44,7 +44,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:padding="8dp"
-                tools:listitem="@layout/item_cardview" />
+                tools:listitem="@layout/card_item" />
 
             <!-- Título para el segundo carrusel -->
             <TextView
@@ -65,7 +65,9 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:padding="8dp"
-                tools:listitem="@layout/item_cardview" />
+                tools:listitem="@layout/card_item" />
+
+
         </LinearLayout>
     </ScrollView>
 
