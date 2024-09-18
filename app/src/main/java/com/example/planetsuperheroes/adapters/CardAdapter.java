@@ -8,7 +8,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 
 import com.example.planetsuperheroes.R;
 import com.example.planetsuperheroes.models.Product;
@@ -34,12 +36,15 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Product product = productList.get(position);
 
-        holder.titleTextView.setText(product.getTitle());
+        holder.titleTextView.setText(product.getName()); // Usar getName() en lugar de getTitle()
         holder.descriptionTextView.setText(product.getDescription());
-        holder.ratingTextView.setText(String.valueOf(product.getRating()));
+        holder.ratingTextView.setText(String.valueOf(product.getCalification())); // Usar getCalification()
 
         // Cargar la imagen usando Glide
-        Glide.with(context).load(product.getImageUrl()).into(holder.imageView);
+        Glide.with(context)
+                .load(product.getImage())
+                .apply(new RequestOptions().placeholder(R.drawable.placeholder))
+                .into(holder.imageView);
     }
 
     @Override
@@ -62,3 +67,4 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
         }
     }
 }
+

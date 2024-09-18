@@ -1,30 +1,32 @@
-{
-  "productos_destacados": [
-    {
-      "title": "La muerte de Superman",
-      "description": "Un cómic icónico de DC Comics.",
-      "imageUrl": "url_de_imagen1",
-      "rating": 4.9
-    },
-    {
-      "title": "El regreso del Caballero Oscuro",
-      "description": "Una historia clásica de Batman.",
-      "imageUrl": "url_de_imagen2",
-      "rating": 4.8
-    }
-  ],
-  "productos_preventa": [
-    {
-      "title": "Batman: Año Uno",
-      "description": "Un relanzamiento fundamental del origen de Batman.",
-      "imageUrl": "url_de_imagen3",
-      "rating": 4.7
-    },
-    {
-      "title": "Wonder Woman: Tierra de Nadie",
-      "description": "Una emocionante historia de la amazona.",
-      "imageUrl": "url_de_imagen4",
-      "rating": 4.6
-    }
-  ]
-}
+[
+  {
+    "id_product": 1,
+    "name": "Producto Ejemplo",
+    "description": "Una descripción breve del producto, puede ser más larga si es necesario.",
+    "price": 29.99,
+    "discount": 10,
+    "stock": 50,
+    "image": "https://example.com/images/product1.jpg",
+    "pages": 300,
+    "format": "Tapa blanda",
+    "weight": 0.5,
+    "isbn": "978-3-16-148410-0",
+    "calification": 4,
+    "category": 2
+  },
+  {
+    "id_product": 2,
+    "name": "Otro Producto",
+    "description": "Otra descripción breve del producto.",
+    "price": 19.99,
+    "discount": 5,
+    "stock": 30,
+    "image": "https://example.com/images/product2.jpg",
+    "pages": 250,
+    "format": "Tapa dura",
+    "weight": 0.8,
+    "isbn": "978-1-56619-909-4",
+    "calification": 5,
+    "category": 1
+  }
+]

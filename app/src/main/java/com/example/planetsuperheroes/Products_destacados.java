@@ -1,17 +1,20 @@
 package com.example.planetsuperheroes;
 
-import android.content.Context;
 import android.os.Bundle;
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.planetsuperheroes.adapters.CardAdapter;
 import com.example.planetsuperheroes.models.Product;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+import java.io.IOException;
+import java.io.InputStream;
+import java.lang.reflect.Type;
 import java.util.List;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+import java.lang.reflect.Type;
 
 public class Products_destacados extends AppCompatActivity {
 
@@ -21,19 +24,11 @@ public class Products_destacados extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_products_destacados);
 
-        // Ajuste de padding para el diseño principal en relación a las barras del sistema
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
-
         // Inicializar listas de productos
-        listaDestacados = getListaDestacados();
-        listaPreventa = getListaPreventa();
+        listaDestacados = getListaFromJson("destacados.json");  // Asegúrate de que este archivo esté en la carpeta "assets"
+        listaPreventa = getListaFromJson("preventa.json");      // Asegúrate de que este archivo esté en la carpeta "assets"
 
         // Configuración de RecyclerViews
         RecyclerView recyclerViewDestacados = findViewById(R.id.recycler_view_destacados);
@@ -52,20 +47,35 @@ public class Products_destacados extends AppCompatActivity {
         recyclerViewPreventa.setLayoutManager(layoutManagerPreventa);
     }
 
-    // Métodos para obtener las listas de productos (debes implementar estos métodos)
-    private List<Product> getListaDestacados() {
-        // Retorna la lista de productos destacados
-        // Aquí debes cargar tus datos. Ejemplo:
-        // return Arrays.asList(new Product("Title1", "Desc1", "ImageUrl1", 4.5));
-        return null;
+    // Función para cargar el JSON desde la carpeta "assets"
+    private String loadJSONFromAsset(String fileName) {
+        String json = null;
+        try {
+            InputStream is = getAssets().open(fileName);
+            int size = is.available();
+            byte[] buffer = new byte[size];
+            is.read(buffer);
+            is.close();
+            json = new String(buffer, "UTF-8");
+        } catch (IOException ex) {
+            ex.printStackTrace();
+            return null;
+        }
+        return json;
     }
 
-    private List<Product> getListaPreventa() {
-        // Retorna la lista de productos en preventa
-        // Aquí debes cargar tus datos. Ejemplo:
-        // return Arrays.asList(new Product("Title2", "Desc2", "ImageUrl2", 4.7));
+    // Función para convertir el JSON a una lista de productos
+    private List<Product> getListaFromJson(String fileName) {
+        String jsonString = loadJSONFromAsset(fileName);
+        if (jsonString != null) {
+            Gson gson = new Gson();
+            Type productListType = new TypeToken<List<Product>>() {}.getType();
+            return gson.fromJson(jsonString, productListType);
+        }
         return null;
     }
 }
+
+
 
 

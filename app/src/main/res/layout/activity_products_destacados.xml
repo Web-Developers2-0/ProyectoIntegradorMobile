@@ -30,12 +30,12 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
                 android:fontFamily="@font/bangersregular"
                 android:text="Destacados"
                 android:textColor="@color/white"
                 android:textSize="24sp"
-                android:textStyle="bold"
-                android:layout_marginBottom="8dp" />
+                android:textStyle="bold" />
 
             <!-- Carrusel de tarjetas (Destacados) -->
             <androidx.recyclerview.widget.RecyclerView

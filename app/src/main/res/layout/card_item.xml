@@ -17,38 +17,40 @@
 
         <!-- Etiqueta (puede variar entre "Destacados" y "Pre-Venta") -->
         <TextView
+            android:id="@+id/card_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="start"
-            android:background="@drawable/product_category_green"
+            android:background="@color/grey"
             android:padding="4dp"
-            android:textColor="#FFFFFF"
+            android:textColor="@color/white"
             android:textSize="12sp" />
 
         <!-- Imagen del producto -->
         <ImageView
+            android:id="@+id/card_image"
             android:layout_width="match_parent"
             android:layout_height="150dp"
             android:layout_marginTop="8dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/product_image" />
+            android:src="@drawable/placeholder" /> <!-- Cambia esto si tienes una imagen por defecto -->
 
         <!-- Título del producto -->
         <TextView
+            android:id="@+id/card_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="Título del Producto"
             android:textColor="@color/white"
             android:textSize="16sp"
             android:textStyle="bold" />
 
         <!-- Descripción del producto -->
         <TextView
+            android:id="@+id/card_description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
-            android:text="Descripción corta"
             android:textColor="@color/white"
             android:textSize="14sp" />
 
@@ -58,39 +60,36 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:background="@color/black"
-            android:backgroundTint="@color/black"
             android:gravity="center_vertical"
             android:orientation="horizontal">
 
             <!-- Icono del carrito -->
             <ImageView
+                android:id="@+id/card_cart_icon"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:layout_gravity="start"
-                android:background="@color/colorAccent"
                 android:src="@drawable/product_vector_carrito" />
 
             <!-- Espacio -->
             <View
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                android:layout_weight="1"
-                android:background="@color/black" />
+                android:layout_weight="1" />
 
             <!-- Rating y estrella -->
             <TextView
+                android:id="@+id/card_rating"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="4dp"
-                android:background="@color/grey"
-                android:text="4.9"
-                android:textColor="@color/black" />
+                android:textColor="@color/white" />
 
             <ImageView
+                android:id="@+id/card_star_icon"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:layout_gravity="end"
-                android:background="@color/grey"
                 android:src="@drawable/product_star" />
         </LinearLayout>
     </LinearLayout>
