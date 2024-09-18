@@ -70,6 +70,7 @@
     app:layout_constraintTop_toBottomOf="@id/textViewTitulo"
         />
 
+
     <!-- Campo de Contraseña -->
     <EditText
         android:textColor="@android:color/black"
