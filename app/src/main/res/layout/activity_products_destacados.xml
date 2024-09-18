@@ -73,7 +73,7 @@
 
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Preparate para la crisis final"
+                    android:text="La crisis final"
                     android:textColor="@color/white"
                     android:textSize="14sp" />
 
@@ -222,14 +222,14 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Amazing Spiderman"
+                    android:text="Spiderman"
                     android:textColor="@color/white"
                     android:textSize="16sp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="El increible hombre araña"
+                    android:text="El increible hombre "
                     android:textColor="@color/white"
                     android:textSize="14sp" />
 
