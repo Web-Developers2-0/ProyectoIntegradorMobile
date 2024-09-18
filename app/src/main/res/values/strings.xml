@@ -1,5 +1,13 @@
 <resources>
     <string name="app_name">Planet Superheroes</string>
+    <string name="ingresa_tus_datos">INGRESA TUS DATOS</string>
+    <string name="mail">Mail</string>
+    <string name="clave">Clave</string>
+    <string name="olvide_contrasena">Olvidé mi contraseña</string>
+    <string name="iniciar_sesion">INICIAR SESIÓN</string>
+    <string name="registrate">¿No tenés cuenta? <b>Regístrate</b></string>
+    <string name="desc_google">Botón para iniciar sesión con Google</string>
+    <string name="desc_facebook">Botón para iniciar sesión con Facebook</string>
 
 
 </resources>
