@@ -12,5 +12,6 @@
     <color name="text_color_secondary">#757575</color>
     <color name="button_register">#FF7043</color>
     <color name="button_login">#FFA726</color>
+    <color name="colorPrimary2">#F7C272</color> <!-- Naranja -->
 </resources>
 
