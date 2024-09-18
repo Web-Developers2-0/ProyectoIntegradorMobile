@@ -52,7 +52,7 @@
 
     <!-- Botón Registrarme -->
     <Button
-        android:id="@+id/btnRegister"
+        android:id="@+id/btnOpenRegister"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="REGISTRARME"

@@ -12,5 +12,7 @@
     <color name="text_color_secondary">#757575</color>
     <color name="button_register">#FF7043</color>
     <color name="button_login">#FFA726</color>
+    <color name="colorBackgroundbutton">#CD4747</color>
+    <color name="colorHint">#535353</color>
 </resources>
 
