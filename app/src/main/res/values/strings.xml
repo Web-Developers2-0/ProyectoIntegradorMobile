@@ -10,4 +10,7 @@
     <string name="desc_facebook">Botón para iniciar sesión con Facebook</string>
 
 
+    <string name="product_image_desc">Product Image</string>
+    <string name="marvel_category">Marvel Category</string>
+    <string name="dc_category">DC Category</string>
 </resources>

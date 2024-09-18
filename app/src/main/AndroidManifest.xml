@@ -12,7 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PlanetSuperheroes"
         tools:targetApi="31">
-
+                <activity
+            android:name=".ProductActivity"
+            android:exported="false" />
+        <activity
+            android:name=".HomeActivity"
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -24,8 +29,7 @@
         </activity>
         <activity
             android:name=".LoginActivity"
-            android:exported="false">
-        </activity>
+            android:exported="false" />
     </application>
 
 </manifest>
