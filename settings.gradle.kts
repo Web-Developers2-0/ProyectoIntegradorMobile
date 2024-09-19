@@ -21,4 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "Planet Superheroes"
 include(":app")
- 
+
