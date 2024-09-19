@@ -87,6 +87,13 @@
     <string name="back_button_content_description">Volver</string>
     <string name="settings_button_content_description">Ajustes</string>
 
+
+    <string name="destacados">Destacados</string>
+    <string name="pre_venta">Pre-Venta</string>
+    <string name="_4_9">4.9</string>
+    <string name="nombre">Nombre</string>
+    <string name="todo">TODO</string>
+
     <!--Strings para Settings-->
     <string name="back">back</string>
     <string name="settings">Settings</string>
