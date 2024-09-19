@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="#262626"
     android:padding="8dp">
 
     <ImageView
@@ -26,6 +27,8 @@
         app:layout_constraintBottom_toTopOf="@+id/productDescription"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/productImage"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -36,6 +39,8 @@
         app:layout_constraintBottom_toTopOf="@+id/productPrice"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.403"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
         app:layout_constraintStart_toEndOf="@+id/productImage"
         app:layout_constraintTop_toBottomOf="@+id/productName" />
 
@@ -45,6 +50,8 @@
         android:layout_height="wrap_content"
         android:textAppearance="?attr/textAppearanceListItem"
         app:layout_constraintEnd_toEndOf="parent"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
         app:layout_constraintStart_toEndOf="@+id/productImage"
         app:layout_constraintTop_toBottomOf="@+id/productDescription"
         app:layout_constraintBottom_toBottomOf="parent"/>
