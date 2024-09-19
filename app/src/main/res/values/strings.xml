@@ -54,4 +54,28 @@
     <string name="register_button">REGISTRARME</string>
     <string name="login_button">INICIAR SESIÓN</string>
 
+    <string name="app_name">Notificaciones</string>
+    <!-- Títulos -->
+    <string name="notifications_title">NOTIFICACIONES</string>
+
+    <!-- Notificación 1 -->
+    <string name="notification_1_title">¡Tu paquete llegó a destino!</string>
+    <string name="notification_1_subtitle">¡Gracias por habernos elegido! ¡Disfruta tu Compra!</string>
+
+    <!-- Notificación 2 -->
+    <string name="notification_2_title">15% OFF - Descuento Primavera</string>
+    <string name="notification_2_subtitle">Aprovecha el mes de la primavera y obtén un descuento del 15% por tu compra</string>
+
+    <!-- Notificación 3 -->
+    <string name="notification_3_title">¡Compra Rechazada!</string>
+    <string name="notification_3_subtitle">No se pudo completar la compra</string>
+
+    <!-- Notificación 4 -->
+    <string name="notification_4_title">¡Tu paquete está en camino!</string>
+    <string name="notification_4_subtitle">La compra #138439 tardará entre 5 a 7 días hábiles</string>
+
+    <!-- Botón de atrás y ajustes -->
+    <string name="back_button_content_description">Volver</string>
+    <string name="settings_button_content_description">Ajustes</string>
+
 </resources>
