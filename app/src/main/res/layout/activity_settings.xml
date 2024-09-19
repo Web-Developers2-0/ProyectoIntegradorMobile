@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/Settings"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#262626"
+    tools:context=".Settings">
+
+
+    <!-- Botón para volver atrás -->
+
+    <!-- Sección de Cuenta -->
+
+    <!-- Opción de Información Personal -->
+
+
+    <!-- Sección de Privacidad y Seguridad -->
+
+    <!-- Opción de Cambiar Contraseña -->
+
+    <ImageButton
+        android:id="@+id/backButton"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_margin="48dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="36dp"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@string/back"
+        android:src="@drawable/botonatras1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ExtraText" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="106dp"
+        android:layout_height="33dp"
+        android:text="@string/settings"
+        android:textColor="#FFFCFB"
+        android:textColorLink="#FFFCFB"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="333dp"
+        android:layout_height="126dp"
+        app:layout_constraintDimensionRatio="h,1:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="117dp">
+
+        <TextView
+            android:id="@+id/userName"
+            android:layout_width="145dp"
+            android:layout_height="21dp"
+            android:layout_marginStart="35dp"
+            android:text="@string/emilce_robles"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="#FFFCFB"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/profileImage"
+            tools:layout_editor_absoluteY="27dp" />
+
+        <TextView
+            android:id="@+id/userEmail"
+            android:layout_width="119dp"
+            android:layout_height="22dp"
+            android:layout_marginStart="12dp"
+            android:text="@string/emi12_gmail_com"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="#FFFCFB"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/profileImage"
+            tools:layout_editor_absoluteY="53dp" />
+
+        <ImageView
+            android:id="@+id/profileImage"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:contentDescription="@string/imagen_perfil"
+            android:src="@drawable/avatar"
+            tools:layout_editor_absoluteX="32dp"
+            tools:layout_editor_absoluteY="16dp" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/cuentaSeccion"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:padding="8dp"
+        android:text="@string/cuenta"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="#FFFCFB"
+        android:textSize="22sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="243dp" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView2"
+        android:layout_width="372dp"
+        android:layout_height="158dp"
+        app:cardBackgroundColor="#454545"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="18dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="290dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="374dp"
+            android:layout_height="154dp">
+
+            <LinearLayout
+                android:id="@+id/linearDarkLightMode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:focusable="true"
+                android:orientation="horizontal"
+                android:padding="16dp"
+                tools:layout_editor_absoluteX="0dp"
+                tools:layout_editor_absoluteY="82dp">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:contentDescription="@string/dark_light"
+                    android:src="@drawable/diaynoche2" />
+
+                <TextView
+                    android:layout_width="220dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:text="@string/light_dark_mode"
+                    android:textColor="#FFFCFB"
+                    android:textSize="18sp" />
+
+                <Switch
+                    android:id="@+id/lightDarkModeSwitch"
+                    android:layout_width="87dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="end"
+                    tools:ignore="UseSwitchCompatOrMaterialXml" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearPersonalInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:focusable="true"
+                android:orientation="horizontal"
+                android:padding="16dp"
+                tools:layout_editor_absoluteX="0dp"
+                tools:layout_editor_absoluteY="5dp">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:background="#00FFFFFF"
+                    android:contentDescription=""
+                    app:srcCompat="@drawable/usericon" />
+
+                <TextView
+                    android:layout_width="278dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:text="@string/info_personal"
+                    android:textColor="#FFFCFB"
+                    android:textSize="18sp" />
+
+                <ImageButton
+                    android:id="@+id/imageButton"
+                    android:layout_width="0dp"
+                    android:layout_height="28dp"
+                    android:layout_weight="1"
+                    android:adjustViewBounds="false"
+                    android:backgroundTint="#00FFFFFF"
+                    android:contentDescription="@string/flechainfopersonal"
+                    app:srcCompat="@drawable/flecha" />
+
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/PrivacitySection"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="@string/privacidad_y_seguridad"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="#FFFCFB"
+        android:textSize="22sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="463dp" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="376dp"
+        android:layout_height="153dp"
+        app:cardBackgroundColor="#454545"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="18dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="512dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="374dp"
+            android:layout_height="154dp">
+
+            <LinearLayout
+                android:id="@+id/darkModeButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:focusable="true"
+                android:orientation="horizontal"
+                android:padding="16dp"
+                tools:layout_editor_absoluteX="0dp"
+                tools:layout_editor_absoluteY="82dp">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:contentDescription="@string/campanaicono"
+                    android:src="@drawable/campana" />
+
+                <TextView
+                    android:layout_width="219dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:text="@string/notificaciones"
+                    android:textColor="#FFFCFB"
+                    android:textSize="18sp" />
+
+                <Switch
+                    android:id="@+id/darkModeSwitch"
+                    android:layout_width="87dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="end"
+                    tools:ignore="UseSwitchCompatOrMaterialXml" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/personalInfoButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:focusable="true"
+                android:orientation="horizontal"
+                android:padding="16dp"
+                tools:layout_editor_absoluteX="0dp"
+                tools:layout_editor_absoluteY="5dp">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:contentDescription="@string/iconocontrasena"
+                    android:src="@drawable/contrasena" />
+
+                <TextView
+                    android:layout_width="282dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:text="@string/contrasena"
+                    android:textColor="#FFFCFB"
+                    android:textSize="18sp" />
+
+                <ImageButton
+                    android:id="@+id/flechaBotonContrasena"
+                    android:layout_width="0dp"
+                    android:layout_height="28dp"
+                    android:layout_weight="1"
+                    android:adjustViewBounds="false"
+                    android:backgroundTint="#00FFFFFF"
+                    android:contentDescription="@string/flechabotoncontrasena"
+                    app:srcCompat="@drawable/flecha" />
+
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- Opción de Notificaciones -->
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
