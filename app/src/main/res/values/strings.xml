@@ -84,6 +84,27 @@
     <string name="nombre">Nombre</string>
     <string name="todo">TODO</string>
 
+    <!--Strings para Settings-->
+    <string name="back">back</string>
+    <string name="settings">Settings</string>
+    <string name="emilce_robles">Emilce Robles</string>
+    <string name="emi12_gmail_com">emi12@gmail.com</string>
+    <string name="cuenta">Cuenta</string>
+    <string name="light_dark_mode">Light / Dark Mode</string>
+    <string name="info_personal">Info Personal</string>
+    <string name="imagen_perfil">Imagen Perfil</string>
+    <string name="dark_light">DARK/LIGHT</string>
+    <string name="iconousuario">IconoUsuario</string>
+    <string name="privacidad_y_seguridad">Privacidad y Seguridad</string>
+    <string name="notificaciones">Notificaciones</string>
+    <string name="contrasena">Contraseña</string>
+    <string name="flechainfopersonal">flechaInfoPersonal</string>
+    <string name="campanaicono">CampanaIcono</string>
+    <string name="iconocontrasena">iconoContrasena</string>
+    <string name="flechabotoncontrasena">flechaBotonContrasena</string>
+    <string name="contrasenia">contraseña</string>
+    <string name="contrasena2">contraseña</string>
+
     <!-- Strings para la Actividad Home -->
     <string name="user_hello">Hi User!</string>
     <string name="home_title">Elige una categoria</string>
