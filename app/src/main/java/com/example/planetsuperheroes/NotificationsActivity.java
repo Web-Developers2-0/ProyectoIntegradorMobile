@@ -1,4 +1,4 @@
-package com.example.notificaciones;
+package com.example.planetsuperheroes;
 
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
