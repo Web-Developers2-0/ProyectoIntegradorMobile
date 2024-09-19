@@ -53,6 +53,16 @@
     <string name="description_text">Sumérgete en el universo de tus héroes y villanos favoritos. Aquí encontrarás las últimas novedades y clásicos de Marvel y DC, listos para llevarte a aventuras épicas.\n\n¡Explora, descubre y disfruta de los mejores cómics en un solo lugar!</string>
     <string name="register_button">REGISTRARME</string>
     <string name="login_button">INICIAR SESIÓN</string>
+    <string name="volverAlInicio">Volver al Inicio</string>
+    <string name="product_image_description" />
+    <string name="star_icon_description" />
+    <string name="go_to_second_activity">Destacados</string>
+    <string name="destacados">Destacados</string>
+    <string name="pre_venta">Pre-Venta</string>
+    <string name="_4_9">4.9</string>
+    <string name="nombre">Nombre</string>
+    <string name="todo">TODO</string>
+
 
     <!-- Títulos -->
     <string name="notifications_title">NOTIFICACIONES</string>
