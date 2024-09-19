@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PlanetSuperheroes"
         tools:targetApi="31">
+        <activity
+            android:name=".NotificationsActivity"
+            android:exported="false" />
 
         <activity
             android:name=".RegistroActivity"
@@ -40,6 +43,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
     </application>
 
 </manifest>
