@@ -1,3 +1,6 @@
+package com.example.planetsuperheroes;
+
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.widget.ExpandableListView;
 
@@ -14,6 +17,7 @@ public class FaqActivity extends AppCompatActivity {
     List<String> listQuestions;
     HashMap<String, List<String>> listAnswers;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
