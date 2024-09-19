@@ -12,7 +12,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PlanetSuperheroes"
         tools:targetApi="31">
-                <activity
+        <activity
+            android:name=".ProductDetailsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".NotificationsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".RegistroActivity"
+            android:exported="false" />
+        <activity
             android:name=".ProductActivity"
             android:exported="false" />
         <activity
@@ -20,10 +29,24 @@
             android:exported="false" />
         <activity
             android:name=".infoPersonal"
-            android:exported="false"/>
-
+            android:exported="false" />
         <activity
             android:name=".LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Products_destacados"
+            android:exported="false" />
+        <activity
+            android:name=".ContactActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ConstrasenaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Settings"
+            android:exported="false" />
+        <activity
+            android:name=".FaqActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
@@ -34,7 +57,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
     </application>
 
 </manifest>
