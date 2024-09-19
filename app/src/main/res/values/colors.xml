@@ -7,6 +7,7 @@
     <color name="colorBackground">#1E1E1E</color>
     <color name="colorText">#FDD6A7</color>
     <color name="colorHighlight">#FFFCFB</color>
+    <color name="grey">#E6E6E6</color>
     <color name="background_color_claro">#FBE9E7</color>
     <color name="text_color">#000000</color>
     <color name="text_color_secondary">#757575</color>
