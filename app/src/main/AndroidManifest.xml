@@ -27,9 +27,12 @@
             android:exported="false" />
         <activity
             android:name=".infoPersonal"
-            android:exported="false" />
+            android:exported="false"/>
         <activity
             android:name=".LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Products_destacados"
             android:exported="false" />
         <activity
             android:name=".ContactActivity"
