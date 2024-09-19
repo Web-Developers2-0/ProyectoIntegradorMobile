@@ -109,4 +109,6 @@
     <string name="user_hello">Hi User!</string>
     <string name="home_title">Elige una categoria</string>
     <string name="btn_seemore">Ver productos destacados</string>
+    <string name="faq_nav">Preguntas Frecuentes</string>
+    <string name="contact_nav">Contactanos</string>
 </resources>

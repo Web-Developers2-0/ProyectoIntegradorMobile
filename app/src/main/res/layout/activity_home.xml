@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="8dp"
+    android:background="#262626"
     tools:context=".HomeActivity">
 
     <TextView
@@ -83,6 +84,30 @@
         android:fontFamily="@font/bangersregular"
         android:text="@string/btn_seemore"
         android:textColor="@color/black"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/contactText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="630dp"
+        android:fontFamily="@font/intervariablefontopszwght"
+        android:hint="@string/contact_nav"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/faqText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="220dp"
+        android:layout_marginTop="630dp"
+        android:fontFamily="@font/intervariablefontopszwght"
+        android:hint="@string/faq_nav"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
         android:textSize="15sp" />
 
 </RelativeLayout>
