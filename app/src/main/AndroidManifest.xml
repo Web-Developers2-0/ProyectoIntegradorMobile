@@ -25,7 +25,6 @@
         <activity
             android:name=".infoPersonal"
             android:exported="false"/>
-
         <activity
             android:name=".LoginActivity"
             android:exported="false" />
@@ -33,13 +32,7 @@
             android:name=".Products_destacados"
             android:exported="false" />
         <activity
-            android:name=".Products_Marvel"
-            android:exported="false" />
-        <activity
-            android:name=".Products_Dc"
-            android:exported="false" />
-        <activity
-            android:name=".ProductsList"
+            android:name=".ContactActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
