@@ -161,17 +161,17 @@ Prototipo en Figma: https://www.figma.com/proto/hqPUf4Nwd2JQWRW7fNFqpy/Prototipo
       </td>
       <td style="width: 25%; padding: 10px;">
         <div align="center">
-          <a href="https://www.linkedin.com/in/marcelo-gutierrez-20b99220b/" target="_blank" rel="author">
+          <a href=https://www.linkedin.com/in/noah-a-cassutti-99160b1b5/" target="_blank" rel="author">
             <img width="110" src="https://media.licdn.com/dms/image/D4D03AQFrxX1FqWxQyA/profile-displayphoto-shrink_200_200/0/1677907874391?e=2147483647&v=beta&t=wRmE-nlxnkwZYjD2ABgQzeCtdw3cQF_Ek6fLsfDOt8o"/>
           </a>
           <a href="https://www.linkedin.com/in/marcelo-gutierrez-20b99220b/" target="_blank" rel="author">
-            <h4 style="margin-top: 1rem;">Gutierrez, Marcelo</h4>
+            <h4 style="margin-top: 1rem;"> Cassutti, Noah Nicanor</h4>
             <h4 style="margin-top: 1rem;">Fullstack Developer</h4>
           </a>
-          <a href="https://github.com/Marcelo-Gutierrez" target="_blank">
+          <a href="https://github.com/noahcassutti" target="_blank">
             <img src="https://img.shields.io/static/v1?style=for-the-badge&message=GitHub&color=172B4D&logo=GitHub&logoColor=FFFFFF&label="/>
           </a>
-          <a href="https://www.linkedin.com/in/marcelo-gutierrez-20b99220b/" target="_blank">
+          <a href="https://www.linkedin.com/in/noah-a-cassutti-99160b1b5/" target="_blank">
             <img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/>
           </a>
         </div>
