@@ -10,6 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
+import android.content.Intent;
 
 import java.util.List;
 
@@ -43,10 +44,21 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
                     .load(imageResource)
                     .into(holder.productImage);
         } else {
-            holder.productImage.setImageDrawable(null); // Imagen por defecto
+            holder.productImage.setImageDrawable(null);
             holder.productImage.setBackgroundColor(Color.WHITE);
         }
+
+        // Manejar el clic en la tarjeta del producto
+        holder.itemView.setOnClickListener(v -> {
+            Intent intent = new Intent(context, ProductDetailsActivity.class);
+            intent.putExtra("productName", product.getName());
+            intent.putExtra("productDescription", product.getDescription());
+            intent.putExtra("productPrice", product.getPrice());
+            intent.putExtra("productImage", product.getImage());
+            context.startActivity(intent);
+        });
     }
+
 
     @Override
     public int getItemCount() {
