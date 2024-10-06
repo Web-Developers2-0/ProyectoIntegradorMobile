@@ -29,7 +29,7 @@
 
         <!-- Título de Configuración -->
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/textViewSettings"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/settings"
@@ -43,13 +43,13 @@
         <!-- Sección de Perfil -->
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/profileSection"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/textView"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="24dp"
-            android:padding="16dp"><!-- Opcional: agregar fondo para distinguir -->
+            android:padding="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textViewSettings"><!-- Opcional: agregar fondo para distinguir -->
 
             <ImageView
                 android:id="@+id/profileImage"
@@ -57,34 +57,34 @@
                 android:layout_height="80dp"
                 android:contentDescription="@string/imagen_perfil"
                 android:src="@drawable/avatar"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/userName"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
                 android:text="@string/emilce_robles"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textColor="#FFFCFB"
-                app:layout_constraintStart_toEndOf="@id/profileImage"
-                app:layout_constraintTop_toTopOf="@id/profileImage"
                 app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginStart="16dp" />
+                app:layout_constraintStart_toEndOf="@id/profileImage"
+                app:layout_constraintTop_toTopOf="@id/profileImage" />
 
             <TextView
                 android:id="@+id/userEmail"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="4dp"
                 android:text="@string/emi12_gmail_com"
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
                 android:textColor="#FFFCFB"
-                app:layout_constraintStart_toEndOf="@id/profileImage"
-                app:layout_constraintTop_toBottomOf="@id/userName"
                 app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="4dp" />
+                app:layout_constraintStart_toEndOf="@id/profileImage"
+                app:layout_constraintTop_toBottomOf="@id/userName" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <!-- Título de la Sección Cuenta -->
@@ -262,7 +262,7 @@
 
                 <!-- Opción de Cambiar Contraseña -->
                 <LinearLayout
-                    android:id="@+id/personalInfoButton"
+                    android:id="@+id/linearContrasena"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:clickable="true"
@@ -296,11 +296,155 @@
                         android:contentDescription="@string/flechabotoncontrasena"
                         app:srcCompat="@drawable/flecha" />
                 </LinearLayout>
+                <!-- Opción de términos y condiciones -->
+                <LinearLayout
+                    android:id="@+id/linearTerminos"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:orientation="horizontal"
+                    android:padding="16dp"
+                    app:layout_constraintTop_toBottomOf="@id/linearContrasena"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:contentDescription="@string/iconocontrasena"
+                        android:src="@drawable/contrasena" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="16dp"
+                        android:text="@string/terminos_condiciones"
+                        android:textColor="#FFFCFB"
+                        android:textSize="18sp" />
+
+                    <ImageButton
+                        android:id="@+id/flechaBotonTerminos"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="?android:attr/selectableItemBackgroundBorderless"
+                        android:contentDescription="@string/flechabotonterminos"
+                        app:srcCompat="@drawable/flecha" />
+                </LinearLayout>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
 
         <!-- Puedes continuar añadiendo más secciones de manera similar -->
+        <!-- Título de la Sección Soporte -->
+        <TextView
+            android:id="@+id/SoporteSection"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Soporte"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="#FFFCFB"
+            android:textSize="22sp"
+            app:layout_constraintTop_toBottomOf="@id/cardViewPrivacy"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="24dp" />
 
+        <!-- CardView de la Sección soporte -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardViewSoporte"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="#454545"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="8dp"
+            app:layout_constraintTop_toBottomOf="@id/SoporteSection"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp">
+
+                <!-- Opción de Preguntas frecuentes -->
+                <LinearLayout
+                    android:id="@+id/linearpreguntasfrecuentes"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:orientation="horizontal"
+                    android:padding="16dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:contentDescription="@string/campanaicono"
+                        android:src="@drawable/campana" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="16dp"
+                        android:text="@string/preguntas_frecuentes"
+                        android:textColor="#FFFCFB"
+                        android:textSize="18sp" />
+
+                    <ImageButton
+                        android:id="@+id/flechaBotonPreguntas"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="?android:attr/selectableItemBackgroundBorderless"
+                        android:contentDescription="@string/flechabotonpreguntas"
+                        app:srcCompat="@drawable/flecha" />
+                </LinearLayout>
+
+                <!-- Opción de contactanos -->
+                <LinearLayout
+                    android:id="@+id/contactanos"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:orientation="horizontal"
+                    android:padding="16dp"
+                    app:layout_constraintTop_toBottomOf="@id/linearpreguntasfrecuentes"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:contentDescription="@string/iconocontrasena"
+                        android:src="@drawable/contrasena" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="16dp"
+                        android:text="@string/contactanos"
+                        android:textColor="#FFFCFB"
+                        android:textSize="18sp" />
+
+                    <ImageButton
+                        android:id="@+id/flechaBotonContactanos"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="?android:attr/selectableItemBackgroundBorderless"
+                        android:contentDescription="@string/flechabotoncontactanos"
+                        app:srcCompat="@drawable/flecha" />
+                </LinearLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
