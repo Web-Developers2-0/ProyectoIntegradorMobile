@@ -6,14 +6,16 @@
     android:id="@+id/SettingsScrollView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#262626"
+    android:background="@color/background_dark"
     tools:context=".Settings">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/Settings"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="16dp">
+        android:padding="16dp"
+        android:textColor="@color/on_primary_dark">
+
 
         <!-- Botón para volver atrás -->
         <ImageButton
@@ -33,7 +35,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/settings"
-            android:textColor="#FFFCFB"
+            android:textColor="@color/on_primary_dark"
             android:textSize="24sp"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -66,9 +68,10 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
+                android:textColor="@color/on_primary_dark"
                 android:text="@string/emilce_robles"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                android:textColor="#FFFCFB"
+
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/profileImage"
                 app:layout_constraintTop_toTopOf="@id/profileImage" />
@@ -81,7 +84,7 @@
                 android:layout_marginTop="4dp"
                 android:text="@string/emi12_gmail_com"
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                android:textColor="#FFFCFB"
+                android:textColor="@color/on_primary_dark"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/profileImage"
                 app:layout_constraintTop_toBottomOf="@id/userName" />
@@ -94,7 +97,7 @@
             android:layout_height="wrap_content"
             android:text="@string/cuenta"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="#FFFCFB"
+            android:textColor="@color/on_primary_dark"
             android:textSize="22sp"
             app:layout_constraintTop_toBottomOf="@id/profileSection"
             app:layout_constraintStart_toStartOf="parent"
@@ -106,7 +109,7 @@
             android:id="@+id/cardView2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:cardBackgroundColor="#454545"
+            app:cardBackgroundColor="@color/text_alternative_dark"
             app:cardCornerRadius="16dp"
             app:cardElevation="8dp"
             app:layout_constraintTop_toBottomOf="@id/cuentaSeccion"
@@ -118,7 +121,7 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="16dp">
+                android:padding="3dp">
 
                 <!-- Opción de Información Personal -->
                 <LinearLayout
@@ -136,6 +139,8 @@
                     <ImageView
                         android:layout_width="24dp"
                         android:layout_height="24dp"
+                        android:layout_marginTop="12dp"
+                        android:contentDescription="@string/icono_chico_user"
                         android:src="@drawable/usericon" />
 
                     <TextView
@@ -143,6 +148,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:layout_marginStart="16dp"
+                        android:padding="12dp"
                         android:text="@string/info_personal"
                         android:textColor="#FFFCFB"
                         android:textSize="18sp" />
@@ -152,6 +158,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="?android:attr/selectableItemBackgroundBorderless"
+                        android:padding="12dp"
                         android:contentDescription="@string/flechainfopersonal"
                         app:srcCompat="@drawable/flecha" />
                 </LinearLayout>
@@ -172,6 +179,7 @@
                     <ImageView
                         android:layout_width="24dp"
                         android:layout_height="24dp"
+                        android:layout_marginTop="12dp"
                         android:contentDescription="@string/dark_light"
                         android:src="@drawable/diaynoche2" />
 
@@ -180,14 +188,16 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:layout_marginStart="16dp"
+                        android:padding="16dp"
                         android:text="@string/light_dark_mode"
-                        android:textColor="#FFFCFB"
+                        android:textColor="@color/on_primary_dark"
                         android:textSize="18sp" />
 
                     <com.google.android.material.switchmaterial.SwitchMaterial
                         android:id="@+id/lightDarkModeSwitch"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"/>
                 </LinearLayout>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -200,7 +210,7 @@
             android:layout_height="wrap_content"
             android:text="@string/privacidad_y_seguridad"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="#FFFCFB"
+            android:textColor="@color/on_primary_dark"
             android:textSize="22sp"
             app:layout_constraintTop_toBottomOf="@id/cardView2"
             app:layout_constraintStart_toStartOf="parent"
@@ -212,7 +222,7 @@
             android:id="@+id/cardViewPrivacy"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:cardBackgroundColor="#454545"
+            app:cardBackgroundColor="@color/text_alternative_dark"
             app:cardCornerRadius="16dp"
             app:cardElevation="8dp"
             app:layout_constraintTop_toBottomOf="@id/PrivacitySection"
@@ -224,7 +234,7 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="16dp">
+                android:padding="3dp">
 
                 <!-- Opción de Notificaciones -->
                 <LinearLayout
@@ -242,6 +252,7 @@
                     <ImageView
                         android:layout_width="24dp"
                         android:layout_height="24dp"
+                        android:layout_marginTop="14dp"
                         android:contentDescription="@string/campanaicono"
                         android:src="@drawable/campana" />
 
@@ -250,14 +261,16 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:layout_marginStart="16dp"
+                        android:padding="16dp"
                         android:text="@string/notificaciones"
-                        android:textColor="#FFFCFB"
+                        android:textColor="@color/on_primary_dark"
                         android:textSize="18sp" />
 
                     <com.google.android.material.switchmaterial.SwitchMaterial
                         android:id="@+id/darkModeSwitch"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"/>
                 </LinearLayout>
 
                 <!-- Opción de Cambiar Contraseña -->
@@ -276,6 +289,7 @@
                     <ImageView
                         android:layout_width="24dp"
                         android:layout_height="24dp"
+                        android:layout_marginTop="14dp"
                         android:contentDescription="@string/iconocontrasena"
                         android:src="@drawable/contrasena" />
 
@@ -284,14 +298,16 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:layout_marginStart="16dp"
+                        android:padding="16dp"
                         android:text="@string/contrasena"
-                        android:textColor="#FFFCFB"
+                        android:textColor="@color/on_primary_dark"
                         android:textSize="18sp" />
 
                     <ImageButton
                         android:id="@+id/flechaBotonContrasena"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:padding="16dp"
                         android:background="?android:attr/selectableItemBackgroundBorderless"
                         android:contentDescription="@string/flechabotoncontrasena"
                         app:srcCompat="@drawable/flecha" />
@@ -312,22 +328,25 @@
                     <ImageView
                         android:layout_width="24dp"
                         android:layout_height="24dp"
-                        android:contentDescription="@string/iconocontrasena"
-                        android:src="@drawable/contrasena" />
+                        android:layout_marginTop="14dp"
+                        android:contentDescription="@string/icono_terminos"
+                        android:src="@drawable/icterminos_condiciones" />
 
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:layout_marginStart="16dp"
+                        android:padding="16dp"
                         android:text="@string/terminos_condiciones"
-                        android:textColor="#FFFCFB"
+                        android:textColor="@color/on_primary_dark"
                         android:textSize="18sp" />
 
                     <ImageButton
                         android:id="@+id/flechaBotonTerminos"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:padding="16dp"
                         android:background="?android:attr/selectableItemBackgroundBorderless"
                         android:contentDescription="@string/flechabotonterminos"
                         app:srcCompat="@drawable/flecha" />
@@ -344,7 +363,7 @@
             android:layout_height="wrap_content"
             android:text="@string/Soporte"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="#FFFCFB"
+            android:textColor="@color/on_primary_dark"
             android:textSize="22sp"
             app:layout_constraintTop_toBottomOf="@id/cardViewPrivacy"
             app:layout_constraintStart_toStartOf="parent"
@@ -356,7 +375,7 @@
             android:id="@+id/cardViewSoporte"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:cardBackgroundColor="#454545"
+            app:cardBackgroundColor="@color/text_alternative_dark"
             app:cardCornerRadius="16dp"
             app:cardElevation="8dp"
             app:layout_constraintTop_toBottomOf="@id/SoporteSection"
@@ -368,7 +387,7 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="16dp">
+                android:padding="3dp">
 
                 <!-- Opción de Preguntas frecuentes -->
                 <LinearLayout
@@ -386,22 +405,25 @@
                     <ImageView
                         android:layout_width="24dp"
                         android:layout_height="24dp"
-                        android:contentDescription="@string/campanaicono"
-                        android:src="@drawable/campana" />
+                        android:layout_marginTop="14dp"
+                        android:contentDescription="@string/icono_preguntas"
+                        android:src="@drawable/icpreguntas_frecuentes" />
 
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:layout_marginStart="16dp"
+                        android:padding="16dp"
                         android:text="@string/preguntas_frecuentes"
-                        android:textColor="#FFFCFB"
+                        android:textColor="@color/on_primary_dark"
                         android:textSize="18sp" />
 
                     <ImageButton
                         android:id="@+id/flechaBotonPreguntas"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:padding="16dp"
                         android:background="?android:attr/selectableItemBackgroundBorderless"
                         android:contentDescription="@string/flechabotonpreguntas"
                         app:srcCompat="@drawable/flecha" />
@@ -423,22 +445,25 @@
                     <ImageView
                         android:layout_width="24dp"
                         android:layout_height="24dp"
-                        android:contentDescription="@string/iconocontrasena"
-                        android:src="@drawable/contrasena" />
+                        android:layout_marginTop="14dp"
+                        android:contentDescription="@string/iconocontacto"
+                        android:src="@drawable/iccontacto" />
 
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:layout_marginStart="16dp"
+                        android:padding="16dp"
                         android:text="@string/contactanos"
-                        android:textColor="#FFFCFB"
+n                        android:textColor="@color/on_primary_dark"
                         android:textSize="18sp" />
 
                     <ImageButton
                         android:id="@+id/flechaBotonContactanos"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:padding="16dp"
                         android:background="?android:attr/selectableItemBackgroundBorderless"
                         android:contentDescription="@string/flechabotoncontactanos"
                         app:srcCompat="@drawable/flecha" />
