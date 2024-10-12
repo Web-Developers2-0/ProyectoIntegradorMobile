@@ -111,4 +111,15 @@
     <string name="btn_seemore">Ver productos destacados</string>
     <string name="faq_nav">Preguntas Frecuentes</string>
     <string name="contact_nav">Contactanos</string>
+    <string name="Soporte">Soporte</string>
+    <string name="preguntas_frecuentes">Preguntas frecuentes</string>
+    <string name="flechabotonpreguntas">flechabotonpreguntas</string>
+    <string name="contactanos">Contactanos</string>
+    <string name="flechabotoncontactanos">flechacontactanos</string>
+    <string name="terminos_condiciones">Términos y Concidiciones</string>
+    <string name="flechabotonterminos">botonterminos\n</string>
+    <string name="iconocontacto">icono contacto</string>
+    <string name="icono_preguntas">icono preguntas</string>
+    <string name="icono_terminos">icono terminos</string>
+    <string name="icono_chico_user">icono chico user</string>
 </resources>
