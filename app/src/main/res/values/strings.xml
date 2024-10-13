@@ -111,9 +111,18 @@
     <string name="btn_seemore">Ver más</string>
     <string name="faq_nav">Preguntas Frecuentes</string>
     <string name="contact_nav">Contactanos</string>
+    <string name="Soporte">Soporte</string>
+    <string name="preguntas_frecuentes">Preguntas frecuentes</string>
+    <string name="flechabotonpreguntas">flechabotonpreguntas</string>
+    <string name="contactanos">Contactanos</string>
+    <string name="flechabotoncontactanos">flechacontactanos</string>
+    <string name="terminos_condiciones">Términos y Concidiciones</string>
+    <string name="flechabotonterminos">botonterminos\n</string>
+    <string name="iconocontacto">icono contacto</string>
+    <string name="icono_preguntas">icono preguntas</string>
+    <string name="icono_terminos">icono terminos</string>
+    <string name="icono_chico_user">icono chico user</string>
     <string name="mas_populares">Más populares</string>
-    <string name="strikes_back">Strikes back</string>
-    <string name="gwenpool_title">Gwenpool</string>
     <string name="gwenpool_description">New comic</string>
 
     <!-- Descripciones para accesibilidad -->
@@ -123,11 +132,7 @@
     <string name="deadpool_image_desc">Imagen de Deadpool</string>
     <string name="gwenpool_image_desc">Imagen de Gwenpool</string>
 
-    <!-- Categorías -->
-    <string name="marvel_category">Categoría Marvel</string>
-    <string name="dc_category">Categoría DC</string>
-
-    <!-- Cómics -->
+   <!-- Cómics -->
     <string name="deadpool_title">Deadpool</string>
     <string name="gwenpool_title">Gwenpool</string>
     <string name="bow_to_king">Bow to the King</string>
