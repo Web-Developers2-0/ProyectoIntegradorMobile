@@ -8,12 +8,18 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import java.util.ArrayList;
+import java.util.List;
 
 public class HomeActivity extends AppCompatActivity {
+
     private ImageButton btnUser;
     private ImageButton btnNotification;
-    private TextView contactText;
-    private TextView faqText;
+    private RecyclerView recyclerViewComics;
+    private ComicAdapter comicAdapter;
+    private LinearLayoutManager layoutManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,11 +27,13 @@ public class HomeActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_home);
 
+        // Inicializar vistas
         btnUser = findViewById(R.id.btnUser);
         btnNotification = findViewById(R.id.btnNotification);
-        contactText = findViewById(R.id.contactText);
-        faqText = findViewById(R.id.faqText);
+        recyclerViewComics = findViewById(R.id.recyclerViewComics);
+        Button btnSeeMore = findViewById(R.id.btnSeeMore);
 
+        // Configuración de los botones de usuario y notificación
         btnUser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -38,22 +46,6 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(HomeActivity.this, NotificationsActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        contactText.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(HomeActivity.this, ContactActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        faqText.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(HomeActivity.this, FaqActivity.class);
                 startActivity(intent);
             }
         });
@@ -75,8 +67,29 @@ public class HomeActivity extends AppCompatActivity {
                 openProductActivity("DC");
             }
         });
+
+        // Configuración del RecyclerView para el carrusel de cómics
+        layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+        recyclerViewComics.setLayoutManager(layoutManager);
+
+        // Crear lista de cómics hardcodeados
+        List<Comic> comicList = new ArrayList<>();
+        comicList.add(new Comic("Batman y Robin", "Hunters or Hunted?", 4.9));
+        comicList.add(new Comic("Gwenpool", "Strikes Back!", 4.8));
+        comicList.add(new Comic("Deadpool", "Bow to the king", 4.9));
+
+        // Configurar el Adapter
+        comicAdapter = new ComicAdapter(this, comicList);
+        recyclerViewComics.setAdapter(comicAdapter);
+
+        // Configurar el botón "Ver más" para hacer scroll al siguiente cómic
+        btnSeeMore.setOnClickListener(v -> {
+            int firstVisibleItem = layoutManager.findFirstVisibleItemPosition();
+            recyclerViewComics.smoothScrollToPosition(firstVisibleItem + 1);
+        });
     }
 
+    // Método para abrir actividad de productos
     private void openProductActivity(String category) {
         Intent intent = new Intent(HomeActivity.this, ProductActivity.class);
         intent.putExtra("category", category);
