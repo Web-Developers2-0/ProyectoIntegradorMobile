@@ -21,5 +21,6 @@
     <color name="text_primary_dark">#E0E0E0</color>
     <color name="text_secondary_dark">#E4AC57</color>
     <color name="text_alternative_dark">#535353</color>
+    <color name="dark_red">#841212</color>
 
 </resources>
