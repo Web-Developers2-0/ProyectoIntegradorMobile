@@ -52,6 +52,7 @@
 
     <!-- Campos de Email -->
     <EditText
+        android:textColor="@android:color/black"
     android:id="@+id/editTextEmail"
     android:layout_width="0dp"
     android:layout_height="wrap_content"
@@ -66,11 +67,13 @@
     android:inputType="textEmailAddress"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@id/textViewTitulo" />
+    app:layout_constraintTop_toBottomOf="@id/textViewTitulo"
+        />
 
 
     <!-- Campo de Contraseña -->
     <EditText
+        android:textColor="@android:color/black"
     android:id="@+id/editTextPassword"
     android:layout_width="0dp"
     android:layout_height="wrap_content"
@@ -110,7 +113,7 @@
     android:layout_marginTop="24dp"
     android:layout_marginEnd="32dp"
     android:fontFamily="@font/bangersregular"
-    android:backgroundTint="@color/white"
+    android:backgroundTint="@color/primary_button"
     android:text="@string/iniciar_sesion"
     android:textColor="@android:color/black"
     app:layout_constraintEnd_toEndOf="parent"
@@ -124,7 +127,7 @@
     android:layout_height="wrap_content"
     android:layout_marginTop="16dp"
     android:text="@string/registrate"
-    android:textColor="@color/white"
+    android:textColor="@color/text_primary_dark"
     android:fontFamily="@font/interregular"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
