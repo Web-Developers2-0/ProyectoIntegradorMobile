@@ -18,8 +18,7 @@ public class AuthInterceptor implements Interceptor {
         Request request = chain.request();
 
         Request.Builder newRequest = request.newBuilder();
-
-        if (token != null) {
+        if (token != null && !token.isEmpty()) {
             newRequest.addHeader("Authorization", "Bearer " + token);
         }
 
