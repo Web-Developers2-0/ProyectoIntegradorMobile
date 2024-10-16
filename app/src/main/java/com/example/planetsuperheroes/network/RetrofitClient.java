@@ -7,10 +7,11 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitClient {
     private static Retrofit retrofit = null;
+    private static AuthInterceptor authInterceptor = new AuthInterceptor();
 
     public static Retrofit getClient(Context context) {
         OkHttpClient.Builder okHttpClientBuilder = new OkHttpClient.Builder();
-        okHttpClientBuilder.addInterceptor(new AuthInterceptor());
+        okHttpClientBuilder.addInterceptor(authInterceptor);
 
         OkHttpClient client = okHttpClientBuilder.build();
 
@@ -22,5 +23,8 @@ public class RetrofitClient {
                     .build();
         }
         return retrofit;
+    }
+    public static void setToken(String token) {
+        authInterceptor.setToken(token);
     }
 }
