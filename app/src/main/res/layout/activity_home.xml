@@ -1,0 +1,137 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="8dp"
+    android:background="#262626"
+    tools:context=".HomeActivity">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewComics"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_mas_populares"
+        android:layout_marginTop="10dp"
+        android:scrollbars="horizontal"/>
+
+    <!-- Saludo al usuario -->
+    <TextView
+        android:id="@+id/textViewTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="120dp"
+        android:layout_marginTop="70dp"
+        android:fontFamily="@font/interregular"
+        android:hint="@string/user_hello"
+        android:textColor="@android:color/white"
+        android:textColorHint="@android:color/white"
+        android:textSize="18sp" />
+
+    <!-- Botón de imagen de usuario -->
+    <ImageButton
+        android:id="@+id/btnUser"
+        android:layout_width="100dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="40dp"
+        android:background="#262626"
+        android:src="@drawable/gatitoinfo"
+        android:contentDescription="@string/user_image_desc"/>
+
+
+    <!-- Botón de notificaciones -->
+    <ImageButton
+        android:id="@+id/btnNotification"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="290dp"
+        android:layout_marginTop="40dp"
+        android:background="#262626"
+        android:src="@drawable/notification"
+        android:contentDescription="@string/notification_desc"/>
+
+
+    <!-- Botón de carrito de compras -->
+    <ImageButton
+        android:id="@+id/btnCart"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="80dp"
+        android:background="#262626"
+        android:src="@drawable/cart"
+        app:tint="@android:color/white"
+        android:contentDescription="@string/cart_desc"/>
+
+    <!-- Título principal -->
+    <TextView
+        android:id="@+id/mainViewTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="160dp"
+        android:fontFamily="@font/tekovariablefontwght"
+        android:hint="@string/home_title"
+        android:textColor="@android:color/white"
+        android:textColorHint="@android:color/white"
+        android:textSize="28sp" />
+
+    <!-- Botones de categoría -->
+    <ImageButton
+        android:id="@+id/btnMarvel"
+        android:layout_width="310dp"
+        android:layout_height="85dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="220dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/button_border"
+        android:contentDescription="@string/marvel_category"
+        android:scaleType="fitCenter"
+        android:src="@drawable/marvellogo"/>
+
+    <ImageButton
+        android:id="@+id/btnDC"
+        android:layout_width="310dp"
+        android:layout_height="85dp"
+        android:layout_below="@id/btnMarvel"
+        android:layout_marginBottom="16dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/button_border"
+        android:contentDescription="@string/dc_category"
+        android:scaleType="fitCenter"
+        android:src="@drawable/dclogo" />
+
+    <!-- Título "Más populares" -->
+    <TextView
+        android:id="@+id/tv_mas_populares"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@id/btnDC"
+        android:layout_marginTop="2dp"
+        android:layout_marginStart="40dp"
+        android:fontFamily="@font/bangersregular"
+        android:text="@string/mas_populares"
+        android:textColor="@android:color/white"
+        android:textSize="20sp" />
+
+    <!-- Botón "Ver más" -->
+    <Button
+        android:id="@+id/btnSeeMore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@id/btnDC"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="40dp"
+        android:backgroundTint="@color/primary_button"
+        android:fontFamily="@font/bangersregular"
+        android:text="@string/btn_seemore"
+        android:textColor="@color/black"
+        android:textSize="16sp" />
+
+
+
+</RelativeLayout>
