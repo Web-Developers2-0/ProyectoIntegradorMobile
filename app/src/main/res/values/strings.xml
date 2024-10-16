@@ -59,11 +59,12 @@
 
     <!-- Notificación 1 -->
     <string name="notification_1_title">¡Tu paquete llegó a destino!</string>
-    <string name="notification_1_subtitle">¡Gracias por habernos elegido! ¡Disfruta tu Compra!</string>
+    <string name="notification_1_subtitle">¡Gracias por habernos elegido!</string>
+    <string name="notification_1_subtitle2"> ¡Disfruta tu Compra!</string>
 
     <!-- Notificación 2 -->
-    <string name="notification_2_title">15% OFF - Descuento Primavera</string>
-    <string name="notification_2_subtitle">Aprovecha el mes de la primavera y obtén un descuento del 15% por tu compra</string>
+    <string name="notification_2_title">15% OFF - Descuento Friends</string>
+    <string name="notification_2_subtitle">Aprovecha la semana del amigo y obtené un descuento del 15% por tu compra</string>
 
     <!-- Notificación 3 -->
     <string name="notification_3_title">¡Compra Rechazada!</string>
