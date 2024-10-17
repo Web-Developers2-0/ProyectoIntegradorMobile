@@ -85,6 +85,7 @@
         android:layout_height="48dp"
         android:layout_marginTop="176dp"
         android:autofillHints="name"
+        app:cardCornerRadius="16dp"
         android:background="@color/on_primary_dark"
         android:text="@string/user_name"
         android:inputType="text"
