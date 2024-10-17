@@ -1,85 +1,117 @@
 package com.example.planetsuperheroes;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
+import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class ProductActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private ProductAdapter productAdapter;
+    private ProgressBar progressBar;
     private List<Product> productList = new ArrayList<>();
+    private ImageView bannerImage;  // Añadir ImageView para el banner
 
-    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product);
 
-        // Inicializamos el RecyclerView
+        // Inicializar las vistas
         recyclerView = findViewById(R.id.recyclerView);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        progressBar = findViewById(R.id.progressBar);
+        bannerImage = findViewById(R.id.imgCategoryBanner);  // Inicializa el banner aquí
 
-        // Obtenemos la categoría seleccionada
+        // Cambiar a GridLayoutManager con 2 columnas
+        recyclerView.setLayoutManager(new GridLayoutManager(this, 2)); // 2 es el número de columnas
+
+        RecyclerView recyclerView = findViewById(R.id.recyclerView);
+        int spaceInPixels = getResources().getDimensionPixelSize(R.dimen.space); // Define tu espacio en dimens.xml
+        recyclerView.addItemDecoration(new SpaceItemDecoration(spaceInPixels));
+
+        // Obtener la categoría seleccionada de la Intent
         String category = getIntent().getStringExtra("category");
 
-        // Cargamos los productos desde el archivo JSON
-        loadProductsFromJson(category);
+        // Cambiar el banner basado en la categoría seleccionada
+        updateBanner(category);
+
+        // Cargar los productos desde la API
+        loadProductsFromApi(category);
     }
 
-    private void loadProductsFromJson(String category) {
-        try {
-            // Abrimos el archivo products.json en assets
-            InputStream is = getAssets().open("products.json");
-            int size = is.available();
-            byte[] buffer = new byte[size];
-            is.read(buffer);
-            is.close();
+    private void loadProductsFromApi(String category) {
+        // Mostrar el ProgressBar mientras se cargan los datos
+        progressBar.setVisibility(View.VISIBLE);
 
-            // Convertimos el archivo en una cadena de texto
-            String json = new String(buffer, "UTF-8");
+        // Realizar la llamada a la API para obtener todos los productos
+        Call<List<Product>> call = RetrofitClient.getInstance().getApi().getProducts(null); // Enviar null si la API no requiere filtro en la llamada
+        call.enqueue(new Callback<List<Product>>() {
+            @Override
+            public void onResponse(Call<List<Product>> call, Response<List<Product>> response) {
+                progressBar.setVisibility(View.GONE);
 
-            // Convertimos la cadena en un objeto JSON
-            JSONObject jsonObject = new JSONObject(json);
-            JSONArray productsArray = jsonObject.getJSONArray("products");
+                if (!response.isSuccessful()) {
+                    Toast.makeText(ProductActivity.this, "Código de error: " + response.code(), Toast.LENGTH_SHORT).show();
+                    return;
+                }
 
-            // Iteramos sobre el array de productos
-            for (int i = 0; i < productsArray.length(); i++) {
-                JSONObject productObject = productsArray.getJSONObject(i);
-
-                // Obtenemos el ID de la categoría y lo comparamos con la seleccionada
-                int categoryId = productObject.getInt("category_id");
-                String categoryName = (categoryId == 1) ? "Marvel" : "DC";
-
-                // Si coincide con la categoría seleccionada, añadimos el producto a la lista
-                if (categoryName.equals(category)) {
-                    Product product = new Product(
-                            productObject.getString("name"),
-                            productObject.getString("description"),
-                            productObject.getDouble("price"),
-                            productObject.getInt("discount"),
-                            productObject.getInt("stock"),
-                            productObject.getString("image")
-                    );
-                    productList.add(product);
+                // Obtener la lista de productos
+                List<Product> products = response.body();
+                if (products != null && !products.isEmpty()) {
+                    // Filtrar los productos por la categoría seleccionada
+                    filterProductsByCategory(products, category);
+                } else {
+                    Toast.makeText(ProductActivity.this, "No se encontraron productos.", Toast.LENGTH_SHORT).show();
                 }
             }
 
-            // Configuramos el adaptador con la lista de productos filtrados
-            productAdapter = new ProductAdapter(productList, this);
-            recyclerView.setAdapter(productAdapter);
+            @Override
+            public void onFailure(Call<List<Product>> call, Throwable t) {
+                progressBar.setVisibility(View.GONE);
+                Log.e("ProductActivity", "Error al cargar productos", t);
+                Toast.makeText(ProductActivity.this, "Error al cargar productos", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
 
-        } catch (Exception e) {
-            Log.e("ProductListActivity", "Error loading products", e);
+    private void filterProductsByCategory(List<Product> products, String category) {
+        productList.clear(); // Asegurarse de que la lista esté vacía antes de añadir los productos filtrados
+
+        for (Product product : products) {
+            String categoryName = (product.getCategory() == 1) ? "Marvel" : "DC";
+            if (categoryName.equals(category)) {
+                productList.add(product);
+            }
+        }
+
+        // Configurar el adaptador con los productos filtrados
+        if (!productList.isEmpty()) {
+            productAdapter = new ProductAdapter(productList, ProductActivity.this);
+            recyclerView.setAdapter(productAdapter);
+        } else {
+            Toast.makeText(ProductActivity.this, "No se encontraron productos para la categoría seleccionada.", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    // Método para cambiar el banner según la categoría
+    private void updateBanner(String category) {
+        if ("Marvel".equals(category)) {
+            bannerImage.setImageResource(R.drawable.marvellogo);  // Cambiar a la imagen de Marvel
+        } else if ("DC".equals(category)) {
+            bannerImage.setImageResource(R.drawable.dclogo);  // Cambiar a la imagen de DC
         }
     }
 }
