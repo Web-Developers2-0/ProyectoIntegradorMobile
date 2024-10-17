@@ -3,6 +3,11 @@
     <color name="black">#FF000000</color>
     <color name="color_accent">#E4AC57</color>
     <color name="second_color_accent">#CD4747</color>
+    <color name="white">#EEE6D8</color>
+    <color name="colorAccent">#E4AC57</color>
+
+    <color name="labelinfoPersonal">#DFD8CC</color>
+    <color name="textdellabedlinfoPersonal">#808080</color>
 
     <!-- Colores Botones -->
     <color name="primary_button">#F7C272</color>
@@ -22,5 +27,25 @@
     <color name="text_secondary_dark">#E4AC57</color>
     <color name="text_alternative_dark">#535353</color>
     <color name="dark_red">#841212</color>
+
+    <!-- Paleta del sprint 1 -->
+    <color name="white">#FFFFFFFF</color>
+    <color name="colorPrimary">#841212</color>
+    <color name="colorAccent">#E4AC57</color>
+    <color name="colorBackground">#1E1E1E</color>
+    <color name="colorText">#FDD6A7</color>
+    <color name="colorHighlight">#FFFCFB</color>
+    <color name="grey">#E6E6E6</color>
+    <color name="background_color_claro">#FBE9E7</color>
+    <color name="text_color">#000000</color>
+    <color name="text_color_secondary">#757575</color>
+    <color name="button_register">#FF7043</color>
+    <color name="button_login">#FFA726</color>
+    <color name="colorPrimary2">#F7C272</color> <!-- Naranja -->
+    <color name="orange_border">#FF5722</color>
+    <color name="labelinfoPersonal">#DFD8CC</color>
+    <color name="textdellabedlinfoPersonal">#808080</color>
+    <color name="colorBackgroundbutton">#CD4747</color>
+    <color name="colorHint">#535353</color>
 
 </resources>
