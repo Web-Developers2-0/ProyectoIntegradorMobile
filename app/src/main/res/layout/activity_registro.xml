@@ -175,7 +175,7 @@
         android:backgroundTint="@color/dark_red"
         android:textColor="@color/text_primary_dark"
         android:fontFamily="@font/bangersregular"
-        android:textSize="16sp"
+        android:textSize="20sp"
         app:layout_constraintTop_toBottomOf="@id/fieldsContainer"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
