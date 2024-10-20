@@ -1,4 +1,4 @@
-package com.example.planetsuperheroes;
+package com.example.planetsuperheroes.models;
 
 import android.content.Context;
 import android.content.Intent;
@@ -13,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.planetsuperheroes.R;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,6 +26,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
     public ProductAdapter(List<Product> productList, Context context) {
         this.productList = productList != null ? productList : new ArrayList<>();
         this.context = context;
+        Log.d("ProductAdapter", "Número de productos: " + this.productList.size());
     }
 
     @NonNull
@@ -40,10 +42,10 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
         holder.productName.setText(product.getName());
 
         double calification = product.getCalification();
-        Log.d("ProductAdapter", "Calificación: " + calification); // Log para depuración
+        Log.d("ProductAdapter", "Calificación: " + calification);
 
-        String imageUrl = product.getImage(); // Obtiene la URL de la imagen
-        Log.d("ProductAdapter", "Image URL: " + imageUrl); // Log para depuración
+        String imageUrl = product.getImage();
+        Log.d("ProductAdapter", "Image URL: " + imageUrl);
 
         if (imageUrl != null && !imageUrl.isEmpty()) {
             Glide.with(context)
@@ -54,14 +56,12 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
         }
 
         holder.productRating.setText(String.valueOf(calification));
-        setStars(holder, calification); // Llama a tu método para mostrar las estrellas
+        setStars(holder, calification);
 
         holder.itemView.setOnClickListener(v -> {
+            Log.d("ProductAdapter", "Item clickeado: " + product.getName() + ", ID: " + product.getId());
             Intent intent = new Intent(context, ProductDetailsActivity.class);
-            intent.putExtra("productName", product.getName());
-            intent.putExtra("productDescription", product.getDescription());
-            intent.putExtra("productImage", product.getImage());
-            intent.putExtra("productRating", calification);
+            intent.putExtra("productId", product.getId());
             context.startActivity(intent);
         });
     }
@@ -90,30 +90,24 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
         }
     }
 
-    // Método para establecer la visibilidad de las estrellas
     private void setStars(ViewHolder holder, double rating) {
-        int fullStars = (int) rating; // Número de estrellas completas
-        boolean hasHalfStar = (rating % 1) >= 0.5; // Comprobamos si hay media estrella
-        int emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0); // Estrellas vacías
+        int fullStars = (int) rating;
+        boolean hasHalfStar = (rating % 1) >= 0.5;
 
-        Log.d("ProductAdapter", "Full Stars: " + fullStars + ", Half Star: " + hasHalfStar + ", Empty Stars: " + emptyStars);
+        Log.d("ProductAdapter", "Full Stars: " + fullStars + ", Half Star: " + hasHalfStar);
 
-        // Limpiamos las estrellas antes de asignar
         clearStars(holder);
 
-        // Asignar el número de estrellas llenas
         for (int i = 1; i <= fullStars; i++) {
-            getStarImageView(holder, i).setImageResource(R.drawable.star); // Estrella llena
+            getStarImageView(holder, i).setImageResource(R.drawable.star);
         }
 
-        // Asignar media estrella si corresponde
         if (hasHalfStar) {
-            getStarImageView(holder, fullStars + 1).setImageResource(R.drawable.rating); // Media estrella
+            getStarImageView(holder, fullStars + 1).setImageResource(R.drawable.rating);
         }
 
-        // Asignar las estrellas vacías
         for (int i = fullStars + (hasHalfStar ? 1 : 0); i < 5; i++) {
-            getStarImageView(holder, i + 1).setImageResource(R.drawable.white_star); // Estrella vacía
+            getStarImageView(holder, i + 1).setImageResource(R.drawable.white_star);
         }
     }
 
@@ -136,3 +130,5 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
         }
     }
 }
+
+

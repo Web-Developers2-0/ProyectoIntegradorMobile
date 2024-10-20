@@ -5,6 +5,13 @@
     <color name="second_color_accent">#CD4747</color>
     <color name="white">#EEE6D8</color>
     <color name="colorAccent">#E4AC57</color>
+    <color name="grey">#E4AC57</color>
+    <color name="colorBackgroundbutton">#E4AC57</color>
+    <color name="colorBackground">#E4AC57</color>
+
+
+
+
 
     <color name="labelinfoPersonal">#DFD8CC</color>
     <color name="textdellabedlinfoPersonal">#808080</color>

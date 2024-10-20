@@ -1,4 +1,4 @@
-package com.example.planetsuperheroes;
+package com.example.planetsuperheroes.models;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -6,9 +6,15 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.planetsuperheroes.R;
+import com.example.planetsuperheroes.SpaceItemDecoration;
+import com.example.planetsuperheroes.network.ApiService;
+import com.example.planetsuperheroes.network.RetrofitClient;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,55 +29,41 @@ public class ProductActivity extends AppCompatActivity {
     private ProductAdapter productAdapter;
     private ProgressBar progressBar;
     private List<Product> productList = new ArrayList<>();
-    private ImageView bannerImage;  // Añadir ImageView para el banner
+    private ImageView bannerImage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product);
 
-        // Inicializar las vistas
         recyclerView = findViewById(R.id.recyclerView);
         progressBar = findViewById(R.id.progressBar);
-        bannerImage = findViewById(R.id.imgCategoryBanner);  // Inicializa el banner aquí
+        bannerImage = findViewById(R.id.imgCategoryBanner);
 
-        // Cambiar a GridLayoutManager con 2 columnas
-        recyclerView.setLayoutManager(new GridLayoutManager(this, 2)); // 2 es el número de columnas
-
-        RecyclerView recyclerView = findViewById(R.id.recyclerView);
-        int spaceInPixels = getResources().getDimensionPixelSize(R.dimen.space); // Define tu espacio en dimens.xml
+        recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
+        int spaceInPixels = getResources().getDimensionPixelSize(R.dimen.space);
         recyclerView.addItemDecoration(new SpaceItemDecoration(spaceInPixels));
 
-        // Obtener la categoría seleccionada de la Intent
         String category = getIntent().getStringExtra("category");
-
-        // Cambiar el banner basado en la categoría seleccionada
+        Log.d("ProductActivity", "Categoría seleccionada: " + category);
         updateBanner(category);
-
-        // Cargar los productos desde la API
         loadProductsFromApi(category);
     }
 
     private void loadProductsFromApi(String category) {
-        // Mostrar el ProgressBar mientras se cargan los datos
         progressBar.setVisibility(View.VISIBLE);
-
-        // Realizar la llamada a la API para obtener todos los productos
-        Call<List<Product>> call = RetrofitClient.getInstance().getApi().getProducts(null); // Enviar null si la API no requiere filtro en la llamada
+        ApiService apiService = RetrofitClient.getClient(this).create(ApiService.class);
+        Call<List<Product>> call = apiService.getProducts(null);
         call.enqueue(new Callback<List<Product>>() {
             @Override
             public void onResponse(Call<List<Product>> call, Response<List<Product>> response) {
                 progressBar.setVisibility(View.GONE);
-
                 if (!response.isSuccessful()) {
                     Toast.makeText(ProductActivity.this, "Código de error: " + response.code(), Toast.LENGTH_SHORT).show();
                     return;
                 }
-
-                // Obtener la lista de productos
                 List<Product> products = response.body();
                 if (products != null && !products.isEmpty()) {
-                    // Filtrar los productos por la categoría seleccionada
                     filterProductsByCategory(products, category);
                 } else {
                     Toast.makeText(ProductActivity.this, "No se encontraron productos.", Toast.LENGTH_SHORT).show();
@@ -88,8 +80,7 @@ public class ProductActivity extends AppCompatActivity {
     }
 
     private void filterProductsByCategory(List<Product> products, String category) {
-        productList.clear(); // Asegurarse de que la lista esté vacía antes de añadir los productos filtrados
-
+        productList.clear();
         for (Product product : products) {
             String categoryName = (product.getCategory() == 1) ? "Marvel" : "DC";
             if (categoryName.equals(category)) {
@@ -97,7 +88,6 @@ public class ProductActivity extends AppCompatActivity {
             }
         }
 
-        // Configurar el adaptador con los productos filtrados
         if (!productList.isEmpty()) {
             productAdapter = new ProductAdapter(productList, ProductActivity.this);
             recyclerView.setAdapter(productAdapter);
@@ -106,12 +96,11 @@ public class ProductActivity extends AppCompatActivity {
         }
     }
 
-    // Método para cambiar el banner según la categoría
     private void updateBanner(String category) {
         if ("Marvel".equals(category)) {
-            bannerImage.setImageResource(R.drawable.marvellogo);  // Cambiar a la imagen de Marvel
+            bannerImage.setImageResource(R.drawable.marvellogo);
         } else if ("DC".equals(category)) {
-            bannerImage.setImageResource(R.drawable.dclogo);  // Cambiar a la imagen de DC
+            bannerImage.setImageResource(R.drawable.dclogo);
         }
     }
 }
