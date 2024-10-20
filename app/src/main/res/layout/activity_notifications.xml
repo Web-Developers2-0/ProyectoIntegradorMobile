@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#262626"
@@ -7,45 +8,46 @@
     android:padding="16dp">
 
     <!-- Header con el botón de atrás y settings -->
+
+    <!-- Notificación 1 -->
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center_vertical">
+        android:layout_width="378dp"
+        android:layout_height="53dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
 
         <ImageButton
             android:id="@+id/back_button"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:background="@android:color/transparent"
-            android:tint="#FFB74D"
+            android:contentDescription="@string/back_button_content_description"
             android:src="@drawable/ic_back_arrow"
-            android:contentDescription="@string/back_button_content_description" />
+            app:tint="#E4AC57" />
 
         <TextView
             android:id="@+id/notifications_title"
-            android:textColor="@android:color/white"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="@string/notifications_title"
-            android:letterSpacing="0.1"
-            android:fontFamily="@font/bangersregular"
-            android:textSize="24sp"
-            android:textStyle="bold"
+            android:layout_width="273dp"
+            android:layout_height="53dp"
             android:layout_weight="1"
-            android:gravity="center" />
+            android:fontFamily="@font/interregular"
+            android:gravity="center"
+            android:letterSpacing="0.1"
+            android:text="@string/notifications_title"
+            android:textColor="@color/colorAccent"
+            android:textSize="24sp"
+            android:textStyle="bold" />
 
         <ImageButton
             android:id="@+id/settings_button"
-            android:layout_width="37dp"
-            android:layout_height="37dp"
+            android:layout_width="48dp"
+            android:layout_height="wrap_content"
             android:background="@android:color/transparent"
-            android:tint="#FFB74D"
+            android:contentDescription="@string/settings_button_content_description"
             android:src="@drawable/ic_settings"
-            android:contentDescription="@string/settings_button_content_description" />
+            app:tint="#E4AC57" />
     </LinearLayout>
 
-    <!-- Notificación 1 -->
     <LinearLayout
         android:id="@+id/notification_1"
         android:layout_width="match_parent"
@@ -59,8 +61,8 @@
             android:id="@+id/icon_notification_1"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:tint="#FFB74D"
-            android:src="@drawable/ic_package_arrived" />
+            android:src="@drawable/ic_package_arrived"
+            app:tint="#E4AC57"/>
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -82,8 +84,17 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/notification_1_subtitle"
-                android:textColor="#FFFFFF"
+                android:textColor="#E4AC57"
                 android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/notification_1_subtitle2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/notification_1_subtitle2"
+                android:textColor="#E4AC57"
+                android:textSize="14sp" />
+
         </LinearLayout>
     </LinearLayout>
 
@@ -93,7 +104,7 @@
         android:layout_height="1dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:background="#FFB74D"
+        android:background="#E4AC57"
         android:layout_marginVertical="16dp" />
 
     <!-- Notificación 2 -->
@@ -109,8 +120,8 @@
             android:id="@+id/icon_notification_2"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:tint="#FFB74D"
-            android:src="@drawable/ic_discount" />
+            android:src="@drawable/etiqueta"
+            app:tint="#E4AC57" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -132,7 +143,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/notification_2_subtitle"
-                android:textColor="#FFFFFF"
+                android:textColor="#E4AC57"
                 android:textSize="14sp" />
         </LinearLayout>
     </LinearLayout>
@@ -143,7 +154,7 @@
         android:layout_height="1dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:background="#FFB74D"
+        android:background="#E4AC57"
         android:layout_marginVertical="16dp" />
 
     <!-- Notificación 3 -->
@@ -159,8 +170,8 @@
             android:id="@+id/icon_notification_3"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:tint="#FFB74D"
-            android:src="@drawable/ic_purchase_failed" />
+            android:src="@drawable/ic_purchase_failed"
+            app:tint="#E4AC57" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -182,7 +193,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/notification_3_subtitle"
-                android:textColor="#FFFFFF"
+                android:textColor="#E4AC57"
                 android:textSize="14sp" />
         </LinearLayout>
     </LinearLayout>
@@ -193,7 +204,7 @@
         android:layout_height="1dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:background="#FFB74D"
+        android:background="#E4AC57"
         android:layout_marginVertical="16dp" />
 
     <!-- Notificación 4 -->
@@ -209,8 +220,8 @@
             android:id="@+id/icon_notification_4"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:tint="#FFB74D"
-            android:src="@drawable/ic_package_on_way" />
+            android:src="@drawable/ruta"
+            app:tint="#E4AC57" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -232,7 +243,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/notification_4_subtitle"
-                android:textColor="#FFFFFF"
+                android:textColor="#E4AC57"
                 android:textSize="14sp" />
         </LinearLayout>
     </LinearLayout>

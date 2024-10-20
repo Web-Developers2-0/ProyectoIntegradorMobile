@@ -24,6 +24,13 @@
     <string name="user_email">Email de usuario</string>
     <string name="user_adress">Dirección de usuario</string>
     <string name="save_btn">Guardar cambios</string>
+    <string name="img_cat">Imagen de Gatito</string>
+    <string name="text_name_info">Nombre</string>
+    <string name="text_lastname_info">Apellido</string>
+    <string name="text_direction_info">Direccion</string>
+    <string name="text_email_info">Email</string>
+    <string name="label_name">Nombre</string>
+
 
     <!-- Strings para el formulario de contacto -->
     <string name="contact_title">¡Contáctanos!</string>
@@ -59,11 +66,12 @@
 
     <!-- Notificación 1 -->
     <string name="notification_1_title">¡Tu paquete llegó a destino!</string>
-    <string name="notification_1_subtitle">¡Gracias por habernos elegido! ¡Disfruta tu Compra!</string>
+    <string name="notification_1_subtitle">¡Gracias por habernos elegido!</string>
+    <string name="notification_1_subtitle2"> ¡Disfruta tu Compra!</string>
 
     <!-- Notificación 2 -->
-    <string name="notification_2_title">15% OFF - Descuento Primavera</string>
-    <string name="notification_2_subtitle">Aprovecha el mes de la primavera y obtén un descuento del 15% por tu compra</string>
+    <string name="notification_2_title">15% OFF - Descuento Friends</string>
+    <string name="notification_2_subtitle">Aprovecha la semana del amigo y obtené un descuento del 15% por tu compra</string>
 
     <!-- Notificación 3 -->
     <string name="notification_3_title">¡Compra Rechazada!</string>
@@ -108,7 +116,37 @@
     <!-- Strings para la Actividad Home -->
     <string name="user_hello">Hi User!</string>
     <string name="home_title">Elige una categoria</string>
-    <string name="btn_seemore">Ver productos destacados</string>
+    <string name="btn_seemore">Ver más</string>
     <string name="faq_nav">Preguntas Frecuentes</string>
     <string name="contact_nav">Contactanos</string>
+    <string name="Soporte">Soporte</string>
+    <string name="preguntas_frecuentes">Preguntas frecuentes</string>
+    <string name="flechabotonpreguntas">flechabotonpreguntas</string>
+    <string name="contactanos">Contactanos</string>
+    <string name="flechabotoncontactanos">flechacontactanos</string>
+    <string name="terminos_condiciones">Términos y Concidiciones</string>
+    <string name="flechabotonterminos">botonterminos\n</string>
+    <string name="iconocontacto">icono contacto</string>
+    <string name="icono_preguntas">icono preguntas</string>
+    <string name="icono_terminos">icono terminos</string>
+    <string name="icono_chico_user">icono chico user</string>
+    <string name="mas_populares">Más populares</string>
+    <string name="gwenpool_description">New comic</string>
+
+    <!-- Descripciones para accesibilidad -->
+    <string name="user_image_desc">Imagen de perfil del usuario</string>
+    <string name="notification_desc">Botón de notificaciones</string>
+    <string name="cart_desc">Botón del carrito de compras</string>
+    <string name="deadpool_image_desc">Imagen de Deadpool</string>
+    <string name="gwenpool_image_desc">Imagen de Gwenpool</string>
+
+   <!-- Cómics -->
+    <string name="deadpool_title">Deadpool</string>
+    <string name="gwenpool_title">Gwenpool</string>
+    <string name="bow_to_king">Bow to the King</string>
+    <string name="strikes_back">Strikes Back</string>
+    <string name="rating_4_9">4.9</string>
+
+
+
 </resources>

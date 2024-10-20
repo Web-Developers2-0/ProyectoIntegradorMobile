@@ -7,144 +7,146 @@
     android:layout_height="match_parent"
     android:background="#262626"
     android:padding="40dp"
-    tools:context=".infoPersonal"
-    tools:layout_editor_absoluteX="-41dp"
-    tools:layout_editor_absoluteY="-130dp">
-
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Nombre"
-        android:textColor="#EEE6D8"
-
-        tools:layout_editor_absoluteX="38dp"
-        tools:layout_editor_absoluteY="191dp" />
-
-    <TextView
-        android:id="@+id/textViewdireccion"
-        android:layout_width="60dp"
-        android:layout_height="25dp"
-        android:text="Direccion"
-        android:textColor="@color/white"
-
-        tools:layout_editor_absoluteX="38dp"
-        tools:layout_editor_absoluteY="435dp" />
-
-    <TextView
-        android:id="@+id/textViewemail"
-        android:layout_width="60dp"
-        android:layout_height="25dp"
-        android:text="Email"
-        android:textColor="@color/white"
-
-        tools:layout_editor_absoluteX="38dp"
-        tools:layout_editor_absoluteY="353dp" />
-
-    <TextView
-        android:id="@+id/textViewapellido"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Apellido"
-        android:textColor="@color/white"
-        tools:layout_editor_absoluteX="38dp"
-        tools:layout_editor_absoluteY="279dp" />
-
-    <TextView
-        android:id="@+id/textViewTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="124dp"
-        android:layout_marginTop="4dp"
-        android:fontFamily="@font/bangersregular"
-        android:hint="@string/user_title"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    tools:context=".infoPersonal">
 
     <ImageView
         android:id="@+id/imageViewContact"
         android:layout_width="120dp"
         android:layout_height="90dp"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="15dp"
+        android:contentDescription="@string/img_cat"
         android:src="@drawable/gatitoinfo"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.545"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textViewTitle"
+        app:layout_constraintTop_toBottomOf="@id/textViewTitle" />
+
+    <TextView
+        android:id="@+id/textViewTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:fontFamily="@font/bangersregular"
+        android:hint="@string/user_title"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- Botón de guardar cambios -->
+    <!-- Nombre -->
+    <TextView
+        android:id="@+id/textViewnombre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginStart="10dp"
+        android:text="@string/text_name_info"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toStartOf="@+id/editTextName"
+        app:layout_constraintTop_toBottomOf="@id/imageViewContact" />
 
     <EditText
         android:id="@+id/editTextName"
         android:layout_width="270dp"
         android:layout_height="48dp"
-        android:layout_marginTop="176dp"
+        android:layout_marginTop="8dp"
         android:autofillHints="name"
-        android:background="@color/labelinfoPersonal"
-        android:text="@string/user_name"
+        android:background="@drawable/info_personal_border"
+        android:hint="@string/user_name"
         android:inputType="text"
+        android:padding="10dp"
         android:textColorHint="@color/textdellabedlinfoPersonal"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.59"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textViewTitle" />
-    <!--android:textColor="@color/white" -->
+        app:layout_constraintTop_toBottomOf="@id/textViewnombre" />
+
+    <!-- Apellido -->
+    <TextView
+        android:id="@+id/textViewapellido"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="10dp"
+        android:text="@string/text_lastname_info"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toStartOf="@+id/editTextlastName"
+        app:layout_constraintTop_toBottomOf="@id/editTextName" />
+
     <EditText
         android:id="@+id/editTextlastName"
         android:layout_width="270dp"
         android:layout_height="48dp"
-        android:layout_marginTop="264dp"
+        android:layout_marginTop="4dp"
         android:autofillHints="name"
-        android:background="@color/labelinfoPersonal"
+        android:background="@drawable/info_personal_border"
         android:hint="@string/user_lastname"
         android:inputType="text"
+        android:padding="10dp"
         android:textColorHint="@color/textdellabedlinfoPersonal"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.59"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textViewTitle" />
+        app:layout_constraintTop_toBottomOf="@id/textViewapellido" />
+
+    <!-- Email -->
+    <TextView
+        android:id="@+id/textViewemail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginStart="10dp"
+        android:text="@string/text_email"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toStartOf="@+id/editTextEmail"
+        app:layout_constraintTop_toBottomOf="@id/editTextlastName" />
 
     <EditText
         android:id="@+id/editTextEmail"
         android:layout_width="270dp"
         android:layout_height="48dp"
-        android:layout_marginTop="116dp"
+        android:layout_marginTop="4dp"
         android:autofillHints="email"
-        android:background="@color/labelinfoPersonal"
+        android:background="@drawable/info_personal_border"
         android:hint="@string/user_email"
         android:inputType="textEmailAddress"
-        android:textColor="@color/white"
+        android:padding="10dp"
         android:textColorHint="@color/textdellabedlinfoPersonal"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.622"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/editTextName" />
+        app:layout_constraintTop_toBottomOf="@id/textViewemail" />
+
+    <!-- Dirección -->
+    <TextView
+        android:id="@+id/textViewdireccion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginStart="10dp"
+        android:text="@string/text_direction_info"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toStartOf="@+id/editTextAdress"
+        app:layout_constraintTop_toBottomOf="@id/editTextEmail" />
 
     <EditText
         android:id="@+id/editTextAdress"
         android:layout_width="270dp"
         android:layout_height="48dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="8dp"
         android:autofillHints="adress"
-        android:background="@color/labelinfoPersonal"
+        android:background="@drawable/info_personal_border"
         android:hint="@string/user_adress"
         android:inputType="textPassword"
-        android:textColor="@color/white"
+        android:padding="10dp"
         android:textColorHint="@color/textdellabedlinfoPersonal"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.622"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/editTextEmail" />
+        app:layout_constraintTop_toBottomOf="@id/textViewdireccion" />
 
+    <!-- Botón -->
     <Button
         android:id="@+id/btnGuardarCambios"
         android:layout_width="280dp"
@@ -154,19 +156,9 @@
         android:text="@string/save_btn"
         android:textColor="@color/black"
         android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.705"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextAdress" />
-
-    <TextView
-        android:id="@+id/textViewnombre"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Nombre"
-        android:textColor="@color/white"
-
-        tools:layout_editor_absoluteX="38dp"
-        tools:layout_editor_absoluteY="191dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editTextAdress" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
