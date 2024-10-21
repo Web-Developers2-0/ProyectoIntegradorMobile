@@ -1,19 +1,37 @@
 package com.example.planetsuperheroes.models;
 
 import java.util.List;
+import com.google.gson.annotations.SerializedName;
 
 public class Order {
+    @SerializedName("id_order")
     private int idOrder; // ID de la orden
+
+    @SerializedName("user")
     private String user; // ID del usuario
+
+    @SerializedName("state")
     private String state; // Estado de la orden
+
+    @SerializedName("order_date")
     private String orderDate; // Fecha de la orden
+
+    @SerializedName("payment_method")
     private String paymentMethod; // Método de pago
+
+    @SerializedName("shipping_method")
     private String shippingMethod; // Método de envío
+
+    @SerializedName("payment_status")
     private String paymentStatus; // Estado del pago
+
+    @SerializedName("total_amount")
     private double totalAmount; // Monto total
+
+    @SerializedName("order_items")
     private List<OrderItem> orderItems; // Lista de ítems de la orden
 
-    // Constructor, Getters y Setters
+    // Constructor
     public Order(int idOrder, String user, String state, String orderDate, String paymentMethod,
                  String shippingMethod, String paymentStatus, double totalAmount, List<OrderItem> orderItems) {
         this.idOrder = idOrder;
@@ -27,8 +45,7 @@ public class Order {
         this.orderItems = orderItems;
     }
 
-    // Getters y Setters...
-
+    // Getters y Setters
     public int getIdOrder() {
         return idOrder;
     }
@@ -99,5 +116,20 @@ public class Order {
 
     public void setOrderItems(List<OrderItem> orderItems) {
         this.orderItems = orderItems;
+    }
+
+    @Override
+    public String toString() {
+        return "Order{" +
+                "idOrder=" + idOrder +
+                ", user='" + user + '\'' +
+                ", state='" + state + '\'' +
+                ", orderDate='" + orderDate + '\'' +
+                ", paymentMethod='" + paymentMethod + '\'' +
+                ", shippingMethod='" + shippingMethod + '\'' +
+                ", paymentStatus='" + paymentStatus + '\'' +
+                ", totalAmount=" + totalAmount +
+                ", orderItems=" + orderItems +
+                '}';
     }
 }

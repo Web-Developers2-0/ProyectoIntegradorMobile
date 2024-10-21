@@ -1,14 +1,14 @@
 package com.example.planetsuperheroes.models;
 
 import android.annotation.SuppressLint;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.util.Log;
-import java.io.IOException;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -16,6 +16,12 @@ import com.bumptech.glide.Glide;
 import com.example.planetsuperheroes.R;
 import com.example.planetsuperheroes.network.ApiService;
 import com.example.planetsuperheroes.network.RetrofitClient;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -39,7 +45,21 @@ public class ProductDetailsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_product_detail);
 
         cartService = new CartService();
+        initializeViews();
+        productId = getIntent().getIntExtra("productId", -1);
 
+        if (productId == -1) {
+            Toast.makeText(this, "ID de producto no válido", Toast.LENGTH_SHORT).show();
+            finish();
+            return;
+        }
+
+        loadProductFromApi();
+        updateQuantityTextView();
+        setupButtonListeners();
+    }
+
+    private void initializeViews() {
         productImageView = findViewById(R.id.productImageView);
         productNameTextView = findViewById(R.id.productNameTextView);
         productDescriptionTextView = findViewById(R.id.productDescriptionTextView);
@@ -50,28 +70,15 @@ public class ProductDetailsActivity extends AppCompatActivity {
         decrementButton = findViewById(R.id.decrementButton);
         addToCartButton = findViewById(R.id.addToCartButton);
         orderButton = findViewById(R.id.orderButton);
+    }
 
-        // Obtener el ID del producto pasado desde la actividad anterior
-        productId = getIntent().getIntExtra("productId", -1);
-        Log.d("ProductDetailsActivity", "ID del producto recibido: " + productId);
-
-        if (productId == -1) {
-            Toast.makeText(this, "ID de producto no válido", Toast.LENGTH_SHORT).show();
-            finish(); // Cierra la actividad si el ID no es válido
-            return;
-        }
-
-        // Llamada a la API para obtener el producto
-        loadProductFromApi();
-
-        updateQuantityTextView();
-
+    private void setupButtonListeners() {
         incrementButton.setOnClickListener(v -> {
             if (quantity < stock) {
                 quantity++;
                 updateQuantityTextView();
             } else {
-                Toast.makeText(ProductDetailsActivity.this, "No hay suficiente stock disponible", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "No hay suficiente stock disponible", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -84,38 +91,38 @@ public class ProductDetailsActivity extends AppCompatActivity {
 
         addToCartButton.setOnClickListener(v -> {
             if (quantity > 0) {
-                cartService.addToCart(new Product(
-                        productId,
-                        productNameTextView.getText().toString(),
-                        productDescriptionTextView.getText().toString(),
-                        Double.parseDouble(productPriceTextView.getText().toString().replace("$", "")),
-                        "", // La URL de la imagen
-                        0.0, // Calificación, si la tienes
-                        stock,
-                        1 // Asumir categoría como 1
-                ), quantity);
-                Toast.makeText(ProductDetailsActivity.this, "Agregado al carrito", Toast.LENGTH_SHORT).show();
+                addToCart();
             } else {
-                Toast.makeText(ProductDetailsActivity.this, "Seleccione una cantidad válida", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Seleccione una cantidad válida", Toast.LENGTH_SHORT).show();
             }
         });
 
-        orderButton.setOnClickListener(v -> {
-            double totalPrice = Double.parseDouble(productPriceTextView.getText().toString().replace("$", "")) * quantity;
-            sendOrder(totalPrice);
-        });
+        orderButton.setOnClickListener(v -> sendOrder());
+    }
+
+    private void addToCart() {
+        cartService.addToCart(new Product(
+                productId,
+                productNameTextView.getText().toString(),
+                productDescriptionTextView.getText().toString(),
+                Double.parseDouble(productPriceTextView.getText().toString().replace("$", "")),
+                "", // URL de la imagen
+                0.0, // Calificación
+                stock,
+                1 // Categoría
+        ), quantity);
+        Toast.makeText(this, "Agregado al carrito", Toast.LENGTH_SHORT).show();
     }
 
     private void loadProductFromApi() {
         ApiService apiService = RetrofitClient.getClient(this).create(ApiService.class);
-        Call<Product> call = apiService.getProduct(productId); // Usa productId aquí
+        Call<Product> call = apiService.getProduct(productId);
         call.enqueue(new Callback<Product>() {
             @Override
             public void onResponse(Call<Product> call, Response<Product> response) {
-                Log.d("API Response", "Código: " + response.code() + ", Cuerpo: " + response.body());
                 if (response.isSuccessful() && response.body() != null) {
                     Product product = response.body();
-                    stock = product.getStock(); // Almacena el stock
+                    stock = product.getStock();
                     updateUI(product);
                 } else {
                     Log.e("API Error", "Error: " + response.code() + ", Mensaje: " + response.message());
@@ -136,62 +143,98 @@ public class ProductDetailsActivity extends AppCompatActivity {
         productDescriptionTextView.setText(product.getDescription());
         productPriceTextView.setText("$" + product.getPrice());
         Glide.with(this).load(product.getImage()).into(productImageView);
-        productStockTextView.setText("Stock: " + stock); // Muestra el stock
+        productStockTextView.setText("Stock: " + stock);
     }
 
     private void updateQuantityTextView() {
         quantityTextView.setText(String.valueOf(quantity));
     }
 
-    private void sendOrder(double totalPrice) {
+
+    private void sendOrder() {
         if (quantity > 0 && quantity <= stock) {
-            // Reduce el stock localmente
-            stock -= quantity;
-            productStockTextView.setText("Stock: " + stock); // Actualiza el stock en la UI
+            List<Map<String, Object>> orderItems = new ArrayList<>();
+            Map<String, Object> orderItem = new HashMap<>();
+            orderItem.put("product", productId);
+            orderItem.put("quantity", quantity);
+            orderItems.add(orderItem);
 
-            // Crea un objeto Product con todos los campos requeridos
-            Product updatedProduct = new Product();
-            updatedProduct.setId(productId); // Establece el ID del producto
-            updatedProduct.setStock(stock); // Establece el nuevo stock
-            updatedProduct.setCategory(1); // Asegúrate de establecer una categoría válida (1 o 2)
-            updatedProduct.setName(productNameTextView.getText().toString()); // Establece el nombre del producto
-            updatedProduct.setDescription(productDescriptionTextView.getText().toString()); // Establece la descripción
+            Map<String, Object> orderRequestBody = new HashMap<>();
 
-            // Actualiza el stock en el servidor
-            updateStockInServer(updatedProduct);
+            String userId = getUserId(); // Obtiene el ID del usuario desde SharedPreferences
+            String token = getUserToken(); // Obtiene el token JWT
 
-            Toast.makeText(this, "Total a pagar: $" + totalPrice + ". Stock actualizado: " + stock, Toast.LENGTH_SHORT).show();
+            // Asegúrate de que userId y token no sean nulos
+            if (userId == null) {
+                Toast.makeText(this, "ID de usuario no disponible", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            if (token == null) {
+                Toast.makeText(this, "Usuario no autenticado", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            orderRequestBody.put("user", userId);
+            orderRequestBody.put("state", "pending");
+            orderRequestBody.put("total_amount", String.valueOf(quantity * Double.parseDouble(productPriceTextView.getText().toString().replace("$", ""))));
+            orderRequestBody.put("order_items", orderItems);
+
+            // Imprimir el cuerpo del pedido para depuración
+            Log.d("Order Request", "Cuerpo del pedido: " + orderRequestBody.toString());
+
+            // Llamar a createOrder pasando el token
+            createOrder(orderRequestBody, token);
         } else {
             Toast.makeText(this, "Cantidad no válida para realizar el pedido", Toast.LENGTH_SHORT).show();
         }
     }
 
-    private void updateStockInServer(Product updatedProduct) {
+
+
+    private void createOrder(Map<String, Object> orderRequestBody, String token) {
         ApiService apiService = RetrofitClient.getClient(this).create(ApiService.class);
-        Call<Product> call = apiService.updateProductStock(updatedProduct.getId(), updatedProduct); // Envía el objeto Product
-        call.enqueue(new Callback<Product>() {
+        Call<Order> call = apiService.createOrder("Bearer " + token, orderRequestBody);
+        call.enqueue(new Callback<Order>() {
             @Override
-            public void onResponse(Call<Product> call, Response<Product> response) {
+            public void onResponse(Call<Order> call, Response<Order> response) {
                 if (response.isSuccessful()) {
-                    Log.d("Stock Update", "Stock actualizado en el servidor: " + updatedProduct.getStock());
+                    Toast.makeText(ProductDetailsActivity.this, "Pedido realizado con éxito!", Toast.LENGTH_SHORT).show();
                 } else {
-                    Log.e("Stock Update Error", "Error al actualizar el stock: " + response.code());
-                    Toast.makeText(ProductDetailsActivity.this, "Error al actualizar el stock en el servidor", Toast.LENGTH_SHORT).show();
-                    try {
-                        if (response.errorBody() != null) {
-                            Log.e("Stock Update Error", "Cuerpo del error: " + response.errorBody().string());
-                        }
-                    } catch (IOException e) {
-                        Log.e("Stock Update Error", "Error al leer el cuerpo del error", e);
-                    }
+                    Log.e("Order Error", "Error al realizar el pedido: " + response.code());
+                    handleErrorResponse(response);
                 }
             }
 
             @Override
-            public void onFailure(Call<Product> call, Throwable t) {
-                Log.e("Stock Update Failure", "Fallo en la conexión: ", t);
-                Toast.makeText(ProductDetailsActivity.this, "Error de conexión al actualizar el stock", Toast.LENGTH_SHORT).show();
+            public void onFailure(Call<Order> call, Throwable t) {
+                Log.e("Order Failure", "Fallo en la conexión: ", t);
+                Toast.makeText(ProductDetailsActivity.this, "Error de conexión al realizar el pedido", Toast.LENGTH_SHORT).show();
             }
         });
     }
+
+
+    private void handleErrorResponse(Response<Order> response) {
+        try {
+            if (response.errorBody() != null) {
+                Log.e("Order Error", "Cuerpo del error: " + response.errorBody().string());
+            }
+        } catch (IOException e) {
+            Log.e("Order Error", "Error al leer el cuerpo del error", e);
+        }
+        Toast.makeText(ProductDetailsActivity.this, "Error al realizar el pedido", Toast.LENGTH_SHORT).show();
+    }
+
+
+    private String getUserToken() {
+        SharedPreferences prefs = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+        return prefs.getString("jwt_token", null); // Asegúrate de que "jwt_token" esté almacenado correctamente
+    }
+
+    private String getUserId() {
+        SharedPreferences prefs = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+        return prefs.getString("user_id", null); // Cambia "user_id" por la clave que usaste para almacenar el ID del usuario
+    }
+
 }
