@@ -18,11 +18,11 @@ public interface ApiService {
     Call<LoginResponse> loginUser(@Body LoginRequest request);
 
     // Método GET para obtener la información del usuario por su ID
-    @GET("swagger/user/{id}/")
+    @GET("/api/user")
     Call<UserCrudInfo> getUserInfo(@Path("userId") String userId);
 
     // Método PATCH para actualizar la información del usuario por su ID
-    @PATCH("swagger/user/{id}/")
+    @PATCH("api/user")
     Call<Void> updateUserInfo(@Path("userId") String userId, @Body UserCrudInfo user);
 }
 
