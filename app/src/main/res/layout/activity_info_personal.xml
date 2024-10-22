@@ -138,7 +138,7 @@
         android:autofillHints="adress"
         android:background="@drawable/info_personal_border"
         android:hint="@string/user_adress"
-        android:inputType="textPassword"
+        android:inputType="text"
         android:padding="10dp"
         android:textColorHint="@color/textdellabedlinfoPersonal"
         android:textSize="14sp"
