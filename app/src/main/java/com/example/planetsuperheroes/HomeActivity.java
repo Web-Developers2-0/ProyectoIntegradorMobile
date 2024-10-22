@@ -1,5 +1,7 @@
 package com.example.planetsuperheroes;
 
+import static com.example.planetsuperheroes.R.*;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -10,6 +12,8 @@ import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,7 +34,7 @@ public class HomeActivity extends AppCompatActivity {
         // Inicializar vistas
         btnUser = findViewById(R.id.btnUser);
         btnNotification = findViewById(R.id.btnNotification);
-        //recyclerViewComics = findViewById(R.id.recyclerViewComics);
+        RecyclerView recyclerViewComics = findViewById(R.id.recyclerViewComics);
         Button btnSeeMore = findViewById(R.id.btnSeeMore);
 
         // Configuración de los botones de usuario y notificación
@@ -96,3 +100,5 @@ public class HomeActivity extends AppCompatActivity {
         startActivity(intent);
     }
 }
+
+
