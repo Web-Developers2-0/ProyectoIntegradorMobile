@@ -10,6 +10,9 @@ import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.planetsuperheroes.models.ProductActivity;
+
 import java.util.ArrayList;
 import java.util.List;
 
