@@ -4,8 +4,6 @@
     <color name="color_accent">#E4AC57</color>
     <color name="second_color_accent">#CD4747</color>
 
-
-
     <!-- Colores Botones -->
     <color name="primary_button">#F7C272</color>
     <color name="primary_button_hover">#FAAB36</color>
@@ -43,5 +41,8 @@
     <color name="textdellabedlinfoPersonal">#808080</color>
     <color name="colorBackgroundbutton">#CD4747</color>
     <color name="colorHint">#535353</color>
+
+
+
 
 </resources>
