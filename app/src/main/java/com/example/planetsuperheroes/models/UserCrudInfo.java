@@ -1,35 +1,35 @@
 package com.example.planetsuperheroes.models;
 
 public class UserCrudInfo {
-    private String first_name;        // Nombre del usuario
-    private String last_name;    // Apellido del usuario
-    private String email;       // Email del usuario
-    private String address;     // Dirección del usuario
+    private int id;
+    private String email;
+    private String first_name;
+    private String last_name;
+    private String address;
+    private String phone;
+    private String password;
+    private String confirmPassword;
 
-    // Constructor
-    public UserCrudInfo(String name, String lastName, String email, String address) {
-        this.first_name = name;
-        this.last_name = lastName;
+    // Constructor vacío
+    // Constructor con todos los campos
+    public UserCrudInfo(int id, String email, String first_name, String last_name, String address, String phone, String password, String confirmPassword) {
+        this.id = id;
         this.email = email;
+        this.first_name = first_name;
+        this.last_name = last_name;
         this.address = address;
+        this.phone = phone;
+        this.password = password;
+        this.confirmPassword = confirmPassword;
     }
 
-    // Getters y Setters
-
-    public String getName() {
-        return first_name;
+    // Getters y Setters para cada campo
+    public int getId() {
+        return id;
     }
 
-    public void setName(String name) {
-        this.first_name = name;
-    }
-
-    public String getLastName() {
-        return last_name;
-    }
-
-    public void setLastName(String lastName) {
-        this.last_name = lastName;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getEmail() {
@@ -40,6 +40,22 @@ public class UserCrudInfo {
         this.email = email;
     }
 
+    public String getName() {
+        return first_name;
+    }
+
+    public void setName(String first_name) {
+        this.first_name = first_name;
+    }
+
+    public String getLastName() {
+        return last_name;
+    }
+
+    public void setLastName(String last_name) {
+        this.last_name = last_name;
+    }
+
     public String getAddress() {
         return address;
     }
@@ -48,6 +64,29 @@ public class UserCrudInfo {
         this.address = address;
     }
 
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getConfirmPassword() {
+        return confirmPassword;
+    }
+
+    public void setConfirmPassword(String confirmPassword) {
+        this.confirmPassword = confirmPassword;
+    }
     @Override
     public String toString() {
         return "User{" +
@@ -57,6 +96,4 @@ public class UserCrudInfo {
                 ", address='" + address + '\'' +
                 '}';
     }
-}
-
-
+    }

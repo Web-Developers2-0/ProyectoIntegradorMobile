@@ -9,7 +9,6 @@ import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.PATCH;
 import retrofit2.http.POST;
-import retrofit2.http.Path;
 
 
 
@@ -17,12 +16,12 @@ public interface ApiService {
     @POST("/api/login/")
     Call<LoginResponse> loginUser(@Body LoginRequest request);
 
-    // Método GET para obtener la información del usuario por su ID
-    @GET("/api/user")
-    Call<UserCrudInfo> getUserInfo(@Path("userId") String userId);
+    @GET("/api/user/")
+    Call<UserCrudInfo> getUserCrudInfo();  // Token será manejado automáticamente por el interceptor
 
-    // Método PATCH para actualizar la información del usuario por su ID
-    @PATCH("api/user")
-    Call<Void> updateUserInfo(@Path("userId") String userId, @Body UserCrudInfo user);
+    @PATCH("/api/user/")
+    Call<Void> updateUserCrudInfo(@Body UserCrudInfo user);
+
+
 }
 
