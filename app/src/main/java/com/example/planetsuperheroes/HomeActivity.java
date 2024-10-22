@@ -1,5 +1,6 @@
 package com.example.planetsuperheroes;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -21,6 +22,7 @@ public class HomeActivity extends AppCompatActivity {
     private ComicAdapter comicAdapter;
     private LinearLayoutManager layoutManager;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,7 +32,7 @@ public class HomeActivity extends AppCompatActivity {
         // Inicializar vistas
         btnUser = findViewById(R.id.btnUser);
         btnNotification = findViewById(R.id.btnNotification);
-        recyclerViewComics = findViewById(R.id.recyclerViewComics);
+        // recyclerViewComics = findViewById(R.id.recyclerViewComics);
         Button btnSeeMore = findViewById(R.id.btnSeeMore);
 
         // Configuración de los botones de usuario y notificación

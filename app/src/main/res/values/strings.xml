@@ -140,13 +140,13 @@
     <string name="deadpool_image_desc">Imagen de Deadpool</string>
     <string name="gwenpool_image_desc">Imagen de Gwenpool</string>
 
-   <!-- Cómics -->
+    <!-- Cómics -->
     <string name="deadpool_title">Deadpool</string>
     <string name="gwenpool_title">Gwenpool</string>
     <string name="bow_to_king">Bow to the King</string>
     <string name="strikes_back">Strikes Back</string>
     <string name="rating_4_9">4.9</string>
-
+    <string name="historial_de_compras">Historial de Compras</string>
 
 
 </resources>
