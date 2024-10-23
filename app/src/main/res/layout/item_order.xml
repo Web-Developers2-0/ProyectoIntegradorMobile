@@ -1,35 +1,108 @@
 
 
 
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
 
-<LinearLayout
+        <!-- Order Name -->
+        <TextView
+            android:id="@+id/textViewOrderNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="order number"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textColor="#000000"/>
+
+        <TextView
+            android:id="@+id/textViewUser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="user Name"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textColor="#000000"/>
 
 
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal">
 
-    <TextView
-        android:id="@+id/textViewUser"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-    <TextView
-        android:id="@+id/textViewOrderNumber"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        <!-- Order Date -->
+        <TextView
+            android:id="@+id/textViewOrderDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="09 Jan, 2021"
+            android:textSize="12sp"
+            android:textColor="#666666"/>
+
+        <TextView
+            android:id="@+id/textViewShippingMethod"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:id="@+id/textViewOrderItems"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:id="@+id/textViewPaymentStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <!-- Horizontal layout for amount and status -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="end"
+            android:layout_marginTop="8dp">
+            <TextView
+                android:id="@+id/textViewPaymentMethod"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:layout_gravity="center_vertical"
+                android:textColor="#000000"
+                />
+            <!-- Total Amount -->
+            <TextView
+                android:id="@+id/textViewTotalAmount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="₹ 1,155"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:layout_gravity="center_vertical"
+                android:textColor="#000000"/>
+
+            <!-- Status Button -->
+            <Button
+                android:id="@+id/textViewState"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Released"
+                android:textColor="#0000FF"
+                android:background="@android:color/transparent"
+                android:layout_marginStart="16dp"/>
+        </LinearLayout>
+    </LinearLayout>
+
+<!--
     <TextView
         android:id="@+id/textViewOrder"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
     <TextView
-        android:id="@+id/textViewState"
+        android:id="@+id/"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
     <TextView
-        android:id="@+id/textViewOrderDate"
+        android:id="@+id/"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
@@ -57,4 +130,7 @@
         android:id="@+id/textViewOrderItems"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
-</LinearLayout>
+-->
+
+
+

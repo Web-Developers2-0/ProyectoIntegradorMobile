@@ -2,13 +2,14 @@ package com.example.planetsuperheroes.network;
 
 import com.example.planetsuperheroes.models.LoginRequest;
 import com.example.planetsuperheroes.models.LoginResponse;
+import com.example.planetsuperheroes.models.Order;
 import com.example.planetsuperheroes.models.Product;
 import com.example.planetsuperheroes.models.User;
-import com.example.planetsuperheroes.models.Order;
 import com.example.planetsuperheroes.models.UserCrudInfo;
 import com.example.planetsuperheroes.models.UserResponse;
 
 import java.util.List;
+import java.util.Map;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -40,4 +41,6 @@ public interface ApiService {
     @GET("/api/orders/user/") //
     Call<List<Order>> obtenerOrders();
 
+    @POST("/api/orders/create/")
+    Call<Order> createOrder(@Body Map<String, Object> orderData);
 }

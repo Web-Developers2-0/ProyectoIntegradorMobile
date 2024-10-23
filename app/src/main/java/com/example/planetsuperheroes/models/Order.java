@@ -1,19 +1,15 @@
 package com.example.planetsuperheroes.models;
 
-import com.example.planetsuperheroes.models.OrderItem;
-
 import java.util.List;
 import com.google.gson.annotations.SerializedName;
 
 public class Order {
-    @SerializedName("id_order")
-    private int idOrder; // ID de la orden
 
     @SerializedName("user")
-    private User user;
+    private int user; // Cambiar a int si es un ID
 
     @SerializedName("state")
-    private String state; // Estado de la orden
+    private String state;
 
     @SerializedName("order_date")
     private String orderDate; // Fecha de la orden
@@ -33,10 +29,15 @@ public class Order {
     @SerializedName("order_items")
     private List<OrderItem> orderItems; // Lista de ítems de la orden
 
-    // Constructor
-    public Order(int idOrder, User user, String state, String orderDate, String paymentMethod,
+    // Constructor vacío
+    public Order() {
+        // Constructor vacío
+    }
+
+    // Constructor con todos los campos
+    public Order( int user, String state, String orderDate, String paymentMethod,
                  String shippingMethod, String paymentStatus, double totalAmount, List<OrderItem> orderItems) {
-        this.idOrder = idOrder;
+
         this.user = user;
         this.state = state;
         this.orderDate = orderDate;
@@ -47,21 +48,13 @@ public class Order {
         this.orderItems = orderItems;
     }
 
-    // Getters y Setters
-    public int getIdOrder() {
-        return idOrder;
+
+    public int getUser() {
+        return user; // Cambia el tipo de retorno si es necesario
     }
 
-    public void setIdOrder(int idOrder) {
-        this.idOrder = idOrder;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
+    public void setUserId(int userId) {
+        this.user = userId; // Cambia el método según el tipo de 'user'
     }
 
     public String getState() {
@@ -123,8 +116,8 @@ public class Order {
     @Override
     public String toString() {
         return "Order{" +
-                "idOrder=" + idOrder +
-                ", user='" + user + '\'' +
+
+                ", user=" + user +
                 ", state='" + state + '\'' +
                 ", orderDate='" + orderDate + '\'' +
                 ", paymentMethod='" + paymentMethod + '\'' +
