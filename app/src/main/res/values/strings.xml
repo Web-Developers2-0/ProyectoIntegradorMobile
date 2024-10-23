@@ -54,6 +54,12 @@
     <string name="google_button_description">Sign in with Google</string>
     <string name="facebook_button_description">Sign in with Facebook</string>
 
+    <string name="text_first_name">First Name</string>
+    <string name="text_last_name">Last Name</string>
+    <string name="hint_ingresar_first_name">Introduce tu first name</string>
+    <string name="hint_ingresar_last_name">Introduce tu last name</string>
+
+
     <!-- Strings para la Actividad Main -->
 
     <string name="welcome_title">¡BIENVENIDOS A PLANET SUPER HEROES!</string>
