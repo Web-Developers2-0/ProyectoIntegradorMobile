@@ -12,7 +12,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class Settings extends AppCompatActivity {
     private ImageButton imageButtonProfile;
-
+    private ImageButton flechaBotonHistorialCompra;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,11 +20,18 @@ public class Settings extends AppCompatActivity {
         setContentView(R.layout.activity_settings);
 
         imageButtonProfile = findViewById(R.id.imageButtonProfile);
-
+        flechaBotonHistorialCompra = findViewById(R.id.flechaBotonHistorialCompra);
         imageButtonProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Settings.this, infoPersonal.class);
+                startActivity(intent);
+            }
+        });
+        flechaBotonHistorialCompra.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Settings.this, Historial_Compras.class);
                 startActivity(intent);
             }
         });

@@ -6,21 +6,20 @@ import java.util.List;
 
 public class Order {
     private int id_order;
-    private String user;
+    private String id_user;
     private String state;
     private String order_date;
     private String payment_method;
     private String shipping_method;
     private String payment_status;
     private String total_amount;
-    private List<OrderItem> order_items;
 
     // Getters y setters para cada campo
     public int getIdOrder() { return id_order; }
     public void setIdOrder(int id_order) { this.id_order = id_order; }
 
-    public String getUser() { return user; }
-    public void setUser(String user) { this.user = user; }
+    public String getUser() { return id_user; }
+    public void setUser(String user) { this.id_user = user; }
 
     public String getState() { return state; }
     public void setState(String state) { this.state = state; }
@@ -39,8 +38,5 @@ public class Order {
 
     public String getTotalAmount() { return total_amount; }
     public void setTotalAmount(String total_amount) { this.total_amount = total_amount; }
-
-    public List<OrderItem> getOrderItems() { return order_items; }
-    public void setOrderItems(List<OrderItem> order_items) { this.order_items = order_items; }
 }
 

@@ -342,8 +342,17 @@
                         android:textColor="@color/on_primary_dark"
                         android:textSize="18sp" />
 
-                    <ImageButton
+                   <!-- <ImageButton
                         android:id="@+id/flechaBotonTerminos"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="16dp"
+                        android:background="?android:attr/selectableItemBackgroundBorderless"
+                        android:contentDescription="@string/flechabotonterminos"
+                        app:srcCompat="@drawable/flecha" />
+                     -->
+                    <ImageButton
+                        android:id="@+id/flechaBotonHistorialCompra"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:padding="16dp"

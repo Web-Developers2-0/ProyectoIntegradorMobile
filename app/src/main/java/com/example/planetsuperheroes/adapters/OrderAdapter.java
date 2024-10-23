@@ -41,18 +41,19 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.OrderViewHol
         holder.textViewPaymentStatus.setText(order.getPaymentStatus() != null ? order.getPaymentStatus() : "N/A");
         holder.textViewTotalAmount.setText(order.getTotalAmount() != null ? order.getTotalAmount().toString() : "0.00");
 
+
         // Mostrar los items de la orden
-        StringBuilder itemsText = new StringBuilder();
-        if (order.getOrderItems() != null && !order.getOrderItems().isEmpty()) {
-            for (OrderItem item : order.getOrderItems()) {
-                String productName = item.getProduct() != null ? item.getProduct() : "N/A"; // Asegúrate de que getProduct() retorna un String.
-                itemsText.append("Producto: ").append(productName)
-                        .append(", Cantidad: ").append(item.getQuantity()).append("\n");
-            }
-        } else {
-            itemsText.append("No hay artículos en esta orden.");
-        }
-        holder.textViewOrderItems.setText(itemsText.toString());
+//        StringBuilder itemsText = new StringBuilder();
+//        if (order.getOrderItems() != null && !order.getOrderItems().isEmpty()) {
+//            for (OrderItem item : order.getOrderItems()) {
+//                String productName = item.getProduct() != null ? item.getProduct() : "N/A"; // Asegúrate de que getProduct() retorna un String.
+//                itemsText.append("Producto: ").append(productName)
+//                        .append(", Cantidad: ").append(item.getQuantity()).append("\n");
+//            }
+//        } else {
+//            itemsText.append("No hay artículos en esta orden.");
+//        }
+   //     holder.textViewOrderItems.setText(itemsText.toString());
     }
 
     @Override
