@@ -2,6 +2,7 @@ package com.example.planetsuperheroes.network;
 
 import com.example.planetsuperheroes.models.LoginRequest;
 import com.example.planetsuperheroes.models.LoginResponse;
+import com.example.planetsuperheroes.models.Order;
 import com.example.planetsuperheroes.models.Product;
 import com.example.planetsuperheroes.models.User;
 import com.example.planetsuperheroes.models.UserCrudInfo;
@@ -36,4 +37,6 @@ public interface ApiService {
     @GET("/api/products/{id}/")
     Call<Product> getProduct(@Path("id") int productId);
 
+    @POST("/api/orders/create/")
+    Call<Order> createOrder(@Body Order order);
 }

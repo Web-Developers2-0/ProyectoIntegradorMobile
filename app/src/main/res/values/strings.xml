@@ -164,4 +164,7 @@
     <string name="settings_icon">Settings icon</string>
 
 
+        <string name="cart_icon_desc">Carrito de compras</string>
+
+
 </resources>
