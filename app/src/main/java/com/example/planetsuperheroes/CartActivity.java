@@ -19,7 +19,9 @@ import com.example.planetsuperheroes.network.ApiService;
 import com.example.planetsuperheroes.network.RetrofitClient;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -110,11 +112,28 @@ public class CartActivity extends AppCompatActivity {
     }
 
     private void createOrder(List<OrderItem> orderItems, double totalAmount) {
-        // Crear un nuevo objeto Order con los datos necesarios
-        Order newOrder = new Order(userId, "pending", "2024-10-23", "credit_card", "standard", "unpaid", totalAmount, orderItems);
+        // Crear un nuevo mapa para la solicitud
+        Map<String, Object> orderData = new HashMap<>();
+        orderData.put("state", "pending");
+        orderData.put("payment_method", "credit_card");
+        orderData.put("shipping_method", "standard");
+        orderData.put("payment_status", "unpaid");
+        orderData.put("total_amount", totalAmount);
+
+        // Crear la lista de order_items
+        List<Map<String, Object>> orderItemsList = new ArrayList<>();
+        for (OrderItem item : orderItems) {
+            Map<String, Object> orderItemMap = new HashMap<>();
+            orderItemMap.put("product", item.getProduct()); // Aquí asegúrate de que getProduct() retorne el ID del producto
+            orderItemMap.put("quantity", item.getQuantity());
+            orderItemsList.add(orderItemMap);
+        }
+
+        // Agregar la lista de order_items al mapa de orderData
+        orderData.put("order_items", orderItemsList);
 
         // Llamar al método para crear la orden
-        Call<Order> call = apiService.createOrder(newOrder); // Asegúrate de que este método esté definido en ApiService
+        Call<Order> call = apiService.createOrder(orderData); // Asegúrate de que este método esté definido en ApiService
         call.enqueue(new Callback<Order>() {
             @Override
             public void onResponse(Call<Order> call, Response<Order> response) {
@@ -122,7 +141,7 @@ public class CartActivity extends AppCompatActivity {
                     Order createdOrder = response.body();
                     // Manejar la respuesta exitosa (orden creada)
                     Log.d("CartActivity", "Orden creada: " + createdOrder);
-                    // Aquí puedes mostrar un mensaje de éxito o hacer otra cosa
+                    Toast.makeText(CartActivity.this, "Orden creada con éxito!", Toast.LENGTH_SHORT).show();
                 } else {
                     Log.e("CartActivity", "Error al crear la orden: " + response.code());
                 }

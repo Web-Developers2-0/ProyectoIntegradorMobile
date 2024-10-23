@@ -9,6 +9,7 @@ import com.example.planetsuperheroes.models.UserCrudInfo;
 import com.example.planetsuperheroes.models.UserResponse;
 
 import java.util.List;
+import java.util.Map;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -38,5 +39,5 @@ public interface ApiService {
     Call<Product> getProduct(@Path("id") int productId);
 
     @POST("/api/orders/create/")
-    Call<Order> createOrder(@Body Order order);
+    Call<Order> createOrder(@Body Map<String, Object> orderData);
 }
