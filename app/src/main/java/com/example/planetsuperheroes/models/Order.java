@@ -10,7 +10,7 @@ public class Order {
     private int idOrder; // ID de la orden
 
     @SerializedName("user")
-    private String user; // ID del usuario
+    private User user;
 
     @SerializedName("state")
     private String state; // Estado de la orden
@@ -34,7 +34,7 @@ public class Order {
     private List<OrderItem> orderItems; // Lista de ítems de la orden
 
     // Constructor
-    public Order(int idOrder, String user, String state, String orderDate, String paymentMethod,
+    public Order(int idOrder, User user, String state, String orderDate, String paymentMethod,
                  String shippingMethod, String paymentStatus, double totalAmount, List<OrderItem> orderItems) {
         this.idOrder = idOrder;
         this.user = user;
@@ -56,11 +56,11 @@ public class Order {
         this.idOrder = idOrder;
     }
 
-    public String getUser() {
+    public User getUser() {
         return user;
     }
 
-    public void setUser(String user) {
+    public void setUser(User user) {
         this.user = user;
     }
 

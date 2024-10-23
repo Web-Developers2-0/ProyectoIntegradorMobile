@@ -52,6 +52,7 @@ public class Historial_Compras extends AppCompatActivity {
             @Override
             public void onFailure(Call<List<Order>> call, Throwable t) {
                 Log.e("HistorialCompras", "Error: " + t.getMessage());
+                Log.e("HistorialCompras", "Error al obtener órdenes", t);
                 Toast.makeText(Historial_Compras.this, "Error de conexión", Toast.LENGTH_SHORT).show();
             }
         });
