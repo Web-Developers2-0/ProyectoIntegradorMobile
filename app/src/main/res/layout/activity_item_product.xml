@@ -27,8 +27,8 @@
         app:layout_constraintBottom_toTopOf="@+id/productDescription"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/productImage"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white"
+        android:textColor="@color/text_primary_dark"
+        android:textColorHint="@color/text_primary_dark"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -39,8 +39,8 @@
         app:layout_constraintBottom_toTopOf="@+id/productPrice"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.403"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white"
+        android:textColor="@color/text_primary_dark"
+        android:textColorHint="@color/text_primary_dark"
         app:layout_constraintStart_toEndOf="@+id/productImage"
         app:layout_constraintTop_toBottomOf="@+id/productName" />
 
@@ -50,8 +50,8 @@
         android:layout_height="wrap_content"
         android:textAppearance="?attr/textAppearanceListItem"
         app:layout_constraintEnd_toEndOf="parent"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white"
+        android:textColor="@color/text_primary_dark"
+        android:textColorHint="@color/text_primary_dark"
         app:layout_constraintStart_toEndOf="@+id/productImage"
         app:layout_constraintTop_toBottomOf="@+id/productDescription"
         app:layout_constraintBottom_toBottomOf="parent"/>
