@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Fondo claro de la tarjeta seleccionada -->
+    <solid android:color="@color/background_day"/>
+
+    <!-- Borde rojo oscuro de la tarjeta seleccionada -->
+    <stroke
+        android:width="2dp"
+        android:color="@color/dark_red"/>
+
+    <!-- Bordes redondeados -->
+    <corners android:radius="8dp"/>
+</shape>
