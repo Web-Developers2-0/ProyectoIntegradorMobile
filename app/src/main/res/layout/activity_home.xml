@@ -41,31 +41,35 @@
 
 
     <!-- Botón de notificaciones -->
-    <ImageButton
-        android:id="@+id/btnNotification"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_marginStart="290dp"
-        android:layout_marginTop="40dp"
-        android:background="#262626"
-        android:src="@drawable/notification"
-        android:contentDescription="@string/notification_desc"/>
 
 
     <!-- Botón de carrito de compras -->
+
+    <!-- Título principal -->
+
+    <ImageButton
+        android:id="@+id/btnNotification"
+        android:layout_width="50dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="290dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="10dp"
+        android:background="#262626"
+        android:contentDescription="@string/notification_desc"
+        android:src="@drawable/notification" />
+
     <ImageButton
         android:id="@+id/btnCart"
-        android:layout_width="80dp"
+        android:layout_width="50dp"
         android:layout_height="80dp"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="40dp"
-        android:layout_marginEnd="80dp"
+        android:layout_marginEnd="117dp"
         android:background="#262626"
+        android:contentDescription="@string/cart_desc"
         android:src="@drawable/cart"
-        app:tint="@android:color/white"
-        android:contentDescription="@string/cart_desc"/>
+        app:tint="@android:color/white" />
 
-    <!-- Título principal -->
     <TextView
         android:id="@+id/mainViewTitle"
         android:layout_width="wrap_content"
@@ -110,7 +114,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_below="@id/btnDC"
-        android:layout_marginTop="2dp"
+        android:layout_marginTop="20dp"
         android:layout_marginStart="40dp"
         android:fontFamily="@font/bangersregular"
         android:text="@string/mas_populares"
@@ -124,7 +128,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_below="@id/btnDC"
-        android:layout_marginTop="2dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="40dp"
         android:backgroundTint="@color/primary_button"
         android:fontFamily="@font/bangersregular"

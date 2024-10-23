@@ -58,7 +58,7 @@ public class RegistroActivity extends AppCompatActivity {
                                 Toast.makeText(RegistroActivity.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
                                 if (response.body().isSuccess()) {
                                     // Redireccionar a la pantalla principal después del registro exitoso
-                                    Intent intent = new Intent(RegistroActivity.this, HomeActivity.class);
+                                    Intent intent = new Intent(RegistroActivity.this, LoginActivity.class);
                                     startActivity(intent);
                                 }
                             } else {
