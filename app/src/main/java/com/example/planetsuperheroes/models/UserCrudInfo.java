@@ -96,4 +96,4 @@ public class UserCrudInfo {
                 ", address='" + address + '\'' +
                 '}';
     }
-    }
+}
