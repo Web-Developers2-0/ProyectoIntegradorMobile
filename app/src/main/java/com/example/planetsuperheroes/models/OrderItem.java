@@ -1,17 +1,32 @@
 package com.example.planetsuperheroes.models;
 
+import com.google.gson.annotations.SerializedName;
+
 public class OrderItem {
-    private int id_order_items;
-    private String product;
+    @SerializedName("id_product") // Este es el ID del producto que estás enviando
+    private int product; // Cambiado a 'product' para reflejar mejor el uso
+    @SerializedName("quantity")
     private int quantity;
 
-    // Getters y setters para cada campo
-    public int getIdOrderItems() { return id_order_items; }
-    public void setIdOrderItems(int id_order_items) { this.id_order_items = id_order_items; }
+    public OrderItem(int product, int quantity) { // Cambia String a int
+        this.product = product; // Asegúrate de que esto se corresponda con el ID del producto
+        this.quantity = quantity;
+    }
 
-    public String getProduct() { return product; }
-    public void setProduct(String product) { this.product = product; }
+    // Getters y Setters
+    public int getProduct() {
+        return product;
+    }
 
-    public int getQuantity() { return quantity; }
-    public void setQuantity(int quantity) { this.quantity = quantity; }
+    public void setProduct(int product) {
+        this.product = product;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
 }

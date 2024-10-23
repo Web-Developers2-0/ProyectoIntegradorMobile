@@ -3,40 +3,135 @@ package com.example.planetsuperheroes.models;
 import com.example.planetsuperheroes.models.OrderItem;
 
 import java.util.List;
+import com.google.gson.annotations.SerializedName;
 
 public class Order {
-    private int id_order;
-    private String id_user;
-    private String state;
-    private String order_date;
-    private String payment_method;
-    private String shipping_method;
-    private String payment_status;
-    private String total_amount;
+    @SerializedName("id_order")
+    private int idOrder; // ID de la orden
 
-    // Getters y setters para cada campo
-    public int getIdOrder() { return id_order; }
-    public void setIdOrder(int id_order) { this.id_order = id_order; }
+    @SerializedName("user")
+    private String user; // ID del usuario
 
-    public String getUser() { return id_user; }
-    public void setUser(String user) { this.id_user = user; }
+    @SerializedName("state")
+    private String state; // Estado de la orden
 
-    public String getState() { return state; }
-    public void setState(String state) { this.state = state; }
+    @SerializedName("order_date")
+    private String orderDate; // Fecha de la orden
 
-    public String getOrderDate() { return order_date; }
-    public void setOrderDate(String order_date) { this.order_date = order_date; }
+    @SerializedName("payment_method")
+    private String paymentMethod; // Método de pago
 
-    public String getPaymentMethod() { return payment_method; }
-    public void setPaymentMethod(String payment_method) { this.payment_method = payment_method; }
+    @SerializedName("shipping_method")
+    private String shippingMethod; // Método de envío
 
-    public String getShippingMethod() { return shipping_method; }
-    public void setShippingMethod(String shipping_method) { this.shipping_method = shipping_method; }
+    @SerializedName("payment_status")
+    private String paymentStatus; // Estado del pago
 
-    public String getPaymentStatus() { return payment_status; }
-    public void setPaymentStatus(String payment_status) { this.payment_status = payment_status; }
+    @SerializedName("total_amount")
+    private double totalAmount; // Monto total
 
-    public String getTotalAmount() { return total_amount; }
-    public void setTotalAmount(String total_amount) { this.total_amount = total_amount; }
+    @SerializedName("order_items")
+    private List<OrderItem> orderItems; // Lista de ítems de la orden
+
+    // Constructor
+    public Order(int idOrder, String user, String state, String orderDate, String paymentMethod,
+                 String shippingMethod, String paymentStatus, double totalAmount, List<OrderItem> orderItems) {
+        this.idOrder = idOrder;
+        this.user = user;
+        this.state = state;
+        this.orderDate = orderDate;
+        this.paymentMethod = paymentMethod;
+        this.shippingMethod = shippingMethod;
+        this.paymentStatus = paymentStatus;
+        this.totalAmount = totalAmount;
+        this.orderItems = orderItems;
+    }
+
+    // Getters y Setters
+    public int getIdOrder() {
+        return idOrder;
+    }
+
+    public void setIdOrder(int idOrder) {
+        this.idOrder = idOrder;
+    }
+
+    public String getUser() {
+        return user;
+    }
+
+    public void setUser(String user) {
+        this.user = user;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    public String getOrderDate() {
+        return orderDate;
+    }
+
+    public void setOrderDate(String orderDate) {
+        this.orderDate = orderDate;
+    }
+
+    public String getPaymentMethod() {
+        return paymentMethod;
+    }
+
+    public void setPaymentMethod(String paymentMethod) {
+        this.paymentMethod = paymentMethod;
+    }
+
+    public String getShippingMethod() {
+        return shippingMethod;
+    }
+
+    public void setShippingMethod(String shippingMethod) {
+        this.shippingMethod = shippingMethod;
+    }
+
+    public String getPaymentStatus() {
+        return paymentStatus;
+    }
+
+    public void setPaymentStatus(String paymentStatus) {
+        this.paymentStatus = paymentStatus;
+    }
+
+    public double getTotalAmount() {
+        return totalAmount;
+    }
+
+    public void setTotalAmount(double totalAmount) {
+        this.totalAmount = totalAmount;
+    }
+
+    public List<OrderItem> getOrderItems() {
+        return orderItems;
+    }
+
+    public void setOrderItems(List<OrderItem> orderItems) {
+        this.orderItems = orderItems;
+    }
+
+    @Override
+    public String toString() {
+        return "Order{" +
+                "idOrder=" + idOrder +
+                ", user='" + user + '\'' +
+                ", state='" + state + '\'' +
+                ", orderDate='" + orderDate + '\'' +
+                ", paymentMethod='" + paymentMethod + '\'' +
+                ", shippingMethod='" + shippingMethod + '\'' +
+                ", paymentStatus='" + paymentStatus + '\'' +
+                ", totalAmount=" + totalAmount +
+                ", orderItems=" + orderItems +
+                '}';
+    }
 }
-

@@ -6,7 +6,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorBackground"
+    android:background="@color/black"
     tools:context=".Products_destacados">
 
     <!-- ScrollView para permitir scroll vertical -->
@@ -35,7 +35,7 @@
                 android:layout_marginBottom="8dp"
                 android:fontFamily="@font/bangersregular"
                 android:text="@string/destacados"
-                android:textColor="@color/white"
+                android:textColor="@color/text_primary_dark"
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
@@ -66,7 +66,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Final Crisis"
-                    android:textColor="@color/white"
+                    android:textColor="@color/text_primary_dark"
                     android:textSize="16sp" />
 
                 <TextView
@@ -74,7 +74,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="La crisis final"
-                    android:textColor="@color/white"
+                    android:textColor="@color/text_primary_dark"
                     android:textSize="14sp" />
 
                 <LinearLayout
@@ -89,7 +89,7 @@
                         android:layout_width="24dp"
                         android:layout_height="24dp"
                         android:layout_gravity="start"
-                        android:background="@color/colorAccent"
+                        android:background="@color/color_accent"
                         android:contentDescription="@string/todo"
                         android:src="@drawable/product_vector_carrito" />
 
@@ -102,7 +102,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="4dp"
-                        android:background="@color/grey"
+                        android:background="@color/text_alternative_dark"
                         android:text="@string/_4_9"
                         android:textColor="@color/black" />
 
@@ -119,7 +119,7 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@color/colorBackground"
+                android:background="@color/black"
                 android:orientation="vertical"
                 android:padding="8dp">
 
@@ -133,14 +133,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Superman"
-                    android:textColor="@color/white"
+                    android:textColor="@color/text_primary_dark"
                     android:textSize="16sp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="la muerte de Superman"
-                    android:textColor="@color/white"
+                    android:textColor="@color/text_primary_dark"
                     android:textSize="14sp" />
 
                 <LinearLayout
@@ -155,7 +155,7 @@
                         android:layout_width="24dp"
                         android:layout_height="24dp"
                         android:layout_gravity="start"
-                        android:background="@color/colorAccent"
+                        android:background="@color/color_accent"
                         android:contentDescription="@string/todo"
                         android:src="@drawable/product_vector_carrito" />
 
@@ -168,7 +168,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="4dp"
-                        android:background="@color/grey"
+                        android:background="@color/text_alternative_dark"
                         android:text="@string/_4_9"
                         android:textColor="@color/black" />
 
@@ -198,7 +198,7 @@
                 android:layout_marginBottom="8dp"
                 android:fontFamily="@font/bangersregular"
                 android:text="@string/pre_venta"
-                android:textColor="@color/colorAccent"
+                android:textColor="@color/color_accent"
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
@@ -223,14 +223,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Spiderman"
-                    android:textColor="@color/white"
+                    android:textColor="@color/text_primary_dark"
                     android:textSize="16sp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="El increible hombre "
-                    android:textColor="@color/white"
+                    android:textColor="@color/text_primary_dark"
                     android:textSize="14sp" />
 
                 <LinearLayout
@@ -245,7 +245,7 @@
                         android:layout_width="24dp"
                         android:layout_height="24dp"
                         android:layout_gravity="start"
-                        android:background="@color/colorAccent"
+                        android:background="@color/color_accent"
                         android:contentDescription="@string/todo"
                         android:src="@drawable/product_vector_carrito" />
 
@@ -258,7 +258,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="4dp"
-                        android:background="@color/grey"
+                        android:background="@color/text_alternative_dark"
                         android:text="@string/_4_9"
                         android:textColor="@color/black" />
 
@@ -286,14 +286,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Capitan America"
-                    android:textColor="@color/white"
+                    android:textColor="@color/text_primary_dark"
                     android:textSize="16sp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Imperio"
-                    android:textColor="@color/white"
+                    android:textColor="@color/text_primary_dark"
                     android:textSize="14sp" />
 
                 <LinearLayout
@@ -308,7 +308,7 @@
                         android:layout_width="24dp"
                         android:layout_height="24dp"
                         android:layout_gravity="start"
-                        android:background="@color/colorAccent"
+                        android:background="@color/color_accent"
                         android:contentDescription="@string/todo"
                         android:src="@drawable/product_vector_carrito" />
 
@@ -322,7 +322,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="4dp"
-                        android:background="@color/grey"
+                        android:background="@color/text_alternative_dark"
                         android:text="@string/_4_9"
                         android:textColor="@color/black" />
 
