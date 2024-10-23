@@ -7,6 +7,14 @@
     android:background="#262626"
     tools:context=".HomeActivity">
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewComics"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_mas_populares"
+        android:layout_marginTop="10dp"
+        android:scrollbars="horizontal"/>
+
     <!-- Saludo al usuario -->
     <TextView
         android:id="@+id/textViewTitle"
@@ -31,31 +39,37 @@
         android:src="@drawable/gatitoinfo"
         android:contentDescription="@string/user_image_desc"/>
 
+
     <!-- Botón de notificaciones -->
+
+
+    <!-- Botón de carrito de compras -->
+
+    <!-- Título principal -->
+
     <ImageButton
         android:id="@+id/btnNotification"
-        android:layout_width="80dp"
+        android:layout_width="50dp"
         android:layout_height="80dp"
         android:layout_marginStart="290dp"
         android:layout_marginTop="40dp"
+        android:layout_marginEnd="10dp"
         android:background="#262626"
-        android:src="@drawable/notification"
-        android:contentDescription="@string/notification_desc"/>
+        android:contentDescription="@string/notification_desc"
+        android:src="@drawable/notification" />
 
-    <!-- Botón de carrito de compras -->
     <ImageButton
         android:id="@+id/btnCart"
-        android:layout_width="80dp"
+        android:layout_width="50dp"
         android:layout_height="80dp"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="40dp"
-        android:layout_marginEnd="80dp"
+        android:layout_marginEnd="117dp"
         android:background="#262626"
+        android:contentDescription="@string/cart_desc"
         android:src="@drawable/cart"
-        app:tint="@android:color/white"
-        android:contentDescription="@string/cart_desc"/>
+        app:tint="@android:color/white" />
 
-    <!-- Título principal -->
     <TextView
         android:id="@+id/mainViewTitle"
         android:layout_width="wrap_content"
@@ -100,7 +114,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_below="@id/btnDC"
-        android:layout_marginTop="2dp"
+        android:layout_marginTop="20dp"
         android:layout_marginStart="40dp"
         android:fontFamily="@font/bangersregular"
         android:text="@string/mas_populares"
@@ -114,7 +128,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_below="@id/btnDC"
-        android:layout_marginTop="2dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="40dp"
         android:backgroundTint="@color/primary_button"
         android:fontFamily="@font/bangersregular"
@@ -122,170 +136,6 @@
         android:textColor="@color/black"
         android:textSize="16sp" />
 
-    <!-- Tarjetas con cómics -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/tv_mas_populares"
-        android:orientation="horizontal"
-        android:layout_marginTop="10dp"
-        android:gravity="center">
 
-        <!-- Primera tarjeta estática: Comic 1 -->
-        <androidx.cardview.widget.CardView
-            xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="15dp"
-            app:cardCornerRadius="16dp"
-            app:cardElevation="4dp">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="8dp">
-
-                <!-- Imagen del cómic -->
-                <ImageView
-                    android:id="@+id/comic_image"
-                    android:layout_width="150dp"
-                    android:layout_height="120dp"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/marveldeadpool"
-                    android:contentDescription="@string/deadpool_image_desc"/>
-
-                <!-- Título del cómic -->
-                <TextView
-                    android:id="@+id/comic_title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/deadpool_title"
-                    android:textStyle="bold"
-                    android:textColor="@android:color/black"
-                    android:textSize="16sp"
-                    android:layout_marginTop="8dp"
-                    android:fontFamily="@font/interregular" />
-
-                <!-- Subtítulo -->
-                <TextView
-                    android:id="@+id/comic_subtitle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/bow_to_king"
-                    android:fontFamily="@font/interregular"
-                    android:textColor="@android:color/darker_gray"
-                    android:textSize="14sp" />
-
-                <!-- Rating del cómic -->
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical"
-                    android:layout_marginTop="4dp">
-
-                    <ImageView
-                        android:id="@+id/comic_star_icon"
-                        android:layout_width="16dp"
-                        android:layout_height="16dp"
-                        android:src="@drawable/product_star"
-                        android:drawableStart="@drawable/product_star"/>
-
-                    <TextView
-                        android:id="@+id/comic_rating"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/rating_4_9"
-                        android:textColor="@android:color/black"
-                        android:textSize="14sp"
-                        android:layout_marginStart="4dp" />
-                </LinearLayout>
-
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
-
-        <!-- Segunda tarjeta estática: Comic 2 -->
-        <androidx.cardview.widget.CardView
-            xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="15dp"
-            app:cardCornerRadius="16dp"
-            app:cardElevation="4dp">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="8dp">
-
-                <!-- Imagen del cómic -->
-                <ImageView
-                    android:id="@+id/comic_image_2"
-                    android:layout_width="150dp"
-                    android:layout_height="120dp"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/spiderman" />
-
-                <!-- Título del cómic -->
-                <TextView
-                    android:id="@+id/comic_title_2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textStyle="bold"
-                    android:textColor="@android:color/black"
-                    android:textSize="16sp"
-                    android:layout_marginTop="8dp"
-                    android:fontFamily="@font/interregular" />
-
-                <!-- Subtítulo -->
-                <TextView
-                    android:id="@+id/comic_subtitle_2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/interregular"
-                    android:textColor="@android:color/darker_gray"
-                    android:textSize="14sp" />
-
-                <!-- Rating del cómic -->
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical"
-                    android:layout_marginTop="4dp">
-
-                    <ImageView
-                        android:id="@+id/comic_star_icon_2"
-                        android:layout_width="16dp"
-                        android:layout_height="16dp"
-                        android:src="@drawable/product_star"
-                        android:drawableStart="@drawable/product_star"/>
-
-                    <TextView
-                        android:id="@+id/comic_rating_2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@android:color/black"
-                        android:textSize="14sp"
-                        android:layout_marginStart="4dp" />
-                </LinearLayout>
-
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
-    </LinearLayout>
-
-    <!-- RecyclerView para la lista de cómics -->
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewComics"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/tv_mas_populares"
-        android:layout_marginTop="10dp"
-        android:padding="8dp"
-        android:background="@android:color/transparent"/>
 
 </RelativeLayout>
