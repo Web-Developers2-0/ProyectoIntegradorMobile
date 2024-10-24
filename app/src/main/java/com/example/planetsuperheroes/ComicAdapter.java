@@ -30,7 +30,6 @@ public class ComicAdapter extends RecyclerView.Adapter<ComicAdapter.ComicViewHol
 
     @Override
     public void onBindViewHolder(@NonNull ComicViewHolder holder, int position) {
-        // Obtener el cómic de la posición actual
         Comic comic = comics.get(position);
 
         // Asignar datos a las vistas del ViewHolder
@@ -38,8 +37,8 @@ public class ComicAdapter extends RecyclerView.Adapter<ComicAdapter.ComicViewHol
         holder.comicSubtitle.setText(comic.getSubtitle());
         holder.comicRating.setText(String.valueOf(comic.getRating()));
 
-        // Opcional: si tienes imágenes dinámicas, puedes asignarlas aquí
-        // holder.comicImage.setImageResource(R.drawable.[your_image]);
+        // Asignar la imagen del cómic
+        holder.comicImage.setImageResource(comic.getImageResId());
     }
 
     @Override
