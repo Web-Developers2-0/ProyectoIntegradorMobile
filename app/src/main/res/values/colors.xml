@@ -3,12 +3,6 @@
     <color name="black">#FF000000</color>
     <color name="color_accent">#E4AC57</color>
     <color name="second_color_accent">#CD4747</color>
-    <color name="white">#EEE6D8</color>
-    <color name="colorAccent">#E4AC57</color>
-
-    <color name="labelinfoPersonal">#DFD8CC</color>
-    <color name="textdellabedlinfoPersonal">#808080</color>
-
     <!-- Colores Botones -->
     <color name="primary_button">#F7C272</color>
     <color name="primary_button_hover">#FAAB36</color>
@@ -29,7 +23,7 @@
 
     <!-- Paleta del sprint 1 -->
     <color name="white">#FFFFFFFF</color>
-    <color name="colorPrimary">#841212</color>
+    <color name="colorPrimary">#FF5733</color>
     <color name="colorAccent">#E4AC57</color>
     <color name="colorBackground">#1E1E1E</color>
     <color name="colorText">#FDD6A7</color>

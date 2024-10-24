@@ -1,0 +1,9 @@
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="@android:color/transparent" />
+    <!-- Define el color y grosor del borde -->
+    <stroke
+        android:width="2dp"
+        android:color="@android:color/holo_orange_light" />
+    <!-- Opcional: Añadir esquinas redondeadas -->
+    <corners android:radius="8dp" />
+</shape>

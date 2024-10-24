@@ -1,5 +1,6 @@
 <resources>
-    <string name="app_name">Planet Superheroes</string>
+    <string name="app_name">Planetsuperheroes</string>
+    <string name="welcome_message">Welcome to Planetsuperheroes\' world</string>
     <!--Strings para login-->
 
     <string name="ingresa_tus_datos">INGRESA TUS DATOS</string>
@@ -146,7 +147,7 @@
     <string name="bow_to_king">Bow to the King</string>
     <string name="strikes_back">Strikes Back</string>
     <string name="rating_4_9">4.9</string>
-
+    <string name="preguntas_frecuentes1">Preguntas Frecuentes</string>
 
 
 </resources>
