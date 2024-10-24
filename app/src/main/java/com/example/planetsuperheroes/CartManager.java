@@ -1,4 +1,3 @@
-// CartManager.java
 package com.example.planetsuperheroes;
 
 import com.example.planetsuperheroes.models.Product;

@@ -114,11 +114,11 @@ public class CartActivity extends AppCompatActivity {
     private void createOrder(List<OrderItem> orderItems, double totalAmount) {
         // Crear un nuevo mapa para la solicitud
         Map<String, Object> orderData = new HashMap<>();
-        orderData.put("state", "pending");
-        orderData.put("payment_method", "credit_card");
-        orderData.put("shipping_method", "standard");
-        orderData.put("payment_status", "unpaid");
-        orderData.put("total_amount", totalAmount);
+        //orderData.put("state", "pending");
+        //orderData.put("payment_method", "credit_card");
+        //orderData.put("shipping_method", "standard");
+        //orderData.put("payment_status", "pagado");
+        //orderData.put("total_amount", totalAmount);
 
         // Crear la lista de order_items
         List<Map<String, Object>> orderItemsList = new ArrayList<>();
