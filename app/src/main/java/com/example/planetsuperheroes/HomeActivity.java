@@ -7,12 +7,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 
 import com.example.planetsuperheroes.models.ProductActivity;
 
@@ -93,7 +93,25 @@ public class HomeActivity extends AppCompatActivity {
             int firstVisibleItem = layoutManager.findFirstVisibleItemPosition();
             recyclerViewComics.smoothScrollToPosition(firstVisibleItem + 1);
         });
+
+        // Configuración del botón del carrito (btnCart)
+        ImageButton btnCart = findViewById(R.id.btnCart);
+
+        btnCart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    Intent intent = new Intent(HomeActivity.this, CartActivity.class);
+                    startActivity(intent);
+                } catch (Exception e) {
+                    e.printStackTrace(); // Imprime la traza de la excepción
+                    Toast.makeText(HomeActivity.this, "Error al abrir el carrito: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
     }
+
 
     // Método para abrir actividad de productos
     private void openProductActivity(String category) {
