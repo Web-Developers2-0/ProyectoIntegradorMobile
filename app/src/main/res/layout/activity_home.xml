@@ -51,11 +51,11 @@
         android:contentDescription="@string/notification_desc"
         android:src="@drawable/notification" />
 
-    <!-- Botón de carrito de compras -->
     <ImageButton
         android:id="@+id/btnCart"
         android:layout_width="50dp"
         android:layout_height="80dp"
+
         android:layout_alignParentEnd="true"
         android:layout_marginTop="40dp"
         android:layout_marginEnd="117dp"
@@ -63,6 +63,9 @@
         android:contentDescription="@string/cart_desc"
         android:src="@drawable/cart"
         app:tint="@android:color/white" />
+
+
+
 
     <!-- Título principal -->
     <TextView
@@ -130,5 +133,8 @@
         android:text="@string/btn_seemore"
         android:textColor="@color/black"
         android:textSize="16sp" />
+
+
+
 
 </RelativeLayout>
