@@ -8,11 +8,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.planetsuperheroes.CartManager;
 import com.example.planetsuperheroes.R;
 
 import java.util.ArrayList;
@@ -57,12 +59,16 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
 
         holder.productRating.setText(String.valueOf(calification));
 
-
         holder.itemView.setOnClickListener(v -> {
             Log.d("ProductAdapter", "Item clickeado: " + product.getName() + ", ID: " + product.getId());
             Intent intent = new Intent(context, ProductDetailsActivity.class);
             intent.putExtra("productId", product.getId());
             context.startActivity(intent);
+        });
+
+        holder.btnAddToCart.setOnClickListener(v -> {
+            CartManager.getInstance().addProductToCart(product); // Agrega el producto al carrito
+            Toast.makeText(context, product.getName() + " agregado al carrito", Toast.LENGTH_SHORT).show();
         });
     }
 
@@ -76,6 +82,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
         ImageView productImage;
         TextView productRating;
         ImageView star1, star2, star3, star4, star5;
+        View btnAddToCart; // Asegúrate de declarar el botón aquí
 
         public ViewHolder(View itemView) {
             super(itemView);
@@ -87,9 +94,9 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
             star3 = itemView.findViewById(R.id.star3);
             star4 = itemView.findViewById(R.id.star4);
             star5 = itemView.findViewById(R.id.star5);
+            btnAddToCart = itemView.findViewById(R.id.btnAddToCart);
         }
     }
-
 
 
 
@@ -104,3 +111,4 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
         }
     }
 }
+

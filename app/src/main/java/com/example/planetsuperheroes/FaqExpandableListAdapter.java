@@ -63,9 +63,9 @@ public class FaqExpandableListAdapter extends BaseExpandableListAdapter {
         String question = (String) getGroup(groupPosition);
         if (convertView == null) {
             LayoutInflater inflater = (LayoutInflater) this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = inflater.inflate(android.R.layout.simple_expandable_list_item_1, null);
+            convertView = inflater.inflate(R.layout.list_item, null); // Cambiado a tu diseño personalizado
         }
-        TextView questionText = (TextView) convertView.findViewById(android.R.id.text1);
+        TextView questionText = (TextView) convertView.findViewById(R.id.item_title);
         questionText.setText(question);
         return convertView;
     }
@@ -75,9 +75,9 @@ public class FaqExpandableListAdapter extends BaseExpandableListAdapter {
         final String answer = (String) getChild(groupPosition, childPosition);
         if (convertView == null) {
             LayoutInflater inflater = (LayoutInflater) this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = inflater.inflate(android.R.layout.simple_list_item_1, null);
+            convertView = inflater.inflate(R.layout.list_item, null); // Cambiado a tu diseño personalizado
         }
-        TextView answerText = (TextView) convertView.findViewById(android.R.id.text1);
+        TextView answerText = (TextView) convertView.findViewById(R.id.item_title);
         answerText.setText(answer);
         return convertView;
     }

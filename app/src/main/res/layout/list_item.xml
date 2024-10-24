@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="8dp"
+    android:background="@drawable/item_border"> <!-- Referencia al drawable de borde -->
+
+    <TextView
+        android:id="@+id/item_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Título del ítem"
+        android:textSize="18sp"
+        android:textColor="@android:color/black"
+        android:padding="8dp" />
+
+    <!-- Aquí puedes añadir otros componentes dentro del ítem, como subtítulos o imágenes -->
+
+</LinearLayout>

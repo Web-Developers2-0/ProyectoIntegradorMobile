@@ -1,0 +1,131 @@
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#2B2E30"
+    tools:context=".CheckoutActivity">
+
+    <!-- Título del Checkout -->
+    <TextView
+        android:id="@+id/checkout_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="CHECKOUT"
+        android:textColor="@android:color/white"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Información de Pago -->
+    <TextView
+        android:id="@+id/personal_info_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Información Tarjeta de Pago"
+        android:textColor="#FFCC00"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/checkout_title" />
+
+    <!-- Nombre en la Tarjeta -->
+    <EditText
+        android:id="@+id/card_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@android:color/white"
+        android:hint="Nombre de la tarjeta"
+        android:padding="16dp"
+        android:textColor="@android:color/black"
+        android:textColorHint="#888"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/personal_info_label"
+        app:layout_constraintWidth_percent="0.9" />
+
+    <!-- Número de Tarjeta -->
+    <EditText
+        android:id="@+id/card_number_input"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@android:color/white"
+        android:hint="Número de tarjeta"
+        android:inputType="number"
+        android:padding="16dp"
+        android:textColor="@android:color/black"
+        android:textColorHint="#888"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/card_name"
+        app:layout_constraintWidth_percent="0.9" />
+
+    <!-- Fecha de Expiración -->
+    <EditText
+        android:id="@+id/expiry_date_input"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@android:color/white"
+        android:hint="Fecha Exp (MM/AA)"
+        android:inputType="date"
+        android:padding="16dp"
+        android:textColor="@android:color/black"
+        android:textColorHint="#888"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/card_number_input"
+        app:layout_constraintWidth_percent="0.9" />
+
+    <!-- CVV -->
+    <EditText
+        android:id="@+id/cvv_input"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@android:color/white"
+        android:hint="CVV"
+        android:inputType="numberPassword"
+        android:maxLength="4"
+        android:padding="16dp"
+        android:textColor="@android:color/black"
+        android:textColorHint="#888"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/expiry_date_input"
+        app:layout_constraintWidth_percent="0.9" />
+
+    <!-- Botón Comprar -->
+    <Button
+        android:id="@+id/buy_button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="#FFCC00"
+        android:text="Comprar"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cvv_input"
+        app:layout_constraintWidth_percent="0.5" />
+
+    <!-- Imagen de logo -->
+    <ImageView
+        android:id="@+id/logo_image"
+        android:layout_width="198dp"
+        android:layout_height="136dp"
+        android:layout_marginTop="24dp"
+        android:src="@drawable/logoplanet"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/buy_button" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

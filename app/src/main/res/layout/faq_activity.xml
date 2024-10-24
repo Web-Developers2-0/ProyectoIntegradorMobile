@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorBackground"
+    android:background="@color/background_dark"
     tools:context=".FaqActivity">
 
     <!-- Título "Preguntas Frecuentes" -->
@@ -15,13 +15,14 @@
         android:layout_height="wrap_content"
         android:text="Preguntas Frecuentes"
         android:textSize="24sp"
-        android:textColor="@android:color/white"
+        android:textColor="@android:color/black"
         android:textStyle="bold"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:gravity="center"
-        android:layout_marginBottom="16dp" />
+        android:layout_marginBottom="16dp"
+        tools:ignore="HardcodedText" />
 
     <ExpandableListView
         android:id="@+id/expandableListView"

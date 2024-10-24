@@ -7,12 +7,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 
 import com.example.planetsuperheroes.models.ProductActivity;
 
@@ -78,11 +78,11 @@ public class HomeActivity extends AppCompatActivity {
         layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         recyclerViewComics.setLayoutManager(layoutManager);
 
-        // Crear lista de cómics hardcodeados
+        // Crear lista de cómics hardcodeados para el carrusel
         List<Comic> comicList = new ArrayList<>();
-        comicList.add(new Comic("Batman y Robin", "Hunters or Hunted?", 4.9));
-        comicList.add(new Comic("Gwenpool", "Strikes Back!", 4.8));
-        comicList.add(new Comic("Deadpool", "Bow to the king", 4.9));
+        comicList.add(new Comic("Batman y Robin", "Hunters or Hunted?", 4.9, drawable.batman_robin));
+        comicList.add(new Comic("Gwenpool", "Strikes Back!", 4.8, R.drawable.gwenpool));
+        comicList.add(new Comic("Deadpool", "Bow to the king", 4.9, drawable.marveldeadpool));
 
         // Configurar el Adapter
         comicAdapter = new ComicAdapter(this, comicList);
@@ -93,7 +93,25 @@ public class HomeActivity extends AppCompatActivity {
             int firstVisibleItem = layoutManager.findFirstVisibleItemPosition();
             recyclerViewComics.smoothScrollToPosition(firstVisibleItem + 1);
         });
+
+        // Configuración del botón del carrito (btnCart)
+        ImageButton btnCart = findViewById(R.id.btnCart);
+
+        btnCart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    Intent intent = new Intent(HomeActivity.this, CartActivity.class);
+                    startActivity(intent);
+                } catch (Exception e) {
+                    e.printStackTrace(); // Imprime la traza de la excepción
+                    Toast.makeText(HomeActivity.this, "Error al abrir el carrito: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
     }
+
 
     // Método para abrir actividad de productos
     private void openProductActivity(String category) {
