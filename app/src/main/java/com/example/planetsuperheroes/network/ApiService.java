@@ -33,6 +33,9 @@ public interface ApiService {
     @GET("/api/user/")
     Call<UserCrudInfo> getUserCrudInfo();
 
+    @GET("/api/user/")
+    Call<User> getUserInfo();
+
     @PATCH("/api/user/")
     Call<Void> updateUserCrudInfo(@Body UserCrudInfo user);
 

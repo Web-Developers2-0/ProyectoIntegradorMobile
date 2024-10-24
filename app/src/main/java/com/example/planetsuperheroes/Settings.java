@@ -1,10 +1,12 @@
 package com.example.planetsuperheroes;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.content.Intent;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -15,6 +17,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.example.planetsuperheroes.models.LogoutResponse;
 import com.example.planetsuperheroes.network.ApiService;
+import com.example.planetsuperheroes.models.User;
 import com.example.planetsuperheroes.network.RetrofitClient;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -25,6 +28,10 @@ public class Settings extends AppCompatActivity {
     private Button logoutButton;
     private ImageButton flechaBotonPreguntas;
     private ImageButton flechaBotonContactanos;
+    private ApiService apiService;
+    private TextView userName;
+    private TextView userEmail;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +43,11 @@ public class Settings extends AppCompatActivity {
         logoutButton = findViewById(R.id.logoutButton);
         flechaBotonPreguntas = findViewById(R.id.flechaBotonPreguntas);
         flechaBotonContactanos = findViewById(R.id.flechaBotonContactanos);
+        userName = findViewById(R.id.userName);
+        userEmail = findViewById(R.id.userEmail);
+        apiService = RetrofitClient.getClient(this).create(ApiService.class);
+
+        getUserInfo();
 
         imageButtonProfile.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -93,6 +105,33 @@ public class Settings extends AppCompatActivity {
             @Override
             public void onFailure(Call<LogoutResponse> call, Throwable t) {
                 Toast.makeText(Settings.this, "Error de red", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    private void getUserInfo() {
+        Call<User> call = apiService.getUserInfo();
+
+        call.enqueue(new Callback<User>() {
+            @Override
+            public void onResponse(Call<User> call, Response<User> response) {
+                if (response.isSuccessful()) {
+                    User user = response.body();
+                    if (user != null) {
+                        String username = user.getUsername();
+                        String email = user.getEmail();
+
+                        userName.setText( username );
+                        userEmail.setText( email );
+                    }
+                } else {
+                    Log.e("SettingsActivity", "Error en la respuesta: " + response.code());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<User> call, Throwable t) {
+                Log.e("SettingsActivity", "Error: " + t.getMessage());
             }
         });
     }

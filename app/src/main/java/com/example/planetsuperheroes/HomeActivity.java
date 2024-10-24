@@ -4,9 +4,11 @@ import static com.example.planetsuperheroes.R.*;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -15,6 +17,13 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.planetsuperheroes.models.ProductActivity;
+import com.example.planetsuperheroes.models.User;
+import com.example.planetsuperheroes.network.ApiService;
+import com.example.planetsuperheroes.network.RetrofitClient;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,6 +35,9 @@ public class HomeActivity extends AppCompatActivity {
     private RecyclerView recyclerViewComics;
     private ComicAdapter comicAdapter;
     private LinearLayoutManager layoutManager;
+    private ApiService apiService;
+    private TextView textViewTitle;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +50,10 @@ public class HomeActivity extends AppCompatActivity {
         btnNotification = findViewById(R.id.btnNotification);
         RecyclerView recyclerViewComics = findViewById(R.id.recyclerViewComics);
         Button btnSeeMore = findViewById(R.id.btnSeeMore);
+        textViewTitle = findViewById(R.id.textViewTitle);
+        apiService = RetrofitClient.getClient(this).create(ApiService.class);
+
+        getUserInfo();
 
         // Configuración de los botones de usuario y notificación
         btnUser.setOnClickListener(new View.OnClickListener() {
@@ -119,6 +135,29 @@ public class HomeActivity extends AppCompatActivity {
         intent.putExtra("category", category);
         startActivity(intent);
     }
+
+    private void getUserInfo() {
+        Call<User> call = apiService.getUserInfo();
+
+        call.enqueue(new Callback<User>() {
+            @Override
+            public void onResponse(Call<User> call, Response<User> response) {
+                if (response.isSuccessful()) {
+                    User user = response.body();
+                    if (user != null) {
+                        String username = user.getUsername();
+
+                        textViewTitle.setText("Hola, " + username + "!");
+                    }
+                } else {
+                    Log.e("HomeActivity", "Error en la respuesta: " + response.code());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<User> call, Throwable t) {
+                Log.e("HomeActivity", "Error: " + t.getMessage());
+            }
+        });
+    }
 }
-
-

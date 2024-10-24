@@ -23,7 +23,6 @@
         android:layout_marginStart="120dp"
         android:layout_marginTop="70dp"
         android:fontFamily="@font/interregular"
-        android:hint="@string/user_hello"
         android:textColor="@android:color/white"
         android:textColorHint="@android:color/white"
         android:textSize="18sp" />
