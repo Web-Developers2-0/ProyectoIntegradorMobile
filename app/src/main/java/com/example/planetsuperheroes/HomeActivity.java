@@ -94,11 +94,11 @@ public class HomeActivity extends AppCompatActivity {
         layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         recyclerViewComics.setLayoutManager(layoutManager);
 
-        // Crear lista de cómics hardcodeados
+        // Crear lista de cómics hardcodeados para el carrusel
         List<Comic> comicList = new ArrayList<>();
-        comicList.add(new Comic("Batman y Robin", "Hunters or Hunted?", 4.9));
-        comicList.add(new Comic("Gwenpool", "Strikes Back!", 4.8));
-        comicList.add(new Comic("Deadpool", "Bow to the king", 4.9));
+        comicList.add(new Comic("Batman y Robin", "Hunters or Hunted?", 4.9, drawable.batman_robin));
+        comicList.add(new Comic("Gwenpool", "Strikes Back!", 4.8, R.drawable.gwenpool));
+        comicList.add(new Comic("Deadpool", "Bow to the king", 4.9, drawable.marveldeadpool));
 
         // Configurar el Adapter
         comicAdapter = new ComicAdapter(this, comicList);

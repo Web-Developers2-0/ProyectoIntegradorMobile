@@ -38,14 +38,7 @@
         android:src="@drawable/gatitoinfo"
         android:contentDescription="@string/user_image_desc"/>
 
-
     <!-- Botón de notificaciones -->
-
-
-    <!-- Botón de carrito de compras -->
-
-    <!-- Título principal -->
-
     <ImageButton
         android:id="@+id/btnNotification"
         android:layout_width="50dp"
@@ -73,6 +66,7 @@
 
 
 
+    <!-- Título principal -->
     <TextView
         android:id="@+id/mainViewTitle"
         android:layout_width="wrap_content"
