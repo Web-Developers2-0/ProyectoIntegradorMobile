@@ -1,0 +1,34 @@
+[
+  {
+    "paymentForm": {
+      "cardName": "Naranja X",
+      "cardNumber": "9393939393837651",
+      "expiryDate": "12/30",
+      "cvv": "733"
+    }
+  },
+  {
+    "paymentForm": {
+      "cardName": "Mastercard",
+      "cardNumber": "8364830287362536",
+      "expiryDate": "09/29",
+      "cvv": "233"
+    }
+  },
+  {
+    "paymentForm": {
+      "cardName": "Visa",
+      "cardNumber": "2245638293723475",
+      "expiryDate": "09/27",
+      "cvv": "341"
+    }
+  },
+  {
+    "paymentForm": {
+      "cardName": "Mercadopago",
+      "cardNumber": "7734892102983647",
+      "expiryDate": "07/25",
+      "cvv": "983"
+    }
+  }
+]

@@ -1,183 +1,131 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="#262626"
-    android:padding="16dp">
+    android:background="#2B2E30"
+    tools:context=".CheckoutActivity">
 
-    <!-- Título de la pantalla -->
+    <!-- Título del Checkout -->
     <TextView
-        android:id="@+id/tvCheckoutTitle"
-        android:layout_width="91dp"
+        android:id="@+id/checkout_title"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="24dp"
-        android:fontFamily="@font/bangersregular"
-        android:text="@string/checkout_title"
+        android:layout_marginTop="24dp"
+        android:text="CHECKOUT"
         android:textColor="@android:color/white"
-        android:textSize="24sp" />
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- Sección de dirección de entrega -->
+    <!-- Información de Pago -->
     <TextView
-        android:id="@+id/tvDeliveryTitle"
+        android:id="@+id/personal_info_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/delivery_address"
-        android:fontFamily="@font/tekovariablefontwght"
-        android:textColor="@color/color_accent"
-        android:textSize="25sp"
-        android:layout_marginBottom="8dp"/>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:background="@drawable/border_shape"
-        android:padding="12dp"
-        android:elevation="4dp">
-
-        <TextView
-            android:id="@+id/tvDeliveryAddress"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="@string/delivery_address_example"
-            android:textColor="@android:color/white"
-            android:layout_weight="1"/>
-
-        <ImageView
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:src="@drawable/ic_settings"
-            android:contentDescription="@string/settings_icon"
-            app:tint="@color/text_primary_dark"/>
-    </LinearLayout>
-
-    <!-- Sección de métodos de pago -->
-    <TextView
-        android:id="@+id/tvPaymentMethodTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/payment_method"
-        android:fontFamily="@font/tekovariablefontwght"
-        android:textColor="@color/color_accent"
-        android:textSize="25sp"
         android:layout_marginTop="16dp"
-        android:layout_marginBottom="8dp"/>
+        android:text="Información Tarjeta de Pago"
+        android:textColor="#FFCC00"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/checkout_title" />
 
-    <!-- Tarjeta de pago 1 -->
-    <LinearLayout
-        android:id="@+id/card1"
-        android:layout_width="match_parent"
+    <!-- Nombre en la Tarjeta -->
+    <EditText
+        android:id="@+id/card_name"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:background="@drawable/selector_card_background"
-        android:padding="12dp"
-        android:elevation="4dp"
-        android:clickable="true"
-        android:focusable="true">
-
-        <ImageView
-            android:layout_width="60dp"
-            android:layout_height="40dp"
-            android:src="@drawable/naranjatc"
-            android:contentDescription="@string/payment_card_1"/>
-
-        <TextView
-            android:id="@+id/tvPaymentMethod1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/payment_method_1"
-            android:textColor="@color/text_primary_dark"
-            android:layout_marginStart="12dp"
-            android:layout_gravity="center_vertical"/>
-    </LinearLayout>
-
-    <!-- Tarjeta de pago 2 -->
-    <LinearLayout
-        android:id="@+id/card2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:background="@drawable/selector_card_background"
-        android:padding="12dp"
-        android:elevation="4dp"
         android:layout_marginTop="8dp"
-        android:clickable="true"
-        android:focusable="true">
-
-        <ImageView
-            android:layout_width="60dp"
-            android:layout_height="40dp"
-            android:src="@drawable/visatc"
-            android:contentDescription="@string/payment_card_2"/>
-
-        <TextView
-            android:id="@+id/tvPaymentMethod2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/payment_method_2"
-            android:textColor="@color/text_primary_dark"
-            android:layout_marginStart="12dp"
-            android:layout_gravity="center_vertical"/>
-    </LinearLayout>
-
-    <!-- Sección de métodos de pago -->
-    <TextView
-        android:id="@+id/tvPaymentSummaryTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/detail_total"
-        android:fontFamily="@font/tekovariablefontwght"
-        android:textColor="@color/color_accent"
-        android:textSize="25sp"
-        android:layout_marginTop="35dp"
-        android:layout_marginBottom="3dp"/>
-
-    <!-- Resumen de la compra -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:background="@drawable/border_shape"
+        android:background="@android:color/white"
+        android:hint="Nombre de la tarjeta"
         android:padding="16dp"
-        android:elevation="4dp"
-        android:layout_marginTop="1dp">
-
-        <TextView
-            android:id="@+id/tvSubtotal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/subtotal"
-            android:textColor="@color/text_primary_dark"/>
-
-        <TextView
-            android:id="@+id/tvDelivery"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/delivery"
-            android:textColor="@color/text_primary_dark"/>
-
-        <TextView
-            android:id="@+id/tvTotal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/total"
-            android:textColor="@color/text_primary_dark"
-            android:layout_marginTop="8dp"/>
-    </LinearLayout>
-
-    <!-- Botón de compra -->
-    <Button
-        android:id="@+id/btnComprar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/btn_comprar"
         android:textColor="@android:color/black"
-        android:backgroundTint="@color/primary_button"
-        android:fontFamily="@font/bangersregular"
-        android:textSize="20sp"
-        android:layout_marginTop="16dp"/>
-</LinearLayout>
+        android:textColorHint="#888"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/personal_info_label"
+        app:layout_constraintWidth_percent="0.9" />
+
+    <!-- Número de Tarjeta -->
+    <EditText
+        android:id="@+id/card_number_input"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@android:color/white"
+        android:hint="Número de tarjeta"
+        android:inputType="number"
+        android:padding="16dp"
+        android:textColor="@android:color/black"
+        android:textColorHint="#888"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/card_name"
+        app:layout_constraintWidth_percent="0.9" />
+
+    <!-- Fecha de Expiración -->
+    <EditText
+        android:id="@+id/expiry_date_input"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@android:color/white"
+        android:hint="Fecha Exp (MM/AA)"
+        android:inputType="date"
+        android:padding="16dp"
+        android:textColor="@android:color/black"
+        android:textColorHint="#888"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/card_number_input"
+        app:layout_constraintWidth_percent="0.9" />
+
+    <!-- CVV -->
+    <EditText
+        android:id="@+id/cvv_input"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@android:color/white"
+        android:hint="CVV"
+        android:inputType="numberPassword"
+        android:maxLength="4"
+        android:padding="16dp"
+        android:textColor="@android:color/black"
+        android:textColorHint="#888"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/expiry_date_input"
+        app:layout_constraintWidth_percent="0.9" />
+
+    <!-- Botón Comprar -->
+    <Button
+        android:id="@+id/buy_button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="#FFCC00"
+        android:text="Comprar"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cvv_input"
+        app:layout_constraintWidth_percent="0.5" />
+
+    <!-- Imagen de logo -->
+    <ImageView
+        android:id="@+id/logo_image"
+        android:layout_width="198dp"
+        android:layout_height="136dp"
+        android:layout_marginTop="24dp"
+        android:src="@drawable/logoplanet"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/buy_button" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
