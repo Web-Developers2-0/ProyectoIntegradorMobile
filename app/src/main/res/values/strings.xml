@@ -169,5 +169,6 @@
     <string name="payment_card_2">Payment card 2</string>
     <string name="settings_icon">Settings icon</string>
 
-
+    <!-- Strings para Logout -->
+    <string name="logout">Cerrar Sesión</string>
 </resources>

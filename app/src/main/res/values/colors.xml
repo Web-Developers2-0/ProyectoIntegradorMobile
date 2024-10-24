@@ -43,4 +43,7 @@
     <color name="colorBackgroundbutton">#CD4747</color>
     <color name="colorHint">#535353</color>
 
+
+    <color name="warning_orange">#ec8e33</color>
+
 </resources>

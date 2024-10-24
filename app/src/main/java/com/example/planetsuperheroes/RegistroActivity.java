@@ -19,7 +19,7 @@ import retrofit2.Response;
 
 public class RegistroActivity extends AppCompatActivity {
     private Button buttonRegistrarse;
-    private EditText etUserName, etEmail, etPassword, etFirstName, etLastName;
+    private EditText etUserName, etEmail, etPassword;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,8 +29,6 @@ public class RegistroActivity extends AppCompatActivity {
         // Referencias a los elementos de la interfaz
         buttonRegistrarse = findViewById(R.id.btnRegister);
         etUserName = findViewById(R.id.etUserName);
-        etFirstName = findViewById(R.id.etFirstName);
-        etLastName = findViewById(R.id.etLastName);
         etEmail = findViewById(R.id.etEmail);
         etPassword = findViewById(R.id.etPassword);
 
@@ -39,16 +37,14 @@ public class RegistroActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String username = etUserName.getText().toString();
-                String firstName = etFirstName.getText().toString();
-                String lastName = etLastName.getText().toString();
                 String email = etEmail.getText().toString();
                 String password = etPassword.getText().toString();
 
-                if (email.isEmpty() || password.isEmpty() || firstName.isEmpty() || lastName.isEmpty() || username.isEmpty()) {
+                if (email.isEmpty() || password.isEmpty() || username.isEmpty()) {
                     Toast.makeText(RegistroActivity.this, "Por favor, completa todos los campos", Toast.LENGTH_SHORT).show();
                 } else {
                     // Crear un objeto User con los datos ingresados
-                    User user = new User(username,firstName,lastName,email,password);
+                    User user = new User(username, email, password);
 
                     // Llamada a la API utilizando RetrofitClient ya existente
                     ApiService apiService = RetrofitClient.getClient(getApplicationContext()).create(ApiService.class);
@@ -59,14 +55,14 @@ public class RegistroActivity extends AppCompatActivity {
                         @Override
                         public void onResponse(Call<UserResponse> call, Response<UserResponse> response) {
                             if (response.isSuccessful() && response.body() != null) {
-                                Toast.makeText(RegistroActivity.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
-                                if (response.body().isSuccess()) {
-                                    // Redireccionar a la pantalla principal después del registro exitoso
-                                    Intent intent = new Intent(RegistroActivity.this, LoginActivity.class);
-                                    startActivity(intent);
-                                }
+                                Toast.makeText(RegistroActivity.this, "Registro exitoso", Toast.LENGTH_SHORT).show();
+
+                                // Redireccionar a la pantalla principal después del registro exitoso
+                                Intent intent = new Intent(RegistroActivity.this, LoginActivity.class);
+                                startActivity(intent);
+                                finish();
                             } else {
-                                Toast.makeText(RegistroActivity.this, "Error en el registro", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(RegistroActivity.this, "Error: " + response.code(), Toast.LENGTH_SHORT).show();
                             }
                         }
 
