@@ -54,12 +54,6 @@
     <string name="google_button_description">Sign in with Google</string>
     <string name="facebook_button_description">Sign in with Facebook</string>
 
-    <string name="text_first_name">First Name</string>
-    <string name="text_last_name">Last Name</string>
-    <string name="hint_ingresar_first_name">Introduce tu first name</string>
-    <string name="hint_ingresar_last_name">Introduce tu last name</string>
-
-
     <!-- Strings para la Actividad Main -->
 
     <string name="welcome_title">¡BIENVENIDOS A PLANET SUPER HEROES!</string>
@@ -168,6 +162,12 @@
     <string name="payment_card_1">Payment card 1</string>
     <string name="payment_card_2">Payment card 2</string>
     <string name="settings_icon">Settings icon</string>
+
+    <!-- Strings para Cart -->
+    <string name="cart_icon_desc">Carrito de compras</string>
+    <string name="plus_symbol">+</string>
+    <string name="zero_symbol">0</string>
+    <string name="minus_symbol">-</string>
 
     <!-- Strings para Logout -->
     <string name="logout">Cerrar Sesión</string>
