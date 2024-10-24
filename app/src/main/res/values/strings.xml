@@ -163,12 +163,12 @@
     <string name="payment_card_2">Payment card 2</string>
     <string name="settings_icon">Settings icon</string>
 
-
+    <!-- Strings para Cart -->
     <string name="cart_icon_desc">Carrito de compras</string>
     <string name="plus_symbol">+</string>
     <string name="zero_symbol">0</string>
     <string name="minus_symbol">-</string>
 
-
-
+    <!-- Strings para Logout -->
+    <string name="logout">Cerrar Sesión</string>
 </resources>

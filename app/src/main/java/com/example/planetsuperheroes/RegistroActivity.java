@@ -55,14 +55,14 @@ public class RegistroActivity extends AppCompatActivity {
                         @Override
                         public void onResponse(Call<UserResponse> call, Response<UserResponse> response) {
                             if (response.isSuccessful() && response.body() != null) {
-                                Toast.makeText(RegistroActivity.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
-                                if (response.body().isSuccess()) {
-                                    // Redireccionar a la pantalla principal después del registro exitoso
-                                    Intent intent = new Intent(RegistroActivity.this, LoginActivity.class);
-                                    startActivity(intent);
-                                }
+                                Toast.makeText(RegistroActivity.this, "Registro exitoso", Toast.LENGTH_SHORT).show();
+
+                                // Redireccionar a la pantalla principal después del registro exitoso
+                                Intent intent = new Intent(RegistroActivity.this, LoginActivity.class);
+                                startActivity(intent);
+                                finish();
                             } else {
-                                Toast.makeText(RegistroActivity.this, "Error en el registro", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(RegistroActivity.this, "Error: " + response.code(), Toast.LENGTH_SHORT).show();
                             }
                         }
 
