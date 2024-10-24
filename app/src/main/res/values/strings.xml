@@ -1,6 +1,5 @@
 <resources>
-    <string name="app_name">Planetsuperheroes</string>
-    <string name="welcome_message">Welcome to Planetsuperheroes\' world</string>
+    <string name="app_name">Planet Superheroes</string>
     <!--Strings para login-->
 
     <string name="ingresa_tus_datos">INGRESA TUS DATOS</string>
@@ -147,7 +146,22 @@
     <string name="bow_to_king">Bow to the King</string>
     <string name="strikes_back">Strikes Back</string>
     <string name="rating_4_9">4.9</string>
-    <string name="preguntas_frecuentes1">Preguntas Frecuentes</string>
+
+    <!-- Checkout -->
+    <string name="checkout_title">CHECKOUT</string>
+    <string name="delivery_address">Dirección de envío</string>
+    <string name="delivery_address_example">Humberto Primo N°680 \nPiso 2, oficina 22 \nCórdoba Capital</string>
+    <string name="payment_method">Métodos de pago</string>
+    <string name="payment_method_1">Tarjeta #1: Naranja</string>
+    <string name="payment_method_2">Tarjeta #2: Visa</string>
+    <string name="detail_total">Detalle total</string>
+    <string name="subtotal">Subtotal: $48000</string>
+    <string name="delivery">Delivery: $1000</string>
+    <string name="total">Total: $49000</string>
+    <string name="btn_comprar">COMPRAR</string>
+    <string name="payment_card_1">Payment card 1</string>
+    <string name="payment_card_2">Payment card 2</string>
+    <string name="settings_icon">Settings icon</string>
 
 
 </resources>
