@@ -86,4 +86,4 @@ public class FaqExpandableListAdapter extends BaseExpandableListAdapter {
     public boolean isChildSelectable(int groupPosition, int childPosition) {
         return true;  // Indica si las respuestas son seleccionables (en este caso, sí)
     }
-}
+ }
