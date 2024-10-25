@@ -33,14 +33,14 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.OrderViewHol
         Order order = listaOrders.get(position);
 
         // Asignar valores a los TextView con manejo de null
-        holder.textViewUser.setText(order.getUser() != null ? order.getUser().getEmail() : "N/A");
+
         holder.textViewState.setText(order.getState() != null ? order.getState() : "N/A");
         holder.textViewOrderDate.setText(order.getOrderDate() != null ? order.getOrderDate() : "N/A");
         holder.textViewPaymentMethod.setText(order.getPaymentMethod() != null ? order.getPaymentMethod() : "N/A");
         holder.textViewShippingMethod.setText(order.getShippingMethod() != null ? order.getShippingMethod() : "N/A");
         holder.textViewPaymentStatus.setText(order.getPaymentStatus() != null ? order.getPaymentStatus() : "N/A");
         holder.textViewTotalAmount.setText(String.valueOf(order.getTotalAmount()));
-        holder.textViewOrderNumber.setText("Order No: " + order.getIdOrder());
+
 
         // Mostrar los items de la orden
         StringBuilder itemsText = new StringBuilder();

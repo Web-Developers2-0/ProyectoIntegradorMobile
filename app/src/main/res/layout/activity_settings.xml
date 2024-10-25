@@ -208,7 +208,7 @@
             android:id="@+id/PrivacitySection"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/privacidad_y_seguridad"
+            android:text="@string/otros_datos"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="@color/on_primary_dark"
             android:textSize="22sp"
@@ -338,7 +338,7 @@
                         android:layout_weight="1"
                         android:layout_marginStart="16dp"
                         android:padding="16dp"
-                        android:text="@string/terminos_condiciones"
+                        android:text="@string/historial_de_compras1"
                         android:textColor="@color/on_primary_dark"
                         android:textSize="18sp" />
 

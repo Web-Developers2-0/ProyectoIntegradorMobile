@@ -169,7 +169,8 @@
     <string name="plus_symbol">+</string>
     <string name="zero_symbol">0</string>
     <string name="minus_symbol">-</string>
-
+    <string name="historial_de_compras1">Historial de compras</string>
+    <string name="otros_datos">otros datos</string>
 
 
 </resources>
