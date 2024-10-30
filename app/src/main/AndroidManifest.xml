@@ -21,6 +21,9 @@
             android:name=".NotificationsActivity"
             android:exported="false" />
         <activity
+            android:name=".CartActivity"
+            android:exported="false" />
+        <activity
             android:name=".RegistroActivity"
             android:exported="false" />
         <activity
@@ -47,6 +50,9 @@
             android:exported="false" />
         <activity
             android:name=".FaqActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CheckoutActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

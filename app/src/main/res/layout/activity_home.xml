@@ -23,7 +23,6 @@
         android:layout_marginStart="120dp"
         android:layout_marginTop="70dp"
         android:fontFamily="@font/interregular"
-        android:hint="@string/user_hello"
         android:textColor="@android:color/white"
         android:textColorHint="@android:color/white"
         android:textSize="18sp" />
@@ -39,14 +38,7 @@
         android:src="@drawable/gatitoinfo"
         android:contentDescription="@string/user_image_desc"/>
 
-
     <!-- Botón de notificaciones -->
-
-
-    <!-- Botón de carrito de compras -->
-
-    <!-- Título principal -->
-
     <ImageButton
         android:id="@+id/btnNotification"
         android:layout_width="50dp"
@@ -62,6 +54,7 @@
         android:id="@+id/btnCart"
         android:layout_width="50dp"
         android:layout_height="80dp"
+
         android:layout_alignParentEnd="true"
         android:layout_marginTop="40dp"
         android:layout_marginEnd="117dp"
@@ -70,6 +63,10 @@
         android:src="@drawable/cart"
         app:tint="@android:color/white" />
 
+
+
+
+    <!-- Título principal -->
     <TextView
         android:id="@+id/mainViewTitle"
         android:layout_width="wrap_content"
@@ -135,6 +132,7 @@
         android:text="@string/btn_seemore"
         android:textColor="@color/black"
         android:textSize="16sp" />
+
 
 
 

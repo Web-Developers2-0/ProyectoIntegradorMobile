@@ -14,11 +14,11 @@
         android:id="@+id/logoImageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/logoplanet"
         android:contentDescription="@string/decripción_logo"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:src="@drawable/logoplanet"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="40dp" />
 
     <!-- Texto Registrarse -->
@@ -36,7 +36,7 @@
         app:layout_constraintTop_toBottomOf="@id/logoImageView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="24dp" />
+        android:layout_marginTop="18dp" />
 
     <TextView
         android:id="@+id/textViewTitulo"
@@ -50,7 +50,7 @@
         app:layout_constraintTop_toBottomOf="@id/logoImageView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="24dp" />
+        android:layout_marginTop="18dp" />
 
     <!-- Contenedor para etiquetas y campos -->
 
@@ -59,7 +59,7 @@
         android:id="@+id/fieldsContainer"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="2dp"
         app:layout_constraintBottom_toTopOf="@id/btnRegister"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -117,20 +117,20 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="4dp"
             android:layout_marginEnd="16dp"
-            android:minHeight="48dp"
             android:autofillHints="emailAddress"
             android:background="@drawable/border_edit_text"
             android:hint="@string/hint_ingresar_email"
             android:inputType="textEmailAddress"
+            android:minHeight="48dp"
             android:padding="10dp"
             android:textColor="@color/black"
-            app:layout_constraintWidth_max="488dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvEmailLabel" />
+            app:layout_constraintTop_toBottomOf="@id/tvEmailLabel"
+            app:layout_constraintWidth_max="488dp" />
 
         <!-- Etiqueta Password -->
         <TextView
@@ -166,7 +166,6 @@
             app:layout_constraintTop_toBottomOf="@id/tvPasswordLabel" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-
     <Button
         android:id="@+id/btnRegister"
         android:layout_width="0dp"
@@ -179,7 +178,7 @@
         app:layout_constraintTop_toBottomOf="@id/fieldsContainer"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="20dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         app:layout_constraintWidth_max="320dp"
@@ -202,7 +201,7 @@
         android:id="@+id/linearLayoutSocial"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="15dp"
         android:gravity="center"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
