@@ -1,8 +1,11 @@
 package com.example.planetsuperheroes;
 
+import com.example.planetsuperheroes.models.OrderItem;
 import com.example.planetsuperheroes.models.Product;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class CartManager {
@@ -22,7 +25,6 @@ public class CartManager {
 
     // Método para agregar un producto al carrito con una cantidad específica
     public void addProductToCart(Product product, int quantity) {
-        // Usar get y verificar si es null
         int currentQuantity = cartItems.get(product) != null ? cartItems.get(product) : 0;
         currentQuantity += quantity;
         cartItems.put(product, currentQuantity);
@@ -44,12 +46,23 @@ public class CartManager {
 
     // Método para obtener la cantidad de un producto específico
     public int getProductQuantity(Product product) {
-        // Usar get y verificar si es null
         return cartItems.get(product) != null ? cartItems.get(product) : 0;
     }
 
     // Método para limpiar el carrito
     public void clearCart() {
-        cartItems.clear(); // Limpia todos los productos del carrito
+        cartItems.clear();
+    }
+
+    // Método para obtener la lista de OrderItems a partir de los cartItems
+    public List<OrderItem> getOrderItems() {
+        List<OrderItem> orderItems = new ArrayList<>();
+        for (Map.Entry<Product, Integer> entry : cartItems.entrySet()) {
+            Product product = entry.getKey();
+            int quantity = entry.getValue();
+            // Crear un OrderItem usando el ID y nombre del producto
+            orderItems.add(new OrderItem(product.getId(), product.getName(), quantity)); // Asegúrate de que Product tenga getId() y getName()
+        }
+        return orderItems;
     }
 }

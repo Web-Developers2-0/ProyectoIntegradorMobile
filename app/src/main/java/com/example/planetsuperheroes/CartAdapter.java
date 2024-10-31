@@ -46,6 +46,11 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
         notifyDataSetChanged();
     }
 
+    // Método para obtener la lista de OrderItems
+    public List<OrderItem> getOrderItems() {
+        return orderItems;
+    }
+
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView productNameTextView;
         TextView quantityTextView;

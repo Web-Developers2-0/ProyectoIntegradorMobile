@@ -1,6 +1,7 @@
 package com.example.planetsuperheroes;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -19,6 +20,8 @@ import com.example.planetsuperheroes.models.Product;
 import com.example.planetsuperheroes.models.UserCrudInfo;
 import com.example.planetsuperheroes.network.ApiService;
 import com.example.planetsuperheroes.network.RetrofitClient;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -36,9 +39,12 @@ public class CartActivity extends AppCompatActivity {
     private LinearLayoutManager layoutManager;
     private TextView totalAmountText;
     private Button btnCheckout;
-    private Button btnClearCart; // Nuevo botón para limpiar el carrito
+    private Button btnClearCart;
     private ApiService apiService;
-    private int userId; // Variable para almacenar el ID del usuario
+    private int userId;
+
+    // Variable para almacenar los datos de pago
+    private Map<String, String> paymentData;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +55,7 @@ public class CartActivity extends AppCompatActivity {
         recyclerViewCartItems = findViewById(R.id.recyclerViewCartItems);
         totalAmountText = findViewById(R.id.totalAmountText);
         btnCheckout = findViewById(R.id.btnCheckout);
-        btnClearCart = findViewById(R.id.btnClearCart); // Inicializar el botón
+        btnClearCart = findViewById(R.id.btnClearCart);
 
         // Inicializar ApiService
         apiService = RetrofitClient.getClient(this).create(ApiService.class);
@@ -63,14 +69,13 @@ public class CartActivity extends AppCompatActivity {
 
         // Crear la lista de OrderItem
         List<OrderItem> orderItems = new ArrayList<>();
-        final double[] totalAmount = {0}; // Usar un arreglo para poder modificarlo dentro de los métodos anónimos
+        final double[] totalAmount = {0};
 
-        // Recorrer el mapa de productos y cantidades
         for (Map.Entry<Product, Integer> entry : cartItems.entrySet()) {
             Product product = entry.getKey();
-            int quantity = entry.getValue(); // Obtener la cantidad del producto
-            orderItems.add(new OrderItem(product.getId(), product.getName(), quantity)); // Incluir el nombre del producto
-            totalAmount[0] += product.getPrice() * quantity; // Calcular el total
+            int quantity = entry.getValue();
+            orderItems.add(new OrderItem(product.getId(), product.getName(), quantity));
+            totalAmount[0] += product.getPrice() * quantity;
         }
 
         // Inicializar el adapter
@@ -83,12 +88,29 @@ public class CartActivity extends AppCompatActivity {
         // Obtener el ID del usuario
         getUserId();
 
+        // Recibir datos de pago desde el Intent, si están disponibles
+        if (getIntent().hasExtra("paymentData")) {
+            String paymentDataJson = getIntent().getStringExtra("paymentData");
+            paymentData = new Gson().fromJson(paymentDataJson, new TypeToken<Map<String, String>>(){}.getType());
+        }
+
         // Configurar el botón de checkout
         btnCheckout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (userId != -1) { // Verificar que se haya obtenido un ID válido
-                    createOrder(orderItems, totalAmount[0]); // Llamar al método para crear la orden
+                if (userId != -1) {
+                    List<OrderItem> orderItems = cartAdapter.getOrderItems();
+                    if (validateOrderItems(orderItems)) {
+                        // Si paymentData es null, significa que se debe enviar al usuario a CheckoutActivity
+                        if (paymentData == null) {
+                            Intent intent = new Intent(CartActivity.this, CheckoutActivity.class);
+                            startActivity(intent);
+                        } else {
+                            createOrder(orderItems, totalAmount[0], paymentData);
+                        }
+                    } else {
+                        Toast.makeText(CartActivity.this, "Datos de la orden inválidos", Toast.LENGTH_SHORT).show();
+                    }
                 } else {
                     Toast.makeText(CartActivity.this, "No se pudo obtener el ID del usuario", Toast.LENGTH_SHORT).show();
                 }
@@ -99,7 +121,7 @@ public class CartActivity extends AppCompatActivity {
         btnClearCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showClearCartConfirmationDialog(); // Mostrar diálogo de confirmación
+                showClearCartConfirmationDialog();
             }
         });
     }
@@ -111,7 +133,8 @@ public class CartActivity extends AppCompatActivity {
             public void onResponse(Call<UserCrudInfo> call, Response<UserCrudInfo> response) {
                 if (response.isSuccessful() && response.body() != null) {
                     UserCrudInfo user = response.body();
-                    userId = user.getId(); // Asignar el ID del usuario
+                    userId = user.getId();
+                    Log.d("CartActivity", "ID del usuario obtenido: " + userId);
                 } else {
                     Log.e("CartActivity", "Error al obtener la información del usuario: " + response.code());
                 }
@@ -124,24 +147,22 @@ public class CartActivity extends AppCompatActivity {
         });
     }
 
-    private void createOrder(List<OrderItem> orderItems, double totalAmount) {
-        // Crear un nuevo mapa para la solicitud
+    private void createOrder(List<OrderItem> orderItems, double totalAmount, Map<String, String> paymentData) {
         Map<String, Object> orderData = new HashMap<>();
-
-        // Crear la lista de order_items
         List<Map<String, Object>> orderItemsList = new ArrayList<>();
 
         for (OrderItem item : orderItems) {
             Map<String, Object> orderItemMap = new HashMap<>();
-            orderItemMap.put("product", item.getProduct()); // Solo el ID del producto
-            orderItemMap.put("quantity", item.getQuantity()); // Cantidad
+            orderItemMap.put("product", item.getProduct());
+            orderItemMap.put("quantity", item.getQuantity());
             orderItemsList.add(orderItemMap);
         }
 
-        // Agregar la lista de order_items al mapa de orderData
         orderData.put("order_items", orderItemsList);
+        orderData.put("paymentForm", paymentData);
 
-        // Llamar al método para crear la orden
+        Log.d("CartActivity", "Creando orden con los siguientes datos: " + orderData);
+
         Call<Order> call = apiService.createOrder(orderData);
         call.enqueue(new Callback<Order>() {
             @Override
@@ -150,13 +171,11 @@ public class CartActivity extends AppCompatActivity {
                     Order createdOrder = response.body();
                     Log.d("CartActivity", "Orden creada: " + createdOrder);
                     Toast.makeText(CartActivity.this, "Orden creada con éxito!", Toast.LENGTH_SHORT).show();
-
-                    // Limpiar el carrito y actualizar la interfaz
-                    CartManager.getInstance().clearCart(); // Limpiar el carrito
-                    cartAdapter.updateCartItems(new ArrayList<>()); // Limpia el adaptador
-                    totalAmountText.setText("Total: $0.00"); // Restablece el total
+                    CartManager.getInstance().clearCart();
+                    cartAdapter.updateCartItems(new ArrayList<>());
+                    totalAmountText.setText("Total: $0.00");
                 } else {
-                    Log.e("CartActivity", "Error al crear la orden: " + response.code());
+                    Log.e("CartActivity", "Error al crear la orden: " + response.code() + " - " + response.message());
                 }
             }
 
@@ -167,6 +186,17 @@ public class CartActivity extends AppCompatActivity {
         });
     }
 
+    private boolean validateOrderItems(List<OrderItem> orderItems) {
+        for (OrderItem item : orderItems) {
+            if (item.getProduct() <= 0 || item.getQuantity() <= 0) {
+                Log.d("CartActivity", "Error: producto o cantidad inválidos en la orden.");
+                return false;
+            }
+        }
+        Log.d("CartActivity", "Todos los datos de la orden son válidos.");
+        return true;
+    }
+
     private void showClearCartConfirmationDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Confirmar Limpieza");
@@ -175,19 +205,18 @@ public class CartActivity extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 Log.d("CartActivity", "Limpiando el carrito...");
-                CartManager.getInstance().clearCart(); // Limpiar el carrito
-                cartAdapter.updateCartItems(new ArrayList<>()); // Limpia el adaptador
-                totalAmountText.setText("Total: $0.00"); // Actualiza el total
+                CartManager.getInstance().clearCart();
+                cartAdapter.updateCartItems(new ArrayList<>());
+                totalAmountText.setText("Total: $0.00");
                 Toast.makeText(CartActivity.this, "Carrito limpiado", Toast.LENGTH_SHORT).show();
             }
         });
         builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                dialog.dismiss(); // Cierra el diálogo
+                dialog.dismiss();
             }
         });
-        AlertDialog alertDialog = builder.create();
-        alertDialog.show(); // Mostrar el diálogo
+        builder.show();
     }
 }
