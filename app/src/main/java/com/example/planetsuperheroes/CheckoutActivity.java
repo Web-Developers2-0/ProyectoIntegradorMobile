@@ -1,5 +1,5 @@
 package com.example.planetsuperheroes;
-
+import android.content.Intent; // Asegúrate de tener esta línea
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -37,11 +37,11 @@ public class CheckoutActivity extends AppCompatActivity {
         setContentView(R.layout.activity_checkout);
 
         // Inicializar vistas
-        editTextCardName = findViewById(R.id.card_name); // ID actualizado
-        editTextCardNumber = findViewById(R.id.card_number_input); // ID actualizado
-        editTextExpiryDate = findViewById(R.id.expiry_date_input); // ID actualizado
-        editTextCVV = findViewById(R.id.cvv_input); // ID actualizado
-        btnConfirmPayment = findViewById(R.id.buy_button); // ID actualizado
+        editTextCardName = findViewById(R.id.card_name);
+        editTextCardNumber = findViewById(R.id.card_number_input);
+        editTextExpiryDate = findViewById(R.id.expiry_date_input);
+        editTextCVV = findViewById(R.id.cvv_input);
+        btnConfirmPayment = findViewById(R.id.buy_button);
 
         // Inicializar ApiService
         apiService = RetrofitClient.getClient(this).create(ApiService.class);
@@ -56,7 +56,7 @@ public class CheckoutActivity extends AppCompatActivity {
                 if (userId != -1) {
                     Map<String, String> paymentData = validatePaymentData();
                     if (paymentData != null) {
-                        List<OrderItem> orderItems = CartManager.getInstance().getOrderItems(); // Asumiendo que tienes este método
+                        List<OrderItem> orderItems = CartManager.getInstance().getOrderItems();
                         createOrder(orderItems, paymentData);
                     }
                 } else {
@@ -88,7 +88,7 @@ public class CheckoutActivity extends AppCompatActivity {
     }
 
     private Map<String, String> validatePaymentData() {
-        String cardName = editTextCardName.getText().toString().trim(); // Agregado
+        String cardName = editTextCardName.getText().toString().trim();
         String cardNumber = editTextCardNumber.getText().toString().trim();
         String expiryDate = editTextExpiryDate.getText().toString().trim();
         String cvv = editTextCVV.getText().toString().trim();
@@ -99,7 +99,7 @@ public class CheckoutActivity extends AppCompatActivity {
         }
 
         Map<String, String> paymentData = new HashMap<>();
-        paymentData.put("cardName", cardName); // Agregado
+        paymentData.put("cardName", cardName);
         paymentData.put("cardNumber", cardNumber);
         paymentData.put("expiryDate", expiryDate);
         paymentData.put("cvv", cvv);
@@ -130,7 +130,11 @@ public class CheckoutActivity extends AppCompatActivity {
                     Order createdOrder = response.body();
                     Log.d("CheckoutActivity", "Orden creada: " + createdOrder);
                     Toast.makeText(CheckoutActivity.this, "Orden creada con éxito!", Toast.LENGTH_SHORT).show();
-                    CartManager.getInstance().clearCart(); // Limpiar el carrito
+
+                    // Enviar resultado a CartActivity
+                    Intent intent = new Intent();
+                    intent.putExtra("orderCreated", true);
+                    setResult(RESULT_OK, intent);
                     finish(); // Cerrar la actividad actual
                 } else {
                     Log.e("CheckoutActivity", "Error al crear la orden: " + response.code() + " - " + response.message());

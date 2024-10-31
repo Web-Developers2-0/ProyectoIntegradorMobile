@@ -34,6 +34,7 @@ import retrofit2.Response;
 
 public class CartActivity extends AppCompatActivity {
 
+    private static final int CHECKOUT_REQUEST_CODE = 1; // Código de solicitud para el checkout
     private RecyclerView recyclerViewCartItems;
     private CartAdapter cartAdapter;
     private LinearLayoutManager layoutManager;
@@ -99,17 +100,12 @@ public class CartActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (userId != -1) {
-                    List<OrderItem> orderItems = cartAdapter.getOrderItems();
-                    if (validateOrderItems(orderItems)) {
-                        // Si paymentData es null, significa que se debe enviar al usuario a CheckoutActivity
-                        if (paymentData == null) {
-                            Intent intent = new Intent(CartActivity.this, CheckoutActivity.class);
-                            startActivity(intent);
-                        } else {
-                            createOrder(orderItems, totalAmount[0], paymentData);
-                        }
+                    // Validar si hay productos en el carrito
+                    if (!orderItems.isEmpty()) {
+                        Intent intent = new Intent(CartActivity.this, CheckoutActivity.class);
+                        startActivityForResult(intent, CHECKOUT_REQUEST_CODE); // Cambiado para usar startActivityForResult
                     } else {
-                        Toast.makeText(CartActivity.this, "Datos de la orden inválidos", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(CartActivity.this, "El carrito está vacío", Toast.LENGTH_SHORT).show();
                     }
                 } else {
                     Toast.makeText(CartActivity.this, "No se pudo obtener el ID del usuario", Toast.LENGTH_SHORT).show();
@@ -117,11 +113,23 @@ public class CartActivity extends AppCompatActivity {
             }
         });
 
-        // Configurar el botón de limpiar carrito
+        // Configurar el botón para limpiar el carrito
         btnClearCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showClearCartConfirmationDialog();
+                new AlertDialog.Builder(CartActivity.this)
+                        .setTitle("Confirmar")
+                        .setMessage("¿Está seguro de que desea limpiar el carrito?")
+                        .setPositiveButton("Sí", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                CartManager.getInstance().clearCart(); // Limpiar el carrito
+                                cartAdapter.updateCartItems(new ArrayList<>()); // Actualizar la vista del carrito
+                                totalAmountText.setText("Total: $0.00"); // Reiniciar el total
+                                Toast.makeText(CartActivity.this, "El carrito ha sido limpiado", Toast.LENGTH_SHORT).show();
+                            }
+                        })
+                        .setNegativeButton("No", null)
+                        .show();
             }
         });
     }
@@ -147,76 +155,17 @@ public class CartActivity extends AppCompatActivity {
         });
     }
 
-    private void createOrder(List<OrderItem> orderItems, double totalAmount, Map<String, String> paymentData) {
-        Map<String, Object> orderData = new HashMap<>();
-        List<Map<String, Object>> orderItemsList = new ArrayList<>();
-
-        for (OrderItem item : orderItems) {
-            Map<String, Object> orderItemMap = new HashMap<>();
-            orderItemMap.put("product", item.getProduct());
-            orderItemMap.put("quantity", item.getQuantity());
-            orderItemsList.add(orderItemMap);
-        }
-
-        orderData.put("order_items", orderItemsList);
-        orderData.put("paymentForm", paymentData);
-
-        Log.d("CartActivity", "Creando orden con los siguientes datos: " + orderData);
-
-        Call<Order> call = apiService.createOrder(orderData);
-        call.enqueue(new Callback<Order>() {
-            @Override
-            public void onResponse(Call<Order> call, Response<Order> response) {
-                if (response.isSuccessful() && response.body() != null) {
-                    Order createdOrder = response.body();
-                    Log.d("CartActivity", "Orden creada: " + createdOrder);
-                    Toast.makeText(CartActivity.this, "Orden creada con éxito!", Toast.LENGTH_SHORT).show();
-                    CartManager.getInstance().clearCart();
-                    cartAdapter.updateCartItems(new ArrayList<>());
-                    totalAmountText.setText("Total: $0.00");
-                } else {
-                    Log.e("CartActivity", "Error al crear la orden: " + response.code() + " - " + response.message());
-                }
-            }
-
-            @Override
-            public void onFailure(Call<Order> call, Throwable t) {
-                Log.e("CartActivity", "Error en la llamada al crear orden: " + t.getMessage());
-            }
-        });
-    }
-
-    private boolean validateOrderItems(List<OrderItem> orderItems) {
-        for (OrderItem item : orderItems) {
-            if (item.getProduct() <= 0 || item.getQuantity() <= 0) {
-                Log.d("CartActivity", "Error: producto o cantidad inválidos en la orden.");
-                return false;
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == CHECKOUT_REQUEST_CODE && resultCode == RESULT_OK) {
+            boolean orderCreated = data.getBooleanExtra("orderCreated", false);
+            if (orderCreated) {
+                CartManager.getInstance().clearCart(); // Limpiar el carrito
+                cartAdapter.updateCartItems(new ArrayList<>()); // Actualizar la vista del carrito
+                totalAmountText.setText("Total: $0.00"); // Reiniciar el total
+                Toast.makeText(this, "El carrito se ha limpiado", Toast.LENGTH_SHORT).show();
             }
         }
-        Log.d("CartActivity", "Todos los datos de la orden son válidos.");
-        return true;
-    }
-
-    private void showClearCartConfirmationDialog() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Confirmar Limpieza");
-        builder.setMessage("¿Estás seguro de que deseas limpiar el carrito?");
-        builder.setPositiveButton("Sí", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                Log.d("CartActivity", "Limpiando el carrito...");
-                CartManager.getInstance().clearCart();
-                cartAdapter.updateCartItems(new ArrayList<>());
-                totalAmountText.setText("Total: $0.00");
-                Toast.makeText(CartActivity.this, "Carrito limpiado", Toast.LENGTH_SHORT).show();
-            }
-        });
-        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.dismiss();
-            }
-        });
-        builder.show();
     }
 }
