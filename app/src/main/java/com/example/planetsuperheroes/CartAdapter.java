@@ -5,11 +5,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.planetsuperheroes.models.OrderItem;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
@@ -17,9 +19,10 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
     private Context context;
     private List<OrderItem> cartItems;
 
+    // Constructor
     public CartAdapter(Context context, List<OrderItem> cartItems) {
         this.context = context;
-        this.cartItems = cartItems;
+        this.cartItems = cartItems != null ? cartItems : new ArrayList<>(); // Evitar NullPointerException
     }
 
     @NonNull
@@ -39,6 +42,20 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
     @Override
     public int getItemCount() {
         return cartItems.size();
+    }
+
+    // Método para actualizar los elementos del carrito
+    public void updateCartItems(List<OrderItem> newCartItems) {
+        this.cartItems.clear(); // Limpiar la lista actual
+        if (newCartItems != null) {
+            this.cartItems.addAll(newCartItems); // Agregar nuevos elementos
+        }
+        notifyDataSetChanged(); // Notificar que los datos han cambiado
+    }
+
+    // Nuevo método para obtener la lista de OrderItem
+    public List<OrderItem> getOrderItems() {
+        return cartItems; // Devuelve la lista de OrderItem
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {

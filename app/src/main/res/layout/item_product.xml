@@ -1,19 +1,20 @@
-<?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="160dp"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
     app:cardCornerRadius="12dp"
     app:cardElevation="8dp"
-    android:backgroundTint="#F5F5F5">
+    android:backgroundTint="#F5F5F5"
+    android:padding="8dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
+        <!-- Imagen del producto -->
         <ImageView
             android:id="@+id/productImage"
             android:layout_width="match_parent"
@@ -21,6 +22,7 @@
             android:scaleType="centerCrop"
             android:layout_marginBottom="8dp" />
 
+        <!-- Nombre del producto -->
         <TextView
             android:id="@+id/productName"
             android:layout_width="wrap_content"
@@ -30,56 +32,54 @@
             android:textSize="18sp"
             android:layout_marginBottom="4dp" />
 
+        <!-- Sección de calificación -->
+        <TextView
+            android:id="@+id/productRating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
+            android:layout_marginBottom="4dp"
+            android:text="Calificación: 4.5" /> <!-- Aquí puedes ajustar el texto de la calificación -->
+
+        <!-- Sección para la cantidad de productos -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:gravity="center_vertical"
-            android:layout_marginBottom="4dp"> <!-- Agregado para espaciado inferior -->
+            android:layout_marginBottom="4dp">
 
-            <ImageView
-                android:id="@+id/star1"
-                android:layout_width="16dp"
-                android:layout_height="16dp"
-                android:layout_margin="0dp" />
-
-            <ImageView
-                android:id="@+id/star2"
-                android:layout_width="16dp"
-                android:layout_height="16dp"
-                android:layout_margin="0dp" />
-
-            <ImageView
-                android:id="@+id/star3"
-                android:layout_width="16dp"
-                android:layout_height="16dp"
-                android:layout_margin="0dp" />
-
-            <ImageView
-                android:id="@+id/star4"
-                android:layout_width="16dp"
-                android:layout_height="16dp"
-                android:layout_margin="0dp" />
-
-            <ImageView
-                android:id="@+id/star5"
-                android:layout_width="16dp"
-                android:layout_height="16dp"
-                android:layout_margin="0dp" />
-
-            <TextView
-                android:id="@+id/productRating"
+            <Button
+                android:id="@+id/btnRemove"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="-" />
+
+            <TextView
+                android:id="@+id/txtQuantity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
                 android:textColor="@android:color/black"
                 android:textSize="16sp"
-                android:layout_marginLeft="8dp" />
+                android:layout_marginHorizontal="8dp" />
+
+            <Button
+                android:id="@+id/btnAdd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="+" />
         </LinearLayout>
+
+        <!-- Botón para agregar al carrito -->
         <Button
             android:id="@+id/btnAddToCart"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Agregar al Carrito"/>
-
+            android:text="Agregar al Carrito"
+            android:layout_gravity="center"/> <!-- Centrando el botón -->
     </LinearLayout>
 </androidx.cardview.widget.CardView>
+
+

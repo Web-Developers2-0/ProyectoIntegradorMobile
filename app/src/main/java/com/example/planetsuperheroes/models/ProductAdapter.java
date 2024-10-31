@@ -59,6 +59,24 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
 
         holder.productRating.setText(String.valueOf(calification));
 
+        // Inicializar la cantidad
+        holder.quantity = 0; // Inicializamos la cantidad en 0
+        holder.txtQuantity.setText(String.valueOf(holder.quantity)); // Mostrar cantidad inicial
+
+        // Incrementar cantidad
+        holder.btnAdd.setOnClickListener(v -> {
+            holder.quantity++;
+            holder.txtQuantity.setText(String.valueOf(holder.quantity)); // Actualizar el TextView
+        });
+
+        // Decrementar cantidad
+        holder.btnRemove.setOnClickListener(v -> {
+            if (holder.quantity > 0) {
+                holder.quantity--;
+                holder.txtQuantity.setText(String.valueOf(holder.quantity)); // Actualizar el TextView
+            }
+        });
+
         holder.itemView.setOnClickListener(v -> {
             Log.d("ProductAdapter", "Item clickeado: " + product.getName() + ", ID: " + product.getId());
             Intent intent = new Intent(context, ProductDetailsActivity.class);
@@ -67,8 +85,8 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
         });
 
         holder.btnAddToCart.setOnClickListener(v -> {
-            CartManager.getInstance().addProductToCart(product); // Agrega el producto al carrito
-            Toast.makeText(context, product.getName() + " agregado al carrito", Toast.LENGTH_SHORT).show();
+            CartManager.getInstance().addProductToCart(product, holder.quantity); // Agrega el producto al carrito con la cantidad
+            Toast.makeText(context, product.getName() + " agregado al carrito. Cantidad: " + holder.quantity, Toast.LENGTH_SHORT).show();
         });
     }
 
@@ -81,34 +99,21 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
         TextView productName;
         ImageView productImage;
         TextView productRating;
-        ImageView star1, star2, star3, star4, star5;
-        View btnAddToCart; // Asegúrate de declarar el botón aquí
+        TextView txtQuantity; // Para mostrar la cantidad
+        View btnAdd; // Botón para incrementar
+        View btnRemove; // Botón para decrementar
+        View btnAddToCart; // Botón para agregar al carrito
+        int quantity; // Para almacenar la cantidad actual
 
         public ViewHolder(View itemView) {
             super(itemView);
             productName = itemView.findViewById(R.id.productName);
             productImage = itemView.findViewById(R.id.productImage);
             productRating = itemView.findViewById(R.id.productRating);
-            star1 = itemView.findViewById(R.id.star1);
-            star2 = itemView.findViewById(R.id.star2);
-            star3 = itemView.findViewById(R.id.star3);
-            star4 = itemView.findViewById(R.id.star4);
-            star5 = itemView.findViewById(R.id.star5);
+            txtQuantity = itemView.findViewById(R.id.txtQuantity); // Asegúrate de que el TextView esté en tu layout
+            btnAdd = itemView.findViewById(R.id.btnAdd); // Botón para incrementar
+            btnRemove = itemView.findViewById(R.id.btnRemove); // Botón para decrementar
             btnAddToCart = itemView.findViewById(R.id.btnAddToCart);
         }
     }
-
-
-
-    private ImageView getStarImageView(ViewHolder holder, int index) {
-        switch (index) {
-            case 1: return holder.star1;
-            case 2: return holder.star2;
-            case 3: return holder.star3;
-            case 4: return holder.star4;
-            case 5: return holder.star5;
-            default: return null;
-        }
-    }
 }
-
