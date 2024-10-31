@@ -4,29 +4,28 @@ import com.google.gson.annotations.SerializedName;
 
 public class OrderItem {
     @SerializedName("id_product") // Este es el ID del producto que estás enviando
-    private int product; // Cambiado a 'product' para reflejar mejor el uso
+    private int product; // ID del producto
+    private String productName; // Nombre del producto para mostrar en la UI
     @SerializedName("quantity")
-    private int quantity;
+    private int quantity; // Cantidad del producto
 
-    public OrderItem(int product, int quantity) { // Cambia String a int
-        this.product = product; // Asegúrate de que esto se corresponda con el ID del producto
-        this.quantity = quantity;
+    // Constructor
+    public OrderItem(int product, String productName, int quantity) {
+        this.product = product; // ID del producto
+        this.productName = productName; // Nombre del producto
+        this.quantity = quantity; // Cantidad del producto
     }
 
-    // Getters y Setters
+    // Getters
     public int getProduct() {
         return product;
     }
 
-    public void setProduct(int product) {
-        this.product = product;
+    public String getProductName() {
+        return productName; // Método para obtener el nombre del producto
     }
 
     public int getQuantity() {
         return quantity;
-    }
-
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
     }
 }

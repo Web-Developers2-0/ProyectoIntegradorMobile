@@ -11,18 +11,15 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.planetsuperheroes.models.OrderItem;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
-
     private Context context;
-    private List<OrderItem> cartItems;
+    private List<OrderItem> orderItems;
 
-    // Constructor
-    public CartAdapter(Context context, List<OrderItem> cartItems) {
+    public CartAdapter(Context context, List<OrderItem> orderItems) {
         this.context = context;
-        this.cartItems = cartItems != null ? cartItems : new ArrayList<>(); // Evitar NullPointerException
+        this.orderItems = orderItems;
     }
 
     @NonNull
@@ -34,37 +31,29 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        OrderItem orderItem = cartItems.get(position);
-        holder.productName.setText("Producto ID: " + orderItem.getProduct());
-        holder.quantity.setText("Cantidad: " + orderItem.getQuantity());
+        OrderItem item = orderItems.get(position);
+        holder.productNameTextView.setText(item.getProductName()); // Mostrar solo el nombre del producto
+        holder.quantityTextView.setText("Cantidad: " + item.getQuantity());
     }
 
     @Override
     public int getItemCount() {
-        return cartItems.size();
+        return orderItems.size();
     }
 
-    // Método para actualizar los elementos del carrito
-    public void updateCartItems(List<OrderItem> newCartItems) {
-        this.cartItems.clear(); // Limpiar la lista actual
-        if (newCartItems != null) {
-            this.cartItems.addAll(newCartItems); // Agregar nuevos elementos
-        }
-        notifyDataSetChanged(); // Notificar que los datos han cambiado
+    public void updateCartItems(List<OrderItem> newOrderItems) {
+        orderItems = newOrderItems;
+        notifyDataSetChanged();
     }
 
-    // Nuevo método para obtener la lista de OrderItem
-    public List<OrderItem> getOrderItems() {
-        return cartItems; // Devuelve la lista de OrderItem
-    }
-
-    public static class ViewHolder extends RecyclerView.ViewHolder {
-        TextView productName, quantity;
+    public class ViewHolder extends RecyclerView.ViewHolder {
+        TextView productNameTextView;
+        TextView quantityTextView;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            productName = itemView.findViewById(R.id.productName);
-            quantity = itemView.findViewById(R.id.quantity);
+            productNameTextView = itemView.findViewById(R.id.productNameTextView); // Asegúrate de que este ID coincida
+            quantityTextView = itemView.findViewById(R.id.quantity);
         }
     }
 }

@@ -69,7 +69,7 @@ public class CartActivity extends AppCompatActivity {
         for (Map.Entry<Product, Integer> entry : cartItems.entrySet()) {
             Product product = entry.getKey();
             int quantity = entry.getValue(); // Obtener la cantidad del producto
-            orderItems.add(new OrderItem(product.getId(), quantity));
+            orderItems.add(new OrderItem(product.getId(), product.getName(), quantity)); // Incluir el nombre del producto
             totalAmount[0] += product.getPrice() * quantity; // Calcular el total
         }
 
@@ -127,13 +127,14 @@ public class CartActivity extends AppCompatActivity {
     private void createOrder(List<OrderItem> orderItems, double totalAmount) {
         // Crear un nuevo mapa para la solicitud
         Map<String, Object> orderData = new HashMap<>();
+
         // Crear la lista de order_items
         List<Map<String, Object>> orderItemsList = new ArrayList<>();
 
         for (OrderItem item : orderItems) {
             Map<String, Object> orderItemMap = new HashMap<>();
-            orderItemMap.put("product", item.getProduct());
-            orderItemMap.put("quantity", item.getQuantity());
+            orderItemMap.put("product", item.getProduct()); // Solo el ID del producto
+            orderItemMap.put("quantity", item.getQuantity()); // Cantidad
             orderItemsList.add(orderItemMap);
         }
 
@@ -150,16 +151,10 @@ public class CartActivity extends AppCompatActivity {
                     Log.d("CartActivity", "Orden creada: " + createdOrder);
                     Toast.makeText(CartActivity.this, "Orden creada con éxito!", Toast.LENGTH_SHORT).show();
 
-                    // Log antes de limpiar el carrito
-                    Log.d("CartActivity", "Elementos en el carrito antes de limpiar: " + CartManager.getInstance().getCartItems());
-                    Log.d("CartActivity", "Limpiando el carrito...");
+                    // Limpiar el carrito y actualizar la interfaz
                     CartManager.getInstance().clearCart(); // Limpiar el carrito
-
-                    // Log después de limpiar el carrito
-                    Log.d("CartActivity", "Carrito limpiado, elementos restantes: " + CartManager.getInstance().getCartItemCount());
-
-                    // Actualiza la interfaz si es necesario
                     cartAdapter.updateCartItems(new ArrayList<>()); // Limpia el adaptador
+                    totalAmountText.setText("Total: $0.00"); // Restablece el total
                 } else {
                     Log.e("CartActivity", "Error al crear la orden: " + response.code());
                 }
