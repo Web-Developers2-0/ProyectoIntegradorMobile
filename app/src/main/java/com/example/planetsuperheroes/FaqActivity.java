@@ -42,7 +42,7 @@ public class FaqActivity extends AppCompatActivity {
 
         // Añade las respuestas
         List<String> answer1 = new ArrayList<>();
-        answer1.add("Sí, contamos con ediciones limitadas y coleccionables. Puedes encontrarlos en nuestra sección de “Cómics Exclusivos”.");
+        answer1.add("Sí, contamos con ediciones limitadas y coleccionables. Puedes contactarte con nosotros para brindarte el catálogo.");
 
         List<String> answer2 = new ArrayList<>();
         answer2.add("Puedes hacer un pedido en nuestra tienda en línea seleccionando los cómics que te interesen y completando el proceso de pago.");

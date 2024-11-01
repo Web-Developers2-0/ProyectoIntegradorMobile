@@ -1,26 +1,51 @@
+<a href='https://postimg.cc/sQKGr0BY' target='_blank'><img src='https://i.postimg.cc/sQKGr0BY/logo-planet-2-2x.png' border='0' alt='logo-planet-2-2x'/></a>
+
 # Proyecto Integrador Mobile 📱
 
-Continuación de este proyecto 👉 https://github.com/Web-Developers2-0/ProyectoIntegrador2 
+>* Este repositorio contiene el código fuente y la documentación relacionada con nuestro Proyecto Integrador para el Módulo Programador de Aplicaciones Móviles de la Tecnicatura Superior en Desarrollo Web y Aplicaciones Digitales (2024).
 
-## INTRODUCCIÓN
-Este repositorio contiene el código fuente y la documentación relacionada con nuestro Proyecto Integrador para el Módulo Programador de Aplicaciones Móviles de la Tecnicatura Superior en Desarrollo Web y Aplicaciones Digitales.
+>* Continuación de este proyecto 👉 https://github.com/Web-Developers2-0/ProyectoIntegrador2 
 
-## CREDENCIALES VALIDAS :
+## 🚀 PRESENTACIÓN DE LA APP:
 
-📌 Usuario: usertest@gmail.com
-📌 Password: pass1234!
+"PlanetSuperHeroes" es una aplicación móvil destinada a la gestión integral de una tienda e-commerce especializada en la venta de cómics, disponible para la instalación en Android, esta diseñada especialmente para los amantes de la ciencia ficción, con un enfoque particular en las franquicias de Marvel y DC.
 
-## 💻 STACK TECNOLÓGICO :
+La aplicación proporciona una experiencia de usuario optimizada para dispositivos móviles. Al iniciar cuenta con una interfaz de onboarding, pensada para guiar a los usuarios, mostrándole las opciones de registro e inicio de sesión. También podrán buscar y navegar por la tienda de cómics utilizando filtros por categoría. 
+
+Los usuarios van a poder crear y personalizar sus perfiles, gestionar su información personal y disfrutar de una experiencia de compra fluida. La gestión de carritos de compra permitirá a los clientes añadir o eliminar productos, ver el total de su compra y proceder al pago de manera sencilla y segura. Además, tendrán la opción de revisar su historial de ordenes, para hacerle un seguimiento a sus compras efectuadas. Tambien cuenta con una sección de soporte, preguntas frecuentes y formulario de contacto enfocada en evacuar dudas y consultas.
+
+<br/>
+
+## 📹 DEMOS:
+
+👉 Video: https://www.canva.com/design/DAGSfosRAQs/fX8gHce9hmS7mrwoU_ci0Q/watch
+
+<br/>
+
+## 💻 STACK TECNOLÓGICO:
 
 ![Figma](https://img.shields.io/static/v1?style=for-the-badge&message=Figma&color=4169E1&logo=Figma&logoColor=fff&label=) ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white) ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white) ![Django](https://img.shields.io/badge/django-%23092E20.svg?style=for-the-badge&logo=django&logoColor=white)  ![DjangoREST](https://img.shields.io/badge/DJANGO-REST-ff1709?style=for-the-badge&logo=django&logoColor=white&color=ff1709&labelColor=gray)  ![MySQL](https://img.shields.io/badge/mysql-4479A1.svg?style=for-the-badge&logo=mysql&logoColor=white) 
 ![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white) ![Postman](https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=postman&logoColor=white) ![Swagger](https://img.shields.io/badge/-Swagger-%23Clojure?style=for-the-badge&logo=swagger&logoColor=white) ![Trello](https://img.shields.io/badge/Trello-%23026AA7.svg?style=for-the-badge&logo=Trello&logoColor=white) ![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white) ![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white) ![MySQL](https://img.shields.io/badge/mysql-4479A1.svg?style=for-the-badge&logo=mysql&logoColor=white)
+
 <br/>
 
-## 🎨 PROTOTIPO DEL DISEÑO:
+## 🎨 DISEÑO UI:
 
-Prototipo en Figma: https://www.figma.com/proto/hqPUf4Nwd2JQWRW7fNFqpy/Prototipo-App-Planet-Super-Heroes?node-id=1-22&node-type=CANVAS&t=yFsLAhnZdhqD0mw1-0&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A22&show-proto-sidebar=1 
+Wireframes en alta - Figma: https://lnkd.in/dFS88jJE 
 
-## 🙌 FEATURES DESTACADAS:
+Prototipo - Figma: https://acortar.link/pjmxBd
+
+<br/>
+
+## 📌 MOCKUPS:
+
+[![mockup1.png](https://i.postimg.cc/MGxJrTt6/mockup1.png)](https://postimg.cc/bZ65ZqKW)
+
+[![mockup2.png](https://i.postimg.cc/ZR5t4M1X/mockup2.png)](https://postimg.cc/t1wmz2Rz)
+
+[![mockup3.png](https://i.postimg.cc/435RCgFz/mockup3.png)](https://postimg.cc/7CfW7p46)
+
+<br/>
 
 ## 👩‍💻 DESARROLLADORES:
 
@@ -207,5 +232,70 @@ Prototipo en Figma: https://www.figma.com/proto/hqPUf4Nwd2JQWRW7fNFqpy/Prototipo
   </tbody>
 </table>
 
+<br/>
 
-## 🚀 INSTRUCCIONES PARA CLONAR Y EJECUTAR EL PROYECTO LOCALMENTE: 
+## 📝 DOCUMENTACIÓN:
+Disponible en 👉 [WIKI del repositorio](https://github.com/Web-Developers2-0/ProyectoIntegradorMobile/wiki)
+
+<br/>
+
+## 🚀 INSTALACIÓN:
+1. Clonar repositorio:
+   ```bash
+   git clone https://github.com/Web-Developers2-0/ProyectoIntegradorMobile.git
+
+2. Abrir el proyecto en Android Studio.
+
+3. Realizar la sincronización de las dependencias contenidas en el archivo build.gradle :
+
+```
+kotlin
+
+dependencies {
+
+    val nav_version = "2.8.0"
+
+    // Jetpack Compose integration
+    implementation("androidx.navigation:navigation-compose:$nav_version")
+
+    // Views/Fragments integration
+    implementation("androidx.navigation:navigation-fragment:$nav_version")
+    implementation("androidx.navigation:navigation-ui:$nav_version")
+
+    // Feature module support for Fragments
+    implementation("androidx.navigation:navigation-dynamic-features-fragment:$nav_version")
+
+    // Testing Navigation
+    androidTestImplementation("androidx.navigation:navigation-testing:$nav_version")
+
+    implementation(libs.appcompat)
+    implementation(libs.material)
+    implementation(libs.activity)
+    implementation(libs.constraintlayout)
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.ext.junit)
+    androidTestImplementation(libs.espresso.core)
+
+    // Glide dependencies
+    implementation("com.github.bumptech.glide:glide:4.15.1")
+    annotationProcessor("com.github.bumptech.glide:compiler:4.15.1")
+
+    // Retrofit
+    implementation ("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
+
+    // Interceptors (okhttp)
+    implementation ("com.squareup.okhttp3:okhttp:4.9.3")
+    implementation ("com.squareup.okhttp3:logging-interceptor:4.9.3")
+
+    // Corrutinas
+    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4")
+
+    // ViewModel y LiveData
+    implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1")
+    implementation ("androidx.lifecycle:lifecycle-livedata-ktx:2.5.1")
+
+}
+```
+
+4. Ejecutar la aplicación desde el emulador, o por mirror screen con un dispositivo físico.
