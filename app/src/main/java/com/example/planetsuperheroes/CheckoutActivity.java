@@ -1,5 +1,6 @@
 package com.example.planetsuperheroes;
-import android.content.Intent; // Asegúrate de tener esta línea
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -16,6 +17,7 @@ import com.example.planetsuperheroes.network.ApiService;
 import com.example.planetsuperheroes.network.RetrofitClient;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -93,8 +95,37 @@ public class CheckoutActivity extends AppCompatActivity {
         String expiryDate = editTextExpiryDate.getText().toString().trim();
         String cvv = editTextCVV.getText().toString().trim();
 
+        // Validación de que los campos no estén vacíos
         if (cardName.isEmpty() || cardNumber.isEmpty() || expiryDate.isEmpty() || cvv.isEmpty()) {
             Toast.makeText(this, "Por favor, complete todos los campos", Toast.LENGTH_SHORT).show();
+            return null;
+        }
+
+        // Validación de longitud del número de tarjeta (16 dígitos) y Luhn
+        if (cardNumber.length() != 16 || !cardNumber.matches("\\d+") || !isValidCardNumber(cardNumber)) {
+            Toast.makeText(this, "El número de tarjeta debe tener 16 dígitos y ser válido", Toast.LENGTH_SHORT).show();
+            return null;
+        }
+
+        // Validación de formato de fecha (MM/YY) y que no esté en el pasado
+        if (!expiryDate.matches("(0[1-9]|1[0-2])/\\d{2}")) {
+            Toast.makeText(this, "La fecha de expiración debe estar en formato MM/YY", Toast.LENGTH_SHORT).show();
+            return null;
+        }
+
+        // Verificar que la fecha no esté en el pasado
+        String[] parts = expiryDate.split("/");
+        int month = Integer.parseInt(parts[0]);
+        int year = Integer.parseInt(parts[1]) + 2000; // Asumir que el año es del 2000 en adelante
+        if (year < Calendar.getInstance().get(Calendar.YEAR) ||
+                (year == Calendar.getInstance().get(Calendar.YEAR) && month < Calendar.getInstance().get(Calendar.MONTH) + 1)) {
+            Toast.makeText(this, "La fecha de expiración no puede estar en el pasado", Toast.LENGTH_SHORT).show();
+            return null;
+        }
+
+        // Validación del CVV (3 dígitos)
+        if (cvv.length() != 3 || !cvv.matches("\\d+")) {
+            Toast.makeText(this, "El CVV debe contener 3 dígitos numéricos", Toast.LENGTH_SHORT).show();
             return null;
         }
 
@@ -104,6 +135,26 @@ public class CheckoutActivity extends AppCompatActivity {
         paymentData.put("expiryDate", expiryDate);
         paymentData.put("cvv", cvv);
         return paymentData;
+    }
+
+    private boolean isValidCardNumber(String cardNumber) {
+        int sum = 0;
+        boolean alternate = false;
+
+        for (int i = cardNumber.length() - 1; i >= 0; i--) {
+            int n = Integer.parseInt(cardNumber.substring(i, i + 1));
+
+            if (alternate) {
+                n *= 2;
+                if (n > 9) {
+                    n -= 9; // o n = n / 10 + n % 10;
+                }
+            }
+            sum += n;
+            alternate = !alternate; // Alternar entre true y false
+        }
+
+        return sum % 10 == 0;
     }
 
     private void createOrder(List<OrderItem> orderItems, Map<String, String> paymentData) {
