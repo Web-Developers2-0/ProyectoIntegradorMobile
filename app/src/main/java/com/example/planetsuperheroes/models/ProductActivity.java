@@ -25,6 +25,9 @@ import retrofit2.Response;
 
 public class ProductActivity extends AppCompatActivity {
 
+    private static final int SPAN_COUNT = 2; // Número de columnas
+    private static final String TAG = "ProductActivity";
+
     private RecyclerView recyclerView;
     private ProductAdapter productAdapter;
     private ProgressBar progressBar;
@@ -36,45 +39,60 @@ public class ProductActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product);
 
+        // Inicializa las vistas
+        initViews();
+
+        // Configura el RecyclerView
+        setupRecyclerView();
+
+        // Obtiene la categoría seleccionada
+        String category = getIntent().getStringExtra("category");
+        Log.d(TAG, "Categoría seleccionada: " + category);
+
+        // Actualiza el banner y carga los productos
+        updateBanner(category);
+        loadProductsFromApi(category);
+    }
+
+    private void initViews() {
         recyclerView = findViewById(R.id.recyclerView);
         progressBar = findViewById(R.id.progressBar);
         bannerImage = findViewById(R.id.imgCategoryBanner);
+    }
 
-        recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
+    private void setupRecyclerView() {
         int spaceInPixels = getResources().getDimensionPixelSize(R.dimen.space);
-        recyclerView.addItemDecoration(new SpaceItemDecoration(spaceInPixels));
-
-        String category = getIntent().getStringExtra("category");
-        Log.d("ProductActivity", "Categoría seleccionada: " + category);
-        updateBanner(category);
-        loadProductsFromApi(category);
+        recyclerView.setLayoutManager(new GridLayoutManager(this, SPAN_COUNT));
+        recyclerView.addItemDecoration(new SpaceItemDecoration(spaceInPixels, SPAN_COUNT));
     }
 
     private void loadProductsFromApi(String category) {
         progressBar.setVisibility(View.VISIBLE);
         ApiService apiService = RetrofitClient.getClient(this).create(ApiService.class);
-        Call<List<Product>> call = apiService.getProducts(null);
+        Call<List<Product>> call = apiService.getProducts(null); // Cambia null por el parámetro adecuado si es necesario
+
         call.enqueue(new Callback<List<Product>>() {
             @Override
             public void onResponse(Call<List<Product>> call, Response<List<Product>> response) {
                 progressBar.setVisibility(View.GONE);
                 if (!response.isSuccessful()) {
-                    Toast.makeText(ProductActivity.this, "Código de error: " + response.code(), Toast.LENGTH_SHORT).show();
+                    showToast("Código de error: " + response.code());
                     return;
                 }
+
                 List<Product> products = response.body();
                 if (products != null && !products.isEmpty()) {
                     filterProductsByCategory(products, category);
                 } else {
-                    Toast.makeText(ProductActivity.this, "No se encontraron productos.", Toast.LENGTH_SHORT).show();
+                    showToast("No se encontraron productos.");
                 }
             }
 
             @Override
             public void onFailure(Call<List<Product>> call, Throwable t) {
                 progressBar.setVisibility(View.GONE);
-                Log.e("ProductActivity", "Error al cargar productos", t);
-                Toast.makeText(ProductActivity.this, "Error al cargar productos", Toast.LENGTH_SHORT).show();
+                Log.e(TAG, "Error al cargar productos", t);
+                showToast("Error al cargar productos");
             }
         });
     }
@@ -89,18 +107,23 @@ public class ProductActivity extends AppCompatActivity {
         }
 
         if (!productList.isEmpty()) {
-            productAdapter = new ProductAdapter(productList, ProductActivity.this);
+            productAdapter = new ProductAdapter(productList, this);
             recyclerView.setAdapter(productAdapter);
         } else {
-            Toast.makeText(ProductActivity.this, "No se encontraron productos para la categoría seleccionada.", Toast.LENGTH_SHORT).show();
+            showToast("No se encontraron productos para la categoría seleccionada.");
         }
     }
 
     private void updateBanner(String category) {
+        if (category == null) return; // Manejar null
         if ("Marvel".equals(category)) {
             bannerImage.setImageResource(R.drawable.marvellogo);
         } else if ("DC".equals(category)) {
             bannerImage.setImageResource(R.drawable.dclogo);
         }
+    }
+
+    private void showToast(String message) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 }

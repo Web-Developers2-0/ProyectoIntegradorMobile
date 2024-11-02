@@ -25,9 +25,16 @@ public class CartManager {
 
     // Método para agregar un producto al carrito con una cantidad específica
     public void addProductToCart(Product product, int quantity) {
-        int currentQuantity = cartItems.get(product) != null ? cartItems.get(product) : 0;
-        currentQuantity += quantity;
-        cartItems.put(product, currentQuantity);
+        // Obtener la cantidad actual del producto en el carrito
+        int currentQuantity = cartItems.getOrDefault(product, 0);
+
+        // Verifica si la cantidad total (actual + nueva) no supera el stock disponible
+        if (currentQuantity + quantity > product.getStock()) {
+            throw new IllegalArgumentException("No hay suficiente stock disponible para " + product.getName());
+        }
+
+        // Actualiza la cantidad en el carrito
+        cartItems.put(product, currentQuantity + quantity);
     }
 
     // Método para obtener la lista de productos en el carrito
@@ -46,7 +53,7 @@ public class CartManager {
 
     // Método para obtener la cantidad de un producto específico
     public int getProductQuantity(Product product) {
-        return cartItems.get(product) != null ? cartItems.get(product) : 0;
+        return cartItems.getOrDefault(product, 0);
     }
 
     // Método para limpiar el carrito

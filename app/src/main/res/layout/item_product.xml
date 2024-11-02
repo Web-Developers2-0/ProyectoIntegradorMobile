@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -5,81 +6,85 @@
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
     app:cardCornerRadius="12dp"
-    app:cardElevation="8dp"
-    android:backgroundTint="#F5F5F5"
-    android:padding="8dp">
+    app:cardElevation="2dp"
+    app:cardBackgroundColor="@color/on_primary_dark">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:gravity="bottom"> <!-- Añadido gravity="bottom" -->
 
-        <!-- Imagen del producto -->
         <ImageView
             android:id="@+id/productImage"
             android:layout_width="match_parent"
             android:layout_height="150dp"
             android:scaleType="centerCrop"
-            android:layout_marginBottom="8dp" />
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/bg_image_rounded" />
 
-        <!-- Nombre del producto -->
         <TextView
             android:id="@+id/productName"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@android:color/black"
+            android:textColor="#333333"
             android:textStyle="bold"
             android:textSize="18sp"
-            android:layout_marginBottom="4dp" />
+            android:layout_marginBottom="2dp"
+            android:fontFamily="@font/interregular"/>
 
-        <!-- Sección de calificación -->
         <TextView
             android:id="@+id/productRating"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@android:color/black"
-            android:textSize="16sp"
-            android:layout_marginBottom="4dp"
-            android:text="Calificación: 4.5" /> <!-- Aquí puedes ajustar el texto de la calificación -->
+            android:textColor="#FFD700"
+            android:textSize="14sp"
+            android:layout_marginBottom="8dp" />
 
-        <!-- Sección para la cantidad de productos -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:layout_marginBottom="4dp">
+            android:gravity="center_horizontal"> <!-- Añadido gravity="center_horizontal" -->
 
-            <Button
+            <ImageButton
                 android:id="@+id/btnRemove"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="-" />
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:src="@drawable/ic_remove"
+                android:background="?android:attr/selectableItemBackground"
+                android:contentDescription="Disminuir cantidad"
+                android:tint="#3D5AFE"/>
 
             <TextView
                 android:id="@+id/txtQuantity"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="0"
-                android:textColor="@android:color/black"
+                android:textColor="#333333"
                 android:textSize="16sp"
                 android:layout_marginHorizontal="8dp" />
 
-            <Button
+            <ImageButton
                 android:id="@+id/btnAdd"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="+" />
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:src="@drawable/ic_add"
+                android:background="?android:attr/selectableItemBackground"
+                android:contentDescription="Aumentar cantidad"
+                android:tint="#3D5AFE"/>
         </LinearLayout>
 
-        <!-- Botón para agregar al carrito -->
         <Button
             android:id="@+id/btnAddToCart"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Agregar al Carrito"
-            android:layout_gravity="center"/> <!-- Centrando el botón -->
+            android:layout_gravity="bottom" 
+        android:paddingVertical="10dp"
+        android:backgroundTint="#3D5AFE"
+        android:textColor="@android:color/white"
+        android:layout_marginTop="12dp"
+            android:fontFamily="@font/"/>
     </LinearLayout>
 </androidx.cardview.widget.CardView>
-
-
