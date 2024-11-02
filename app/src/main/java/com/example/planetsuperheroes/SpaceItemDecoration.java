@@ -6,10 +6,13 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class SpaceItemDecoration extends RecyclerView.ItemDecoration {
-    private final int space; // Variable para definir el espacio
+    private final int space; // Espacio entre elementos
+    private final int spanCount; // Número de columnas
 
-    public SpaceItemDecoration(int space) {
+    // Constructor que recibe el espacio y el número de columnas
+    public SpaceItemDecoration(int space, int spanCount) {
         this.space = space; // Inicializa el espacio
+        this.spanCount = spanCount; // Inicializa el número de columnas
     }
 
     @Override
@@ -17,16 +20,18 @@ public class SpaceItemDecoration extends RecyclerView.ItemDecoration {
                                @NonNull RecyclerView parent,
                                @NonNull RecyclerView.State state) {
         int position = parent.getChildAdapterPosition(view); // Obtiene la posición del elemento
-        int column = position % 2; // Asumiendo que hay 2 columnas
+        int column = position % spanCount; // Determina la columna del elemento
 
-        outRect.left = column * space; // Aplica espacio a la izquierda
-        outRect.right = space - (1 - column) * space; // Aplica espacio a la derecha
+        // Espacio a la izquierda y derecha
+        outRect.left = column * space; // Espacio a la izquierda
+        outRect.right = space - (column * space); // Espacio a la derecha
 
+        // Espacio inferior
         outRect.bottom = space; // Aplica espacio en la parte inferior
 
-        // Aplica espacio superior solo si no es el primer elemento
-        if (position < 2) {
-            outRect.top = space; // Espacio superior solo para los primeros dos elementos
+        // Espacio superior solo si es el primer elemento de la fila
+        if (position < spanCount) {
+            outRect.top = space; // Espacio superior para la primera fila
         } else {
             outRect.top = 0; // Sin espacio superior para los demás elementos
         }
