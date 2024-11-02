@@ -2,7 +2,7 @@ package com.example.planetsuperheroes;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.util.Log; // Asegúrate de importar Log
+import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,6 +20,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product_detail);
 
+        // Inicializa las vistas
         productImageView = findViewById(R.id.productImageView);
         productNameTextView = findViewById(R.id.productNameTextView);
         productDescriptionTextView = findViewById(R.id.productDescriptionTextView);
@@ -41,9 +42,8 @@ public class ProductDetailsActivity extends AppCompatActivity {
         productPriceTextView.setText("$" + productPrice);
 
         // Cargar la imagen
-        int imageResource = getResources().getIdentifier(productImage, "drawable", getPackageName());
-        if (imageResource != 0) {
-            Glide.with(this).load(imageResource).into(productImageView);
+        if (productImage != null) {
+            Glide.with(this).load(productImage).into(productImageView);
         } else {
             productImageView.setImageDrawable(null);
         }
