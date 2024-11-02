@@ -3,169 +3,209 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/tvRegisterTitleText"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".RegistroActivity"
-    android:background="#262626">
+    android:background="#262626"
+    android:paddingStart="24dp"
+    android:paddingEnd="24dp">
 
     <!-- Logo de la app -->
     <ImageView
         android:id="@+id/logoImageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:contentDescription="@string/decripción_logo"
+        android:contentDescription="@string/descripcion_logo"
         android:src="@drawable/logoplanet"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="40dp" />
+        android:layout_marginTop="10dp" />
 
     <!-- Texto Registrarse -->
     <TextView
         android:id="@+id/tvRegisterTitle"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/bangersregular"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textStyle="bold"
         android:gravity="center"
         android:text="@string/registrarse"
-        android:textSize="41.7sp"
-        android:padding="4dp"
+        android:textSize="36sp"
         app:layout_constraintTop_toBottomOf="@id/logoImageView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="18dp" />
+        android:layout_marginTop="8dp" />
 
-    <TextView
-        android:id="@+id/textViewTitulo"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/bangersregular"
-        android:textColor="@color/text_primary_dark"
-        android:gravity="center"
-        android:text="@string/registrarse"
-        android:textSize="41.7sp"
-        app:layout_constraintTop_toBottomOf="@id/logoImageView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="18dp" />
-
-    <!-- Contenedor para etiquetas y campos -->
-
-    <!-- Botón Registrarse -->
+    <!-- Contenedor de campos -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/fieldsContainer"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="2dp"
-        app:layout_constraintBottom_toTopOf="@id/btnRegister"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintTop_toBottomOf="@id/tvRegisterTitle"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvRegisterTitle">
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="4dp"
+        android:padding="16dp">
 
-        <!-- Etiqueta Nombre Usuario -->
+        <!-- Título Email -->
         <TextView
-            android:id="@+id/tvUserNameLabel"
+            android:id="@+id/tvEmailTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="12dp"
-            android:text="@string/nombre_usuario"
-            android:textColor="@color/text_primary_dark"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <!-- Campo Nombre Usuario -->
-        <EditText
-            android:id="@+id/etUserName"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="16dp"
-            android:minHeight="48dp"
-            android:autofillHints="username"
-            android:background="@drawable/border_edit_text"
-            android:hint="@string/hint_ingresar_nombre"
-            android:inputType="textPersonName"
-            android:padding="10dp"
-            android:textColor="@color/black"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintWidth_max="488dp"
-            app:layout_constraintTop_toBottomOf="@id/tvUserNameLabel" />
-
-        <!-- Etiqueta Email -->
-        <TextView
-            android:id="@+id/tvEmailLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
             android:text="@string/text_email"
             android:textColor="@color/text_primary_dark"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/etUserName" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <!-- Campo Email -->
         <EditText
             android:id="@+id/etEmail"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="4dp"
-            android:layout_marginEnd="16dp"
-            android:autofillHints="emailAddress"
+            android:layout_marginTop="2dp"
             android:background="@drawable/border_edit_text"
             android:hint="@string/hint_ingresar_email"
+            android:textColorHint="@color/text_alternative_dark"
             android:inputType="textEmailAddress"
             android:minHeight="48dp"
             android:padding="10dp"
             android:textColor="@color/black"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintTop_toBottomOf="@id/tvEmailTitle"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvEmailLabel"
-            app:layout_constraintWidth_max="488dp" />
+            app:layout_constraintEnd_toEndOf="parent" />
 
-        <!-- Etiqueta Password -->
+        <!-- Campo Confirmar Email -->
+        <EditText
+            android:id="@+id/etConfirmEmail"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:background="@drawable/border_edit_text"
+            android:hint="@string/hint_confirmar_email"
+            android:textColorHint="@color/text_alternative_dark"
+            android:inputType="textEmailAddress"
+            android:minHeight="48dp"
+            android:padding="10dp"
+            android:textColor="@color/black"
+            app:layout_constraintTop_toBottomOf="@id/etEmail"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Título Password -->
         <TextView
-            android:id="@+id/tvPasswordLabel"
+            android:id="@+id/tvPasswordTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
             android:text="@string/text_contraseña"
             android:textColor="@color/text_primary_dark"
+            app:layout_constraintTop_toBottomOf="@id/etConfirmEmail"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/etEmail" />
+            android:layout_marginTop="8dp" />
 
-        <!-- Campo Password -->
+        <!-- Botón de información de contraseña -->
+        <ImageView
+            android:id="@+id/ivPasswordInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_info"
+            app:tint="@color/white"
+            android:contentDescription="@string/informacion_contraseña"
+            android:layout_marginStart="4dp"
+            app:layout_constraintStart_toEndOf="@id/tvPasswordTitle"
+            app:layout_constraintTop_toTopOf="@id/tvPasswordTitle" />
+
+        <!-- Campo Contraseña -->
         <EditText
             android:id="@+id/etPassword"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="16dp"
-            android:minHeight="48dp"
-            android:autofillHints="password"
+            android:layout_marginTop="2dp"
             android:background="@drawable/border_edit_text"
             android:hint="@string/hint_ingresar_password"
+            android:textColorHint="@color/text_alternative_dark"
             android:inputType="textPassword"
+            android:minHeight="48dp"
             android:padding="10dp"
             android:textColor="@color/black"
-            app:layout_constraintWidth_max="488dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintTop_toBottomOf="@id/tvPasswordTitle"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvPasswordLabel" />
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Icono de visibilidad Contraseña -->
+        <ImageView
+            android:id="@+id/ivShowHidePassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="12dp"
+            android:contentDescription="@string/mostrar_ocultar_contraseña"
+            android:src="@drawable/ic_eye_off"
+            app:layout_constraintEnd_toEndOf="@id/etPassword"
+            app:layout_constraintTop_toTopOf="@id/etPassword"
+            app:layout_constraintBottom_toBottomOf="@id/etPassword" />
+
+        <!-- Campo Confirmar Contraseña -->
+        <EditText
+            android:id="@+id/etConfirmPassword"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:background="@drawable/border_edit_text"
+            android:hint="@string/hint_confirmar_password"
+            android:textColorHint="@color/text_alternative_dark"
+            android:inputType="textPassword"
+            android:minHeight="48dp"
+            android:padding="10dp"
+            android:textColor="@color/black"
+            app:layout_constraintTop_toBottomOf="@id/etPassword"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Icono de visibilidad Confirmar Contraseña -->
+        <ImageView
+            android:id="@+id/ivShowHideConfirmPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="12dp"
+            android:contentDescription="@string/mostrar_ocultar_contraseña"
+            android:src="@drawable/ic_eye_off"
+            app:layout_constraintEnd_toEndOf="@id/etConfirmPassword"
+            app:layout_constraintTop_toTopOf="@id/etConfirmPassword"
+            app:layout_constraintBottom_toBottomOf="@id/etConfirmPassword" />
+
+        <!-- Título Nickname -->
+        <TextView
+            android:id="@+id/tvNicknameTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/nombre_usuario"
+            android:textColor="@color/text_primary_dark"
+            app:layout_constraintTop_toBottomOf="@id/etConfirmPassword"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="8dp" />
+
+        <!-- Campo Nombre Usuario -->
+        <EditText
+            android:id="@+id/etUserName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:background="@drawable/border_edit_text"
+            android:hint="@string/hint_ingresar_nickname"
+            android:textColorHint="@color/text_alternative_dark"
+            android:inputType="textPersonName"
+            android:minHeight="48dp"
+            android:padding="10dp"
+            android:textColor="@color/black"
+            app:layout_constraintTop_toBottomOf="@id/tvNicknameTitle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <!-- Botón de registro -->
     <Button
         android:id="@+id/btnRegister"
         android:layout_width="0dp"
@@ -178,11 +218,7 @@
         app:layout_constraintTop_toBottomOf="@id/fieldsContainer"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="20dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        app:layout_constraintWidth_max="320dp"
-        />
+        android:layout_marginTop="12dp" />
 
     <!-- Texto para iniciar sesión -->
     <TextView
@@ -195,44 +231,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="24dp" />
-
-    <!-- Botones de Google y Facebook -->
-    <LinearLayout
-        android:id="@+id/linearLayoutSocial"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:gravity="center"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvLogin">
-
-        <!-- Botón de Google -->
-        <ImageView
-            android:id="@+id/imageViewGoogle"
-            android:layout_width="110dp"
-            android:layout_height="40dp"
-            android:layout_marginEnd="16dp"
-            android:background="@drawable/button_background"
-            android:padding="8dp"
-            android:scaleType="centerInside"
-            android:src="@drawable/google"
-            android:contentDescription="@string/google_button_description"
-            />
-
-        <!-- Botón de Facebook -->
-        <ImageView
-            android:id="@+id/imageViewFacebook"
-            android:layout_width="110dp"
-            android:layout_height="40dp"
-            android:background="@drawable/button_background"
-            android:padding="8dp"
-            android:scaleType="centerInside"
-            android:src="@drawable/facebooklogo"
-            android:contentDescription="@string/facebook_button_description"
-            />
-    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
