@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -124,7 +123,22 @@ public class RegistroActivity extends AppCompatActivity {
                     startActivity(new Intent(RegistroActivity.this, LoginActivity.class));
                     finish();
                 } else {
-                    Toast.makeText(RegistroActivity.this, "Error: " + response.code(), Toast.LENGTH_SHORT).show();
+                    // Manejo de error para nombre de usuario duplicado
+                    if (response.code() == 400) {
+                        try {
+                            String errorBody = response.errorBody().string();
+                            if (errorBody.contains("username") && errorBody.contains("already exists")) {
+                                Toast.makeText(RegistroActivity.this, "El nombre de usuario ya está en uso. Prueba con otro.", Toast.LENGTH_SHORT).show();
+                            } else {
+                                Toast.makeText(RegistroActivity.this, "Error: Datos inválidos", Toast.LENGTH_SHORT).show();
+                            }
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            Toast.makeText(RegistroActivity.this, "Error al procesar la respuesta del servidor", Toast.LENGTH_SHORT).show();
+                        }
+                    } else {
+                        Toast.makeText(RegistroActivity.this, "Error: " + response.code(), Toast.LENGTH_SHORT).show();
+                    }
                 }
             }
 
@@ -166,4 +180,3 @@ public class RegistroActivity extends AppCompatActivity {
         public void afterTextChanged(Editable s) { }
     }
 }
-
