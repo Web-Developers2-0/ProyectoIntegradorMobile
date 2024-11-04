@@ -43,16 +43,25 @@
 
     <string name="btn_registrar">REGÍSTRATE</string>
     <string name="decripción_logo">Logo de la aplicación Planet Superheroes</string>
-    <string name="hint_ingresar_email">Introduce tu email</string>
-    <string name="hint_ingresar_nombre">Introduce tu nombre</string>
-    <string name="hint_ingresar_password">Introduce tu contraseña</string>
-    <string name="nombre_usuario">Nombre de Usuario</string>
+    <string name="nombre_usuario">Nickname</string>
     <string name="registrarse">REGISTRARSE</string>
     <string name="text_contraseña">Contraseña</string>
     <string name="text_email">Email</string>
     <string name="text_login">¿Ya tienes una cuenta? <b>Inicia sesión aquí</b></string>
     <string name="google_button_description">Sign in with Google</string>
     <string name="facebook_button_description">Sign in with Facebook</string>
+    <!-- Nuevos campos de texto -->
+    <string name="hint_ingresar_nickname">Ingresar nickname</string>
+    <string name="hint_ingresar_email">Ingresar email</string>
+    <string name="hint_confirmar_email">Confirmar email</string>
+    <string name="hint_ingresar_password">Ingresar password</string>
+    <string name="hint_confirmar_password">Confirmar password</string>
+
+    <!-- Descripciones para accesibilidad -->
+    <string name="mostrar_ocultar_contraseña">Mostrar/Ocultar contraseña</string>
+    <string name="informacion_contraseña">Información de seguridad de la contraseña</string>
+    <string name="descripcion_logo">Logo de Planet Superheroes</string>
+
 
     <!-- Strings para la Actividad Main -->
 

@@ -21,7 +21,7 @@ import retrofit2.Response;
 public class ProductDetailsActivity extends AppCompatActivity {
 
     private ImageView productImageView;
-    private TextView productNameTextView, productDescriptionTextView, productPriceTextView, productStockTextView;
+    private TextView productNameTextView, productDescriptionTextView, productPriceTextView, productStockTextView, productRatingTextView; // Agregando la calificación
 
     private int productId;
     private int stock;
@@ -49,6 +49,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
         productDescriptionTextView = findViewById(R.id.productDescriptionTextView);
         productPriceTextView = findViewById(R.id.productPriceTextView);
         productStockTextView = findViewById(R.id.productStockTextView);
+        productRatingTextView = findViewById(R.id.productRatingTextView); // Inicializando el TextView de calificación
     }
 
     private void loadProductFromApi() {
@@ -81,5 +82,6 @@ public class ProductDetailsActivity extends AppCompatActivity {
         productPriceTextView.setText("$" + product.getPrice());
         Glide.with(this).load(product.getImage()).into(productImageView);
         productStockTextView.setText("Stock: " + stock);
+        productRatingTextView.setText("Calificación: " + product.getCalification() + " ★"); // Mostrar calificación
     }
 }

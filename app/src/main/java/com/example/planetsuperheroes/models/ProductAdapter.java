@@ -2,7 +2,6 @@ package com.example.planetsuperheroes.models;
 
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,7 +27,6 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
     public ProductAdapter(List<Product> productList, Context context) {
         this.productList = productList != null ? productList : new ArrayList<>();
         this.context = context;
-        Log.d("ProductAdapter", "Número de productos: " + this.productList.size());
     }
 
     @NonNull
@@ -42,33 +40,52 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Product product = productList.get(position);
         holder.productName.setText(product.getName());
+        holder.productRating.setText(String.valueOf(product.getCalification()));
 
-        double calification = product.getCalification();
-        Log.d("ProductAdapter", "Calificación: " + calification);
+        // Cargar imagen usando Glide
+        Glide.with(context)
+                .load(product.getImage())
+                .into(holder.productImage);
 
-        String imageUrl = product.getImage();
-        Log.d("ProductAdapter", "Image URL: " + imageUrl);
+        holder.quantity = 0; // Inicializar la cantidad
+        holder.txtQuantity.setText("0");
+        holder.btnAddToCart.setEnabled(false); // Deshabilitar botón al inicio
 
-        if (imageUrl != null && !imageUrl.isEmpty()) {
-            Glide.with(context)
-                    .load(imageUrl)
-                    .into(holder.productImage);
-        } else {
-            Log.e("ProductAdapter", "Image URL is null or empty for product: " + product.getName());
-        }
+        holder.btnAdd.setOnClickListener(v -> {
+            holder.quantity++;
+            holder.txtQuantity.setText(String.valueOf(holder.quantity));
+            holder.btnAddToCart.setEnabled(holder.quantity > 0); // Habilitar si hay cantidad
+        });
 
-        holder.productRating.setText(String.valueOf(calification));
-
-        holder.itemView.setOnClickListener(v -> {
-            Log.d("ProductAdapter", "Item clickeado: " + product.getName() + ", ID: " + product.getId());
-            Intent intent = new Intent(context, ProductDetailsActivity.class);
-            intent.putExtra("productId", product.getId());
-            context.startActivity(intent);
+        holder.btnRemove.setOnClickListener(v -> {
+            if (holder.quantity > 0) {
+                holder.quantity--;
+                holder.txtQuantity.setText(String.valueOf(holder.quantity));
+                holder.btnAddToCart.setEnabled(holder.quantity > 0); // Deshabilitar si es 0
+            }
         });
 
         holder.btnAddToCart.setOnClickListener(v -> {
-            CartManager.getInstance().addProductToCart(product); // Agrega el producto al carrito
-            Toast.makeText(context, product.getName() + " agregado al carrito", Toast.LENGTH_SHORT).show();
+            try {
+                if (holder.btnAddToCart.isEnabled()) {
+                    CartManager.getInstance().addProductToCart(product, holder.quantity);
+                    Toast.makeText(context, product.getName() + " agregado al carrito. Cantidad: " + holder.quantity, Toast.LENGTH_SHORT).show();
+                    holder.quantity = 0; // Resetea la cantidad
+                    holder.txtQuantity.setText("0");
+                    holder.btnAddToCart.setEnabled(false);
+                } else {
+                    Toast.makeText(context, "Selecciona una cantidad mayor a 0 para agregar al carrito", Toast.LENGTH_SHORT).show();
+                }
+            } catch (IllegalArgumentException e) {
+                Toast.makeText(context, e.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        // Manejo del clic en el elemento del producto
+        holder.itemView.setOnClickListener(v -> {
+            Intent intent = new Intent(context, ProductDetailsActivity.class);
+            intent.putExtra("productId", product.getId());
+            context.startActivity(intent);
         });
     }
 
@@ -78,37 +95,20 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        TextView productName;
+        TextView productName, productRating, txtQuantity;
         ImageView productImage;
-        TextView productRating;
-        ImageView star1, star2, star3, star4, star5;
-        View btnAddToCart; // Asegúrate de declarar el botón aquí
+        View btnAdd, btnRemove, btnAddToCart;
+        int quantity; // Variable para la cantidad
 
         public ViewHolder(View itemView) {
             super(itemView);
             productName = itemView.findViewById(R.id.productName);
             productImage = itemView.findViewById(R.id.productImage);
             productRating = itemView.findViewById(R.id.productRating);
-            star1 = itemView.findViewById(R.id.star1);
-            star2 = itemView.findViewById(R.id.star2);
-            star3 = itemView.findViewById(R.id.star3);
-            star4 = itemView.findViewById(R.id.star4);
-            star5 = itemView.findViewById(R.id.star5);
+            txtQuantity = itemView.findViewById(R.id.txtQuantity);
+            btnAdd = itemView.findViewById(R.id.btnAdd);
+            btnRemove = itemView.findViewById(R.id.btnRemove);
             btnAddToCart = itemView.findViewById(R.id.btnAddToCart);
         }
     }
-
-
-
-    private ImageView getStarImageView(ViewHolder holder, int index) {
-        switch (index) {
-            case 1: return holder.star1;
-            case 2: return holder.star2;
-            case 3: return holder.star3;
-            case 4: return holder.star4;
-            case 5: return holder.star5;
-            default: return null;
-        }
-    }
 }
-

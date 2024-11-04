@@ -1,9 +1,9 @@
 package com.example.planetsuperheroes.models;
 
-import com.google.gson.annotations.SerializedName;
+
 
 public class Product {
-    @SerializedName("id_product")
+
     private int id;
     private String name;
     private String description;

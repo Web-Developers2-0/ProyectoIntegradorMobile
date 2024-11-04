@@ -19,8 +19,9 @@
             android:exported="false" />
 
         <activity
-            android:name=".models.ProductDetailsActivity"
+            android:name="com.example.planetsuperheroes.models.ProductDetailsActivity"
             android:exported="false" />
+
         <activity
             android:name=".NotificationsActivity"
             android:exported="false" />
@@ -63,7 +64,6 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
