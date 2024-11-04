@@ -12,6 +12,11 @@
     <string name="product_image_desc">Product Image</string>
     <string name="marvel_category">Marvel Category</string>
     <string name="dc_category">DC Category</string>
+    <string name="decrease_quantity">Disminuir cantidad</string>
+    <string name="increase_quantity">Aumentar cantidad</string>
+    <string name="add_to_cart">Agregar al Carrito</string>
+    <string name="default_quantity">0</string>
+
 
     <!--Strings para Info personal-->
     <string name="user_act_name">User</string>
@@ -118,7 +123,7 @@
     <!-- Strings para la Actividad Home -->
     <string name="user_hello">Hi User!</string>
     <string name="home_title">Elige una categoria</string>
-    <string name="btn_seemore">Ver más</string>
+    <string name="btn_seemore">Recomendados</string>
     <string name="faq_nav">Preguntas Frecuentes</string>
     <string name="contact_nav">Contactanos</string>
     <string name="Soporte">Soporte</string>
@@ -132,7 +137,7 @@
     <string name="icono_preguntas">icono preguntas</string>
     <string name="icono_terminos">icono terminos</string>
     <string name="icono_chico_user">icono chico user</string>
-    <string name="mas_populares">Más populares</string>
+    <string name="mas_populares">Próximos arrivos</string>
     <string name="gwenpool_description">New comic</string>
 
     <!-- Descripciones para accesibilidad -->
