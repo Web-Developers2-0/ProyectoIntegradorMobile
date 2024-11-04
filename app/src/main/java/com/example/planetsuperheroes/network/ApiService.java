@@ -45,8 +45,9 @@ public interface ApiService {
     @GET("/api/products/{id}/")
     Call<Product> getProduct(@Path("id") int productId);
 
-    @GET("/api/orders/user/") //
-    Call<List<Order>> obtenerOrders();
+    @GET("/api/orders/user/{userId}")
+    Call<List<Order>> obtenerOrders(@Path("userId") int userId);
+
 
     @POST("/api/orders/create/")
     Call<Order> createOrder(@Body Map<String, Object> orderData);

@@ -5,7 +5,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class Order {
 
-    @SerializedName("user")
+    @SerializedName("id_order") // Asegúrate de que el API retorne este campo
+    private int idOrder; // ID de la orden
+
+    @SerializedName("id_user")
     private int user; // Cambiar a int si es un ID
 
     @SerializedName("state")
@@ -35,9 +38,9 @@ public class Order {
     }
 
     // Constructor con todos los campos
-    public Order( int user, String state, String orderDate, String paymentMethod,
+    public Order(int idOrder, int user, String state, String orderDate, String paymentMethod,
                  String shippingMethod, String paymentStatus, double totalAmount, List<OrderItem> orderItems) {
-
+        this.idOrder = idOrder; // Agrega este campo
         this.user = user;
         this.state = state;
         this.orderDate = orderDate;
@@ -48,13 +51,16 @@ public class Order {
         this.orderItems = orderItems;
     }
 
+    public int getIdOrder() {
+        return idOrder;
+    }
 
     public int getUser() {
         return user; // Cambia el tipo de retorno si es necesario
     }
 
-    public void setUserId(int userId) {
-        this.user = userId; // Cambia el método según el tipo de 'user'
+    public void setUser(int user) {
+        this.user = user; // Cambia el método según el tipo de 'user'
     }
 
     public String getState() {
@@ -116,7 +122,7 @@ public class Order {
     @Override
     public String toString() {
         return "Order{" +
-
+                "idOrder=" + idOrder + // Incluye el ID de la orden en el toString
                 ", user=" + user +
                 ", state='" + state + '\'' +
                 ", orderDate='" + orderDate + '\'' +
@@ -128,3 +134,4 @@ public class Order {
                 '}';
     }
 }
+
