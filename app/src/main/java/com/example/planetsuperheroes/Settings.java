@@ -31,6 +31,8 @@ public class Settings extends AppCompatActivity {
     private ApiService apiService;
     private TextView userName;
     private TextView userEmail;
+    private ImageButton imageButtonhistorialcompra;
+
 
 
     @Override
@@ -46,13 +48,21 @@ public class Settings extends AppCompatActivity {
         userName = findViewById(R.id.userName);
         userEmail = findViewById(R.id.userEmail);
         apiService = RetrofitClient.getClient(this).create(ApiService.class);
-
+        imageButtonhistorialcompra = findViewById(R.id.imageButtonhistorialcompra);
         getUserInfo();
 
         imageButtonProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Settings.this, infoPersonal.class);
+                startActivity(intent);
+            }
+        });
+
+        imageButtonhistorialcompra.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Settings.this, Historial_Compras.class);
                 startActivity(intent);
             }
         });

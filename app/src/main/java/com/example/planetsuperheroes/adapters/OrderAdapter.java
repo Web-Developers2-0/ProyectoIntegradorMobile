@@ -28,32 +28,32 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.OrderViewHol
         return new OrderViewHolder(view);
     }
 
+
     @Override
     public void onBindViewHolder(@NonNull OrderViewHolder holder, int position) {
         Order order = listaOrders.get(position);
 
         // Asignar valores a los TextView con manejo de null
-
+        holder.textViewOrderNumber.setText("Order #" + order.getIdOrder());  // ID de la orden
         holder.textViewState.setText(order.getState() != null ? order.getState() : "N/A");
         holder.textViewOrderDate.setText(order.getOrderDate() != null ? order.getOrderDate() : "N/A");
         holder.textViewPaymentMethod.setText(order.getPaymentMethod() != null ? order.getPaymentMethod() : "N/A");
         holder.textViewShippingMethod.setText(order.getShippingMethod() != null ? order.getShippingMethod() : "N/A");
         holder.textViewPaymentStatus.setText(order.getPaymentStatus() != null ? order.getPaymentStatus() : "N/A");
-        holder.textViewTotalAmount.setText(String.valueOf(order.getTotalAmount()));
-
+        holder.textViewTotalAmount.setText(String.format("$%.2f", order.getTotalAmount()));
 
         // Mostrar los items de la orden
         StringBuilder itemsText = new StringBuilder();
         if (order.getOrderItems() != null && !order.getOrderItems().isEmpty()) {
             for (OrderItem item : order.getOrderItems()) {
-                String productName = String.valueOf(item.getProduct());
+                String productName = item.getProductName() != null ? item.getProductName() : "Producto desconocido";
                 itemsText.append("Producto: ").append(productName)
                         .append(", Cantidad: ").append(item.getQuantity()).append("\n");
             }
+            holder.textViewOrderItems.setText(itemsText.toString());
         } else {
             holder.textViewOrderItems.setText("Sin productos");
         }
-        holder.textViewOrderItems.setText(itemsText.toString());
     }
 
     @Override
@@ -67,7 +67,6 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.OrderViewHol
         public OrderViewHolder(@NonNull View itemView) {
             super(itemView);
             textViewOrderNumber = itemView.findViewById(R.id.textViewOrderNumber); // Asegúrate de tener este TextView en item_order.xml
-            textViewUser = itemView.findViewById(R.id.textViewUser);
             textViewState = itemView.findViewById(R.id.textViewState);
             textViewOrderDate = itemView.findViewById(R.id.textViewOrderDate);
             textViewPaymentMethod = itemView.findViewById(R.id.textViewPaymentMethod);

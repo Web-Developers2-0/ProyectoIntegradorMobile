@@ -181,4 +181,6 @@
 
     <!-- Strings para Logout -->
     <string name="logout">Cerrar Sesión</string>
+    <string name="imagen_de_carrito">imagen de carrito</string>
+    <string name="flechahistorialcompra">flecha_historial_compra</string>
 </resources>
