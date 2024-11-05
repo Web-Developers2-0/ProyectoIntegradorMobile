@@ -83,4 +83,3 @@ public class Product {
         this.description = description; // Setter para la descripción
     }
 }
-

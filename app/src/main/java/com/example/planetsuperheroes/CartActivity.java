@@ -75,6 +75,7 @@ public class CartActivity extends AppCompatActivity {
         for (Map.Entry<Product, Integer> entry : cartItems.entrySet()) {
             Product product = entry.getKey();
             int quantity = entry.getValue();
+            Log.d("CartActivity", "ID del producto: " + product.getId() + ", Cantidad: " + quantity);
             orderItems.add(new OrderItem(product.getId(), product.getName(), quantity));
             totalAmount[0] += product.getPrice() * quantity;
         }
