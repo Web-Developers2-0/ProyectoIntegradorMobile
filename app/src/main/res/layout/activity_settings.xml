@@ -276,6 +276,7 @@
                 android:padding="3dp">
 
                 <!-- Opción de Notificaciones -->
+                <!--
                 <LinearLayout
                     android:id="@+id/darkModeButton"
                     android:layout_width="0dp"
@@ -311,7 +312,7 @@
                         android:layout_height="wrap_content"
                         android:padding="10dp"/>
                 </LinearLayout>
-
+                -->
                 <!-- Opción de Cambiar Contraseña -->
                 <LinearLayout
                     android:id="@+id/linearContrasena"
@@ -321,9 +322,9 @@
                     android:focusable="true"
                     android:orientation="horizontal"
                     android:padding="16dp"
-                    app:layout_constraintTop_toBottomOf="@id/darkModeButton"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent">
+                    app:layout_constraintEnd_toEndOf="parent"
+                    tools:ignore="MissingConstraints">
 
                     <ImageView
                         android:layout_width="24dp"
