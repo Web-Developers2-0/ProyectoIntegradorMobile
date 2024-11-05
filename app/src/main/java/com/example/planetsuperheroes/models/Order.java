@@ -5,11 +5,11 @@ import com.google.gson.annotations.SerializedName;
 
 public class Order {
 
-    @SerializedName("id_order") // Asegúrate de que el API retorne este campo
+    @SerializedName("id_order")
     private int idOrder; // ID de la orden
 
-    @SerializedName("id_user")
-    private int user; // Cambiar a int si es un ID
+    @SerializedName("user")
+    private User user; // Cambia a User en lugar de int
 
     @SerializedName("state")
     private String state;
@@ -34,14 +34,13 @@ public class Order {
 
     // Constructor vacío
     public Order() {
-        // Constructor vacío
     }
 
     // Constructor con todos los campos
-    public Order(int idOrder, int user, String state, String orderDate, String paymentMethod,
+    public Order(int idOrder, User user, String state, String orderDate, String paymentMethod,
                  String shippingMethod, String paymentStatus, double totalAmount, List<OrderItem> orderItems) {
         this.idOrder = idOrder; // Agrega este campo
-        this.user = user;
+        this.user = user; // Cambia a User
         this.state = state;
         this.orderDate = orderDate;
         this.paymentMethod = paymentMethod;
@@ -55,11 +54,11 @@ public class Order {
         return idOrder;
     }
 
-    public int getUser() {
-        return user; // Cambia el tipo de retorno si es necesario
+    public User getUser() {
+        return user; // Cambia el tipo de retorno a User
     }
 
-    public void setUser(int user) {
+    public void setUser(User user) {
         this.user = user; // Cambia el método según el tipo de 'user'
     }
 
@@ -122,8 +121,8 @@ public class Order {
     @Override
     public String toString() {
         return "Order{" +
-                "idOrder=" + idOrder + // Incluye el ID de la orden en el toString
-                ", user=" + user +
+                "idOrder=" + idOrder +
+                ", user=" + user + // Incluye el objeto User en el toString
                 ", state='" + state + '\'' +
                 ", orderDate='" + orderDate + '\'' +
                 ", paymentMethod='" + paymentMethod + '\'' +
@@ -134,4 +133,3 @@ public class Order {
                 '}';
     }
 }
-

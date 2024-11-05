@@ -6,11 +6,12 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import com.example.planetsuperheroes.adapters.OrderAdapter;
+import com.example.planetsuperheroes.models.OrderAdapter;
 import com.example.planetsuperheroes.models.Order;
 import com.example.planetsuperheroes.models.UserCrudInfo;
 import com.example.planetsuperheroes.network.RetrofitClient;
 import com.example.planetsuperheroes.network.ApiService;
+import java.util.ArrayList;
 import java.util.List;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -29,6 +30,10 @@ public class Historial_Compras extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.recyclerViewOrders);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        // Crear un adaptador vacío y asignarlo
+        orderAdapter = new OrderAdapter(new ArrayList<>());
+        recyclerView.setAdapter(orderAdapter);
 
         // Inicializar el servicio de la API utilizando RetrofitClient
         apiService = RetrofitClient.getClient(this).create(ApiService.class);
@@ -49,7 +54,7 @@ public class Historial_Compras extends AppCompatActivity {
                         userId = userCrudInfo.getId(); // Almacena el ID del usuario
 
                         // Ahora que tenemos el ID del usuario, obtenemos sus órdenes
-                        getOrders(get);
+                        getOrders();
                     }
                 } else {
                     Log.e("HistorialCompras", "Error en la respuesta: " + response.code());
@@ -63,8 +68,8 @@ public class Historial_Compras extends AppCompatActivity {
         });
     }
 
-    private void getOrders(int userId) {
-        Call<List<Order>> call = apiService.obtenerOrders(userId);  // Pasa el ID del usuario en la llamada
+    private void getOrders() {
+        Call<List<Order>> call = apiService.obtenerOrders();  // Pasa el ID del usuario en la llamada
         call.enqueue(new Callback<List<Order>>() {
             @Override
             public void onResponse(Call<List<Order>> call, Response<List<Order>> response) {
@@ -85,7 +90,6 @@ public class Historial_Compras extends AppCompatActivity {
     }
 
     private void mostrarHistorialOrders(List<Order> orders) {
-        orderAdapter = new OrderAdapter(orders);
-        recyclerView.setAdapter(orderAdapter);
+        orderAdapter.setOrders(orders);
     }
 }
