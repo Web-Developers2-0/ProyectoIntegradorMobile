@@ -31,6 +31,8 @@ public class Settings extends AppCompatActivity {
     private ApiService apiService;
     private TextView userName;
     private TextView userEmail;
+    private ImageButton imageButtonhistorialcompra;
+    private ImageButton flechaBotonTerminos;
 
 
     @Override
@@ -46,13 +48,22 @@ public class Settings extends AppCompatActivity {
         userName = findViewById(R.id.userName);
         userEmail = findViewById(R.id.userEmail);
         apiService = RetrofitClient.getClient(this).create(ApiService.class);
-
+        imageButtonhistorialcompra = findViewById(R.id.imageButtonhistorialcompra);
         getUserInfo();
+        flechaBotonTerminos = findViewById(R.id.flechaBotonTerminos);
 
         imageButtonProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Settings.this, infoPersonal.class);
+                startActivity(intent);
+            }
+        });
+
+        imageButtonhistorialcompra.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Settings.this, Historial_Compras.class);
                 startActivity(intent);
             }
         });
@@ -69,6 +80,14 @@ public class Settings extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Settings.this, ContactActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        flechaBotonTerminos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Settings.this, TermsActivity.class);
                 startActivity(intent);
             }
         });

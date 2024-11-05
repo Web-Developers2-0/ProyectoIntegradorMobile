@@ -1,0 +1,148 @@
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- Order ID -->
+    <TextView
+        android:id="@+id/textViewOrderNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Order ID"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:textColor="#000000"/>
+
+    <!-- User (Opcional, si es necesario) -->
+    <TextView
+        android:id="@+id/textViewUser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="User Name"
+        android:textSize="12sp"
+        android:textColor="#666666"/>
+
+    <!-- Order Date -->
+    <TextView
+        android:id="@+id/textViewOrderDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Order Date: 09 Jan, 2021"
+        android:textSize="12sp"
+        android:textColor="#666666"/>
+
+    <!-- Shipping Method -->
+    <TextView
+        android:id="@+id/textViewShippingMethod"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Shipping Method"
+        android:textSize="12sp"
+        android:textColor="#666666"/>
+
+    <!-- Payment Status -->
+    <TextView
+        android:id="@+id/textViewPaymentStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Payment Status"
+        android:textSize="12sp"
+        android:textColor="#666666"/>
+
+    <!-- Order Items -->
+    <TextView
+        android:id="@+id/textViewOrderItems"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Order Items"
+        android:textSize="12sp"
+        android:textColor="#666666"/>
+
+    <!-- Horizontal layout for amount and status -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="end"
+        android:layout_marginTop="8dp">
+
+        <!-- Payment Method -->
+        <TextView
+            android:id="@+id/textViewPaymentMethod"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Payment Method"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:layout_gravity="center_vertical"
+            android:textColor="#000000"/>
+
+        <!-- Total Amount -->
+        <TextView
+            android:id="@+id/textViewTotalAmount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="₹ 1,155"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:layout_gravity="center_vertical"
+            android:textColor="#000000"/>
+
+        <!-- State Button -->
+        <Button
+            android:id="@+id/textViewState"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="State"
+            android:textColor="#0000FF"
+            android:background="@android:color/transparent"
+            android:layout_marginStart="16dp"/>
+    </LinearLayout>
+</LinearLayout>
+<!--
+    <TextView
+        android:id="@+id/textViewOrder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/textViewPaymentMethod"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/textViewShippingMethod"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/textViewPaymentStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/textViewTotalAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/textViewOrderItems"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+-->
+
+
+
