@@ -158,7 +158,7 @@ public class RegistroActivity extends AppCompatActivity {
                 password.matches(".*[A-Z].*") &&
                 password.matches(".*[a-z].*") &&
                 password.matches(".*\\d.*") &&
-                password.matches(".*[@#$%^&+=!].*");
+                password.matches(".*[@#$%^&+=!_.-].*");
     }
 
     private class ValidationTextWatcher implements TextWatcher {
