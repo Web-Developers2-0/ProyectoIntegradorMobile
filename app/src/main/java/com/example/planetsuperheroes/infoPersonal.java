@@ -17,7 +17,6 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-
 public class infoPersonal extends AppCompatActivity {
 
     private ApiService apiService;
@@ -65,17 +64,7 @@ public class infoPersonal extends AppCompatActivity {
         });
     }
 
-    private boolean validateFields() {
-        if (nameEditText.getText().toString().isEmpty() ||
-                lastNameEditText.getText().toString().isEmpty() ||
-                emailEditText.getText().toString().isEmpty() ||
-                addressEditText.getText().toString().isEmpty()) {
-            Toast.makeText(infoPersonal.this, "Por favor, completa todos los campos", Toast.LENGTH_SHORT).show();
-            return false;
-        }
-        return true;
-    }
-
+    // Método para obtener la información del usuario
     private void getUserInfo() {
         Call<UserCrudInfo> call = apiService.getUserCrudInfo();  // El interceptor añadirá el token automáticamente
         call.enqueue(new Callback<UserCrudInfo>() {
@@ -101,6 +90,7 @@ public class infoPersonal extends AppCompatActivity {
         });
     }
 
+    // Método para actualizar la información del usuario
     private void updateUserInfo(UserCrudInfo updatedUser) {
         Call<Void> call = apiService.updateUserCrudInfo(updatedUser);
         call.enqueue(new Callback<Void>() {
@@ -119,4 +109,45 @@ public class infoPersonal extends AppCompatActivity {
             }
         });
     }
+
+    // Método para validar los campos
+    private boolean validateFields() {
+        // Definir las restricciones de longitud
+        int minLength = 3;
+        int maxLength = 30;
+
+        // Obtener el texto de cada campo EditText
+        String nombre = nameEditText.getText().toString();
+        String apellido = lastNameEditText.getText().toString();
+        String correo = emailEditText.getText().toString();
+        String direccion = addressEditText.getText().toString();
+
+        // Validar cada campo con las restricciones de longitud y condiciones específicas
+        if (nombre.isEmpty() || nombre.length() < minLength || nombre.length() > maxLength) {
+            Toast.makeText(infoPersonal.this, "El nombre debe tener entre " + minLength + " y " + maxLength + " caracteres", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        if (apellido.isEmpty() || apellido.length() < minLength || apellido.length() > maxLength) {
+            Toast.makeText(infoPersonal.this, "El apellido debe tener entre " + minLength + " y " + maxLength + " caracteres", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        if (correo.isEmpty() || !correo.contains("@") || correo.length() > maxLength) {
+            Toast.makeText(infoPersonal.this, "El correo debe contener '@' y no superar " + maxLength + " caracteres", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        if (direccion.isEmpty() || direccion.length() < minLength || direccion.length() > maxLength) {
+            Toast.makeText(infoPersonal.this, "La dirección debe tener entre " + minLength + " y " + maxLength + " caracteres", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
+        // Verificar que todos los campos estén completos
+        if (nombre.isEmpty() || apellido.isEmpty() || correo.isEmpty() || direccion.isEmpty()) {
+            Toast.makeText(infoPersonal.this, "Por favor, completa todos los campos", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
+        // Si todas las validaciones pasan
+        return true;
+    }
 }
+
