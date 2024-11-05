@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -7,245 +8,42 @@
     android:orientation="vertical"
     android:padding="16dp">
 
-    <!-- Header con el botón de atrás y settings -->
+    <!-- Título de la pantalla de notificaciones -->
+    <TextView
+        android:id="@+id/notifications_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/notifications_title"
+        android:fontFamily="@font/bangersregular"
+        android:textSize="28sp"
+        android:textColor="@color/white"
+        android:layout_gravity="center_horizontal" />
 
-    <!-- Notificación 1 -->
+    <!-- Contenedor de notificaciones dinámicas -->
     <LinearLayout
-        android:layout_width="378dp"
-        android:layout_height="53dp"
-        android:gravity="center_vertical"
-        android:orientation="horizontal">
-
-        <ImageButton
-            android:id="@+id/back_button"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:background="@android:color/transparent"
-            android:contentDescription="@string/back_button_content_description"
-            android:src="@drawable/ic_back_arrow"
-            app:tint="#E4AC57" />
-
-        <TextView
-            android:id="@+id/notifications_title"
-            android:layout_width="273dp"
-            android:layout_height="53dp"
-            android:layout_weight="1"
-            android:fontFamily="@font/interregular"
-            android:gravity="center"
-            android:letterSpacing="0.1"
-            android:text="@string/notifications_title"
-            android:textColor="@color/colorAccent"
-            android:textSize="24sp"
-            android:textStyle="bold" />
-
-        <ImageButton
-            android:id="@+id/settings_button"
-            android:layout_width="48dp"
-            android:layout_height="wrap_content"
-            android:background="@android:color/transparent"
-            android:contentDescription="@string/settings_button_content_description"
-            android:src="@drawable/ic_settings"
-            app:tint="#E4AC57" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/notification_1"
+        android:id="@+id/notifications_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:orientation="horizontal">
+        android:orientation="vertical"
+        android:layout_marginTop="16dp">
 
-        <ImageView
-            android:id="@+id/icon_notification_1"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:src="@drawable/ic_package_arrived"
-            app:tint="#E4AC57"/>
+        <!-- Ejemplo de notificación dinámica (inicialmente oculto) -->
+        <include
+            layout="@layout/notification_item"
+            android:visibility="gone" />
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/notification_1_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/notification_1_title"
-                android:textColor="#E4AC57"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/notification_1_subtitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/notification_1_subtitle"
-                android:textColor="#E4AC57"
-                android:textSize="14sp" />
-
-            <TextView
-                android:id="@+id/notification_1_subtitle2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/notification_1_subtitle2"
-                android:textColor="#E4AC57"
-                android:textSize="14sp" />
-
-        </LinearLayout>
     </LinearLayout>
 
-    <!-- Separador -->
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:background="#E4AC57"
-        android:layout_marginVertical="16dp" />
-
-    <!-- Notificación 2 -->
-    <LinearLayout
-        android:id="@+id/notification_2"
-        android:layout_width="match_parent"
+    <!-- Mensaje para cuando no haya notificaciones -->
+    <TextView
+        android:id="@+id/no_notifications_message"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:orientation="horizontal">
-
-        <ImageView
-            android:id="@+id/icon_notification_2"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:src="@drawable/etiqueta"
-            app:tint="#E4AC57" />
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/notification_2_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/notification_2_title"
-                android:textColor="#E4AC57"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/notification_2_subtitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/notification_2_subtitle"
-                android:textColor="#E4AC57"
-                android:textSize="14sp" />
-        </LinearLayout>
-    </LinearLayout>
-
-    <!-- Separador -->
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:background="#E4AC57"
-        android:layout_marginVertical="16dp" />
-
-    <!-- Notificación 3 -->
-    <LinearLayout
-        android:id="@+id/notification_3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:orientation="horizontal">
-
-        <ImageView
-            android:id="@+id/icon_notification_3"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:src="@drawable/ic_purchase_failed"
-            app:tint="#E4AC57" />
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/notification_3_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/notification_3_title"
-                android:textColor="#E4AC57"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/notification_3_subtitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/notification_3_subtitle"
-                android:textColor="#E4AC57"
-                android:textSize="14sp" />
-        </LinearLayout>
-    </LinearLayout>
-
-    <!-- Separador -->
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:background="#E4AC57"
-        android:layout_marginVertical="16dp" />
-
-    <!-- Notificación 4 -->
-    <LinearLayout
-        android:id="@+id/notification_4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:orientation="horizontal">
-
-        <ImageView
-            android:id="@+id/icon_notification_4"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:src="@drawable/ruta"
-            app:tint="#E4AC57" />
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/notification_4_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/notification_4_title"
-                android:textColor="#E4AC57"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/notification_4_subtitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/notification_4_subtitle"
-                android:textColor="#E4AC57"
-                android:textSize="14sp" />
-        </LinearLayout>
-    </LinearLayout>
-
+        android:text="@string/no_notifications"
+        android:textSize="16sp"
+        android:textColor="@android:color/white"
+        android:fontFamily="@font/interregular"
+        android:layout_gravity="center_horizontal"
+        android:padding="8dp"
+        android:visibility="gone" />
 </LinearLayout>

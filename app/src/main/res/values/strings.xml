@@ -1,20 +1,22 @@
 <resources>
     <string name="app_name">Planet Superheroes</string>
     <!--Strings para login-->
-
     <string name="ingresa_tus_datos">INGRESA TUS DATOS</string>
-    <string name="mail">Mail</string>
-    <string name="clave">Clave</string>
+    <string name="mail">Ingresar email</string>
+    <string name="clave">Ingresar contraseña</string>
     <string name="olvide_contrasena">Olvidé mi contraseña</string>
     <string name="iniciar_sesion">INICIAR SESIÓN</string>
-    <string name="registrate">¿No tenés cuenta? <b>Regístrate</b></string>
-    <string name="desc_google">Botón para iniciar sesión con Google</string>
-    <string name="desc_facebook">Botón para iniciar sesión con Facebook</string>
+    <string name="registrate">¿No tenés una cuenta? <b>Regístrate acá!</b></string>
 
     <!--Strings para Productos-->
     <string name="product_image_desc">Product Image</string>
     <string name="marvel_category">Marvel Category</string>
     <string name="dc_category">DC Category</string>
+    <string name="decrease_quantity">Disminuir cantidad</string>
+    <string name="increase_quantity">Aumentar cantidad</string>
+    <string name="add_to_cart">Agregar al Carrito</string>
+    <string name="default_quantity">0</string>
+
 
     <!--Strings para Info personal-->
     <string name="user_act_name">User</string>
@@ -43,7 +45,7 @@
 
     <string name="btn_registrar">REGÍSTRATE</string>
     <string name="decripción_logo">Logo de la aplicación Planet Superheroes</string>
-    <string name="nombre_usuario">Nickname</string>
+    <string name="nombre_usuario">Username</string>
     <string name="registrarse">REGISTRARSE</string>
     <string name="text_contraseña">Contraseña</string>
     <string name="text_email">Email</string>
@@ -51,7 +53,7 @@
     <string name="google_button_description">Sign in with Google</string>
     <string name="facebook_button_description">Sign in with Facebook</string>
     <!-- Nuevos campos de texto -->
-    <string name="hint_ingresar_nickname">Ingresar nickname</string>
+    <string name="hint_ingresar_nickname">Ingresar un nombre de usuario</string>
     <string name="hint_ingresar_email">Ingresar email</string>
     <string name="hint_confirmar_email">Confirmar email</string>
     <string name="hint_ingresar_password">Ingresar password</string>
@@ -72,23 +74,19 @@
 
     <!-- Títulos -->
     <string name="notifications_title">NOTIFICACIONES</string>
+    <string name="close_notification">Cerrar notificación</string>
 
-    <!-- Notificación 1 -->
-    <string name="notification_1_title">¡Tu paquete llegó a destino!</string>
-    <string name="notification_1_subtitle">¡Gracias por habernos elegido!</string>
-    <string name="notification_1_subtitle2"> ¡Disfruta tu Compra!</string>
+    <!-- Descripción del ícono de notificación -->
+    <string name="notification_icon_desc">Icono de notificación</string>
 
-    <!-- Notificación 2 -->
-    <string name="notification_2_title">15% OFF - Descuento Friends</string>
-    <string name="notification_2_subtitle">Aprovecha la semana del amigo y obtené un descuento del 15% por tu compra</string>
+    <!-- Títulos y mensajes predeterminados para notificaciones -->
 
-    <!-- Notificación 3 -->
-    <string name="notification_3_title">¡Compra Rechazada!</string>
-    <string name="notification_3_subtitle">No se pudo completar la compra</string>
+    <string name="welcome_notification_title">¡Bienvenido a Planet Superheroes!</string>
+    <string name="welcome_notification_message">Estamos emocionados de tenerte con nosotros.</string>
+    <string name="cyber_monday_notification_title">Cyber Monday</string>
+    <string name="cyber_monday_notification_message">Aprovecha increíbles descuentos en cómics del 4 al 10 de noviembre.</string>
+    <string name="no_notifications">Aún no tienes notificaciones.</string>
 
-    <!-- Notificación 4 -->
-    <string name="notification_4_title">¡Tu paquete está en camino!</string>
-    <string name="notification_4_subtitle">La compra #138439 tardará entre 5 a 7 días hábiles</string>
 
     <!-- Botón de atrás y ajustes -->
     <string name="back_button_content_description">Volver</string>
@@ -125,7 +123,7 @@
     <!-- Strings para la Actividad Home -->
     <string name="user_hello">Hi User!</string>
     <string name="home_title">Elige una categoria</string>
-    <string name="btn_seemore">Ver más</string>
+    <string name="btn_seemore">Recomendados</string>
     <string name="faq_nav">Preguntas Frecuentes</string>
     <string name="contact_nav">Contactanos</string>
     <string name="Soporte">Soporte</string>
@@ -139,7 +137,7 @@
     <string name="icono_preguntas">icono preguntas</string>
     <string name="icono_terminos">icono terminos</string>
     <string name="icono_chico_user">icono chico user</string>
-    <string name="mas_populares">Más populares</string>
+    <string name="mas_populares">Próximos arrivos</string>
     <string name="gwenpool_description">New comic</string>
 
     <!-- Descripciones para accesibilidad -->
