@@ -5,40 +5,42 @@ import com.google.gson.annotations.SerializedName;
 
 public class Order {
 
+    @SerializedName("id_order")
+    private int idOrder; // ID de la orden
+
     @SerializedName("user")
-    private int user; // Cambiar a int si es un ID
+    private User user; // Cambia a User en lugar de int
 
     @SerializedName("state")
     private String state;
 
     @SerializedName("order_date")
-    private String orderDate;
+    private String orderDate; // Fecha de la orden
 
     @SerializedName("payment_method")
-    private String paymentMethod;
+    private String paymentMethod; // Método de pago
 
     @SerializedName("shipping_method")
-    private String shippingMethod;
+    private String shippingMethod; // Método de envío
 
     @SerializedName("payment_status")
-    private String paymentStatus;
+    private String paymentStatus; // Estado del pago
 
     @SerializedName("total_amount")
-    private double totalAmount;
+    private double totalAmount; // Monto total
 
     @SerializedName("order_items")
-    private List<OrderItem> orderItems;
+    private List<OrderItem> orderItems; // Lista de ítems de la orden
 
     // Constructor vacío
     public Order() {
-        // Constructor vacío
     }
 
     // Constructor con todos los campos
-    public Order( int user, String state, String orderDate, String paymentMethod,
+    public Order(int idOrder, User user, String state, String orderDate, String paymentMethod,
                  String shippingMethod, String paymentStatus, double totalAmount, List<OrderItem> orderItems) {
-
-        this.user = user;
+        this.idOrder = idOrder; // Agrega este campo
+        this.user = user; // Cambia a User
         this.state = state;
         this.orderDate = orderDate;
         this.paymentMethod = paymentMethod;
@@ -48,13 +50,16 @@ public class Order {
         this.orderItems = orderItems;
     }
 
-
-    public int getUser() {
-        return user; // Cambia el tipo de retorno si es necesario
+    public int getIdOrder() {
+        return idOrder;
     }
 
-    public void setUserId(int userId) {
-        this.user = userId; // Cambia el método según el tipo de 'user'
+    public User getUser() {
+        return user; // Cambia el tipo de retorno a User
+    }
+
+    public void setUser(User user) {
+        this.user = user; // Cambia el método según el tipo de 'user'
     }
 
     public String getState() {
@@ -116,8 +121,8 @@ public class Order {
     @Override
     public String toString() {
         return "Order{" +
-
-                ", user=" + user +
+                "idOrder=" + idOrder +
+                ", user=" + user + // Incluye el objeto User en el toString
                 ", state='" + state + '\'' +
                 ", orderDate='" + orderDate + '\'' +
                 ", paymentMethod='" + paymentMethod + '\'' +
