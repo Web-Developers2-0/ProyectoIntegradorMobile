@@ -9,15 +9,11 @@ import android.widget.ImageButton;
 import android.content.Intent;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
-
-import com.example.planetsuperheroes.models.LogoutRequest;
-import com.example.planetsuperheroes.models.LogoutResponse;
 import com.example.planetsuperheroes.network.ApiService;
 import com.example.planetsuperheroes.models.User;
 import com.example.planetsuperheroes.network.AuthInterceptor;
@@ -26,9 +22,15 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+import androidx.appcompat.app.AlertDialog;
+
 public class Settings extends AppCompatActivity {
     private ImageButton imageButtonProfile;
     private Button logoutButton;
+    private SharedPreferences sharedPreferences;
+    private static final String PREFS_NAME = "LoginPrefs";
+    private static final String KEY_TOKEN = "auth_token";
+
     private ImageButton flechaBotonPreguntas;
     private ImageButton flechaBotonContactanos;
     private ApiService apiService;
@@ -45,8 +47,6 @@ public class Settings extends AppCompatActivity {
         setContentView(R.layout.activity_settings);
 
         imageButtonProfile = findViewById(R.id.imageButtonProfile);
-        logoutButton = findViewById(R.id.logoutButton);
-
         flechaBotonPreguntas = findViewById(R.id.flechaBotonPreguntas);
         flechaBotonContactanos = findViewById(R.id.flechaBotonContactanos);
         userName = findViewById(R.id.userName);
@@ -55,6 +55,9 @@ public class Settings extends AppCompatActivity {
         imageButtonhistorialcompra = findViewById(R.id.imageButtonhistorialcompra);
         getUserInfo();
         flechaBotonTerminos = findViewById(R.id.flechaBotonTerminos);
+        logoutButton = findViewById(R.id.logoutButton);
+        sharedPreferences = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
+
 
         imageButtonProfile.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -96,7 +99,7 @@ public class Settings extends AppCompatActivity {
             }
         });
 
-        logoutButton.setOnClickListener(v -> logoutUser());
+        logoutButton.setOnClickListener(v -> showLogoutConfirmationDialog());
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.Settings), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
@@ -105,49 +108,25 @@ public class Settings extends AppCompatActivity {
         });
     }
 
-        private void logoutUser() {
-            int userId = getId();
-            LogoutRequest request = new LogoutRequest();
-            request.setUser(userId);
+    private void showLogoutConfirmationDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("¿Queres cerrar sesión?")
+                .setPositiveButton("Sí", (dialog, id) -> performLogout())
+                .setNegativeButton("No", (dialog, id) -> dialog.dismiss());
+        builder.create().show();
+    }
 
-            ApiService apiService = RetrofitClient.getClient(this).create(ApiService.class);
+    private void performLogout() {
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.remove(KEY_TOKEN);
+        editor.apply();
 
-            Call<LogoutResponse> call = apiService.logoutUser(request);
+        Toast.makeText(this, "Has cerrado sesión con exito.", Toast.LENGTH_SHORT).show();
 
-            call.enqueue(new Callback<LogoutResponse>() {
-                @Override
-                public void onResponse(Call<LogoutResponse> call, Response<LogoutResponse> response) {
-                    if (response.isSuccessful())
-                    {
-                        Toast.makeText(Settings.this, "Cierre de sesión exitoso", Toast.LENGTH_SHORT).show();
-                        RetrofitClient.setToken(null);
-
-                        Intent intent = new Intent(Settings.this, MainActivity.class);
-                        startActivity(intent);
-                        finish();
-                    } else {
-                        int statusCode = response.code();
-                        String errorMessage = response.message();
-                        if (statusCode == 401) {
-                            Toast.makeText(Settings.this, "No autorizado. Intente iniciar sesión nuevamente.", Toast.LENGTH_SHORT).show();
-                        } else if (statusCode == 500) {
-                            Toast.makeText(Settings.this, "Error del servidor. Por favor, intente más tarde.", Toast.LENGTH_SHORT).show();
-                        } else {
-                            Toast.makeText(Settings.this, "Error al cerrar sesión: " + errorMessage, Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                }
-
-                @Override
-                public void onFailure(Call<LogoutResponse> call, Throwable t) {
-                    Toast.makeText(Settings.this, "Error de red" + t.getMessage(), Toast.LENGTH_SHORT).show();
-                }
-            });
-        }
-
-    private int getId() {
-        SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
-        return sharedPreferences.getInt("id", -1);
+        Intent intent = new Intent(Settings.this, MainActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
+        finish();
     }
 
     private void getUserInfo() {
