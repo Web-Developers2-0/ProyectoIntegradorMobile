@@ -1,85 +1,236 @@
 package com.example.planetsuperheroes;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.text.TextUtils;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
-import androidx.core.view.WindowInsetsControllerCompat;
+
+import com.example.planetsuperheroes.models.Order;
+import com.example.planetsuperheroes.models.OrderItem;
+import com.example.planetsuperheroes.models.UserCrudInfo;
+import com.example.planetsuperheroes.network.ApiService;
+import com.example.planetsuperheroes.network.RetrofitClient;
+
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class CheckoutActivity extends AppCompatActivity {
+
+    private EditText editTextCardName, editTextCardNumber, editTextExpiryDate, editTextCVV;
+    private Button btnConfirmPayment;
+    private ApiService apiService;
+    private int userId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_checkout);
 
-        // Habilitar pantalla completa (Edge-to-Edge)
-        View mainView = findViewById(R.id.checkout_title);
+        // Inicializar vistas
+        editTextCardName = findViewById(R.id.card_name);
+        editTextCardNumber = findViewById(R.id.card_number_input);
+        editTextExpiryDate = findViewById(R.id.expiry_date_input);
+        editTextCVV = findViewById(R.id.cvv_input);
+        btnConfirmPayment = findViewById(R.id.buy_button);
 
-        ViewCompat.setOnApplyWindowInsetsListener(mainView, (v, insets) -> {
-            // Obtener las barras del sistema (status bar y navigation bar)
-            WindowInsetsCompat insetsCompat = insets;
-            v.setPadding(
-                    insetsCompat.getInsets(WindowInsetsCompat.Type.systemBars()).left,
-                    insetsCompat.getInsets(WindowInsetsCompat.Type.systemBars()).top,
-                    insetsCompat.getInsets(WindowInsetsCompat.Type.systemBars()).right,
-                    insetsCompat.getInsets(WindowInsetsCompat.Type.systemBars()).bottom
-            );
-            return insetsCompat;
+        // Inicializar ApiService
+        apiService = RetrofitClient.getClient(this).create(ApiService.class);
+
+        // Obtener el ID del usuario
+        getUserId();
+
+        // Configurar el botón de confirmar pago
+        btnConfirmPayment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (userId != -1) {
+                    Map<String, String> paymentData = validatePaymentData();
+                    if (paymentData != null) {
+                        List<OrderItem> orderItems = CartManager.getInstance().getOrderItems();
+                        createOrder(orderItems, paymentData);
+                    }
+                } else {
+                    Toast.makeText(CheckoutActivity.this, "No se pudo obtener el ID del usuario", Toast.LENGTH_SHORT).show();
+                }
+            }
         });
 
-        // Ocultar las barras de sistema si es necesario
-        WindowInsetsControllerCompat windowInsetsController = ViewCompat.getWindowInsetsController(mainView);
-        if (windowInsetsController != null) {
-            windowInsetsController.setSystemBarsBehavior(WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE);
-            windowInsetsController.hide(WindowInsetsCompat.Type.systemBars());
-        }
+        //Agrega / en (MM/YY)
+        editTextExpiryDate.addTextChangedListener(new TextWatcher() {
+            private boolean isFormatting;
 
-        // Configurar el botón de compra
-        findViewById(R.id.buy_button).setOnClickListener(v -> {
-            if (validateInputs()) {
-                // Procesar la compra
-                Toast.makeText(this, "Compra exitosa", Toast.LENGTH_SHORT).show();
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                if (isFormatting) return;
+
+                isFormatting = true;
+
+                String input = s.toString().replace("/", "");
+
+                if (input.length() >= 2) {
+
+                    String month = input.substring(0, 2);
+                    String year = input.length() > 2 ? input.substring(2) : "";
+                    editTextExpiryDate.setText(month + "/" + year);
+                    editTextExpiryDate.setSelection(editTextExpiryDate.getText().length()); // Mover el cursor al final
+                }
+
+                isFormatting = false;
+            }
+        });
+
+    }
+
+    private void getUserId() {
+        Call<UserCrudInfo> call = apiService.getUserCrudInfo();
+        call.enqueue(new Callback<UserCrudInfo>() {
+            @Override
+            public void onResponse(Call<UserCrudInfo> call, Response<UserCrudInfo> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    UserCrudInfo user = response.body();
+                    userId = user.getId();
+                    Log.d("CheckoutActivity", "ID del usuario obtenido: " + userId);
+                } else {
+                    Log.e("CheckoutActivity", "Error al obtener la información del usuario: " + response.code());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<UserCrudInfo> call, Throwable t) {
+                Log.e("CheckoutActivity", "Error en la llamada: " + t.getMessage());
             }
         });
     }
 
-    // Función para validar las entradas de los campos
-    private boolean validateInputs() {
-        String cardName = ((EditText) findViewById(R.id.card_name)).getText().toString().trim();
-        String cardNumber = ((EditText) findViewById(R.id.card_number_input)).getText().toString().trim();
-        String expiryDate = ((EditText) findViewById(R.id.expiry_date_input)).getText().toString().trim();
-        String cvv = ((EditText) findViewById(R.id.cvv_input)).getText().toString().trim();
+    private Map<String, String> validatePaymentData() {
+        String cardName = editTextCardName.getText().toString().trim();
+        String cardNumber = editTextCardNumber.getText().toString().trim();
+        String expiryDate = editTextExpiryDate.getText().toString().trim();
+        String cvv = editTextCVV.getText().toString().trim();
 
-        // Validar Nombre de la Tarjeta
-        if (TextUtils.isEmpty(cardName)) {
-            ((EditText) findViewById(R.id.card_name)).setError("Ingrese el nombre de la tarjeta");
-            return false;
+        // Validación de que los campos no estén vacíos
+        if (cardName.isEmpty() || cardNumber.isEmpty() || expiryDate.isEmpty() || cvv.isEmpty()) {
+            Toast.makeText(this, "Por favor, complete todos los campos", Toast.LENGTH_SHORT).show();
+            return null;
         }
 
-        // Validar número de tarjeta
-        if (TextUtils.isEmpty(cardNumber) || cardNumber.length() != 16) {
-            ((EditText) findViewById(R.id.card_number_input)).setError("Ingrese un número de tarjeta válido (16 dígitos)");
-            return false;
+        // Validación de longitud del número de tarjeta (16 dígitos) y Luhn
+        if (cardNumber.length() != 16 || !cardNumber.matches("\\d+") || !isValidCardNumber(cardNumber)) {
+            Toast.makeText(this, "El número de tarjeta debe tener 16 dígitos y ser válido", Toast.LENGTH_SHORT).show();
+            return null;
         }
 
-        // Validar fecha de expiración
-        if (TextUtils.isEmpty(expiryDate) || !expiryDate.matches("\\d{2}/\\d{2}")) {
-            ((EditText) findViewById(R.id.expiry_date_input)).setError("Ingrese una fecha válida (MM/AA)");
-            return false;
+        // Validación de formato de fecha (MM/YY) y que no esté en el pasado
+        if (!expiryDate.matches("(0[1-9]|1[0-2])/\\d{2}")) {
+            Toast.makeText(this, "La fecha de expiración debe estar en formato MM/YY", Toast.LENGTH_SHORT).show();
+            return null;
         }
 
-        // Validar CVV
-        if (TextUtils.isEmpty(cvv) || (cvv.length() != 3 && cvv.length() != 4)) {
-            ((EditText) findViewById(R.id.cvv_input)).setError("Ingrese un CVV válido (3 o 4 dígitos)");
-            return false;
+        // Verificar que la fecha no esté en el pasado
+        String[] parts = expiryDate.split("/");
+        int month = Integer.parseInt(parts[0]);
+        int year = Integer.parseInt(parts[1]) + 2000; // Asumir que el año es del 2000 en adelante
+        if (year < Calendar.getInstance().get(Calendar.YEAR) ||
+                (year == Calendar.getInstance().get(Calendar.YEAR) && month < Calendar.getInstance().get(Calendar.MONTH) + 1)) {
+            Toast.makeText(this, "La fecha de expiración no puede estar en el pasado", Toast.LENGTH_SHORT).show();
+            return null;
         }
 
-        return true; // Si todas las validaciones son correctas
+        // Validación del CVV (3 dígitos)
+        if (cvv.length() != 3 || !cvv.matches("\\d+")) {
+            Toast.makeText(this, "El CVV debe contener 3 dígitos numéricos", Toast.LENGTH_SHORT).show();
+            return null;
+        }
+
+        Map<String, String> paymentData = new HashMap<>();
+        paymentData.put("cardName", cardName);
+        paymentData.put("cardNumber", cardNumber);
+        paymentData.put("expiryDate", expiryDate);
+        paymentData.put("cvv", cvv);
+        return paymentData;
+    }
+
+    private boolean isValidCardNumber(String cardNumber) {
+        int sum = 0;
+        boolean alternate = false;
+
+        for (int i = cardNumber.length() - 1; i >= 0; i--) {
+            int n = Integer.parseInt(cardNumber.substring(i, i + 1));
+
+            if (alternate) {
+                n *= 2;
+                if (n > 9) {
+                    n -= 9; // o n = n / 10 + n % 10;
+                }
+            }
+            sum += n;
+            alternate = !alternate; // Alternar entre true y false
+        }
+
+        return sum % 10 == 0;
+    }
+
+    private void createOrder(List<OrderItem> orderItems, Map<String, String> paymentData) {
+        Map<String, Object> orderData = new HashMap<>();
+        List<Map<String, Object>> orderItemsList = new ArrayList<>();
+
+        for (OrderItem item : orderItems) {
+            Map<String, Object> orderItemMap = new HashMap<>();
+            orderItemMap.put("product", item.getProduct());
+            orderItemMap.put("quantity", item.getQuantity());
+            orderItemsList.add(orderItemMap);
+        }
+
+        orderData.put("order_items", orderItemsList);
+        orderData.put("paymentForm", paymentData);
+
+        Log.d("CheckoutActivity", "Creando orden con los siguientes datos: " + orderData);
+
+        Call<Order> call = apiService.createOrder(orderData);
+        call.enqueue(new Callback<Order>() {
+            @Override
+            public void onResponse(Call<Order> call, Response<Order> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    Order createdOrder = response.body();
+                    Log.d("CheckoutActivity", "Orden creada: " + createdOrder);
+                    Toast.makeText(CheckoutActivity.this, "Orden creada con éxito!", Toast.LENGTH_SHORT).show();
+
+                    // Enviar resultado a CartActivity
+                    Intent intent = new Intent();
+                    intent.putExtra("orderCreated", true);
+                    setResult(RESULT_OK, intent);
+                    finish(); // Cerrar la actividad actual
+                } else {
+                    Log.e("CheckoutActivity", "Error al crear la orden: " + response.code() + " - " + response.message());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Order> call, Throwable t) {
+                Log.e("CheckoutActivity", "Error en la llamada al crear orden: " + t.getMessage());
+            }
+        });
     }
 }

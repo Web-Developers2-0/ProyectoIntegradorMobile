@@ -51,27 +51,29 @@
     app:layout_constraintEnd_toEndOf="parent" />
 
     <!-- Campos de Email -->
-    <EditText
-        android:textColor="@android:color/black"
-    android:id="@+id/editTextEmail"
-    android:layout_width="0dp"
-    android:layout_height="wrap_content"
-    android:layout_marginStart="32dp"
-    android:layout_marginTop="16dp"
-    android:layout_marginEnd="32dp"
-    android:fontFamily="@font/interregular"
-    android:background="@drawable/edittext_background"
-    android:drawableStart="@drawable/ic_email"
-    android:tint="@android:color/black"
-    android:hint="@string/mail"
-    android:inputType="textEmailAddress"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@id/textViewTitulo"
-        />
-
 
     <!-- Campo de Contraseña -->
+    <EditText
+        android:id="@+id/editTextEmail"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/edittext_background"
+        android:drawableStart="@drawable/ic_email"
+        android:fontFamily="@font/interregular"
+        android:textColorHint="@color/text_alternative_dark"
+        android:hint="@string/mail"
+        android:inputType="textEmailAddress"
+        android:minHeight="48dp"
+        android:textColor="@android:color/black"
+        android:tint="@android:color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textViewTitulo" />
+
     <EditText
         android:textColor="@android:color/black"
     android:id="@+id/editTextPassword"
@@ -80,7 +82,9 @@
     android:layout_marginStart="32dp"
     android:layout_marginTop="16dp"
     android:layout_marginEnd="32dp"
+        android:minHeight="48dp"
     android:fontFamily="@font/interregular"
+        android:textColorHint="@color/text_alternative_dark"
     android:background="@drawable/edittext_background"
     android:drawableStart="@drawable/ic_lock"
     android:tint="@android:color/black"
@@ -89,6 +93,21 @@
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toBottomOf="@id/editTextEmail" />
+
+
+    <!-- Icono de visibilidad Contraseña -->
+    <ImageView
+        android:id="@+id/ivShowHidePassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="16dp"
+        android:contentDescription="@string/mostrar_ocultar_contraseña"
+        android:src="@drawable/ic_eye_off"
+        app:layout_constraintBottom_toBottomOf="@id/editTextPassword"
+        app:layout_constraintEnd_toEndOf="@id/editTextPassword"
+        app:layout_constraintTop_toTopOf="@id/editTextPassword"
+        app:layout_constraintVertical_bias="0.277" />
 
     <!-- Olvide contraseña -->
     <TextView
@@ -132,40 +151,4 @@
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintTop_toBottomOf="@id/buttonIniciarSesion" />
-
-    <!-- Botones de redes sociales -->
-    <LinearLayout
-    android:id="@+id/linearLayoutSocial"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="16dp"
-    android:gravity="center"
-    android:orientation="horizontal"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@id/textViewRegistro">
-
-    <!-- Botón de Google -->
-    <ImageView
-        android:id="@+id/imageViewGoogle"
-        android:layout_width="110dp"
-        android:layout_height="40dp"
-        android:layout_marginEnd="16dp"
-        android:background="@drawable/button_background"
-        android:contentDescription="@string/desc_google"
-        android:padding="8dp"
-        android:scaleType="centerInside"
-        android:src="@drawable/ic_google" />
-
-    <!-- Botón de Facebook -->
-    <ImageView
-        android:id="@+id/imageViewFacebook"
-        android:layout_width="110dp"
-        android:layout_height="40dp"
-        android:background="@drawable/button_background"
-        android:contentDescription="@string/desc_facebook"
-        android:padding="8dp"
-        android:scaleType="centerInside"
-        android:src="@drawable/ic_facebook" />
-    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

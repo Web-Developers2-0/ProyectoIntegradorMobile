@@ -2,6 +2,7 @@ package com.example.planetsuperheroes;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,6 +12,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
 
     private ImageView productImageView;
     private TextView productNameTextView, productDescriptionTextView, productPriceTextView;
+    private ImageView backArrow; // Referencia a la flecha de retroceso
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -18,11 +20,15 @@ public class ProductDetailsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product_detail);
 
-        // Referencias a los elementos de la UI
+        // Inicializa las vistas
         productImageView = findViewById(R.id.productImageView);
         productNameTextView = findViewById(R.id.productNameTextView);
         productDescriptionTextView = findViewById(R.id.productDescriptionTextView);
         productPriceTextView = findViewById(R.id.productPriceTextView);
+        backArrow = findViewById(R.id.backArrow); // Inicializa la referencia a la flecha de retroceso
+
+        // Asegúrate de que el ImageView sea clickeable
+        backArrow.setClickable(true);
 
         // Obtenemos los datos del intent
         String productName = getIntent().getStringExtra("productName");
@@ -36,11 +42,16 @@ public class ProductDetailsActivity extends AppCompatActivity {
         productPriceTextView.setText("$" + productPrice);
 
         // Cargar la imagen
-        int imageResource = getResources().getIdentifier(productImage, "drawable", getPackageName());
-        if (imageResource != 0) {
-            Glide.with(this).load(imageResource).into(productImageView);
+        if (productImage != null) {
+            Glide.with(this).load(productImage).into(productImageView);
         } else {
-            productImageView.setImageDrawable(null);  // Imagen por defecto si no se encuentra la imagen
+            productImageView.setImageDrawable(null);
         }
+
+        // Configura el listener para el botón de retroceso
+        backArrow.setOnClickListener(v -> {
+            Log.d("ProductDetailsActivity", "Back arrow clicked"); // Agrega un log para verificar el clic
+            finish(); // Termina la actividad actual y regresa a la anterior
+        });
     }
 }

@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -13,13 +14,12 @@ import com.example.planetsuperheroes.models.OrderItem;
 import java.util.List;
 
 public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
-
     private Context context;
-    private List<OrderItem> cartItems;
+    private List<OrderItem> orderItems;
 
-    public CartAdapter(Context context, List<OrderItem> cartItems) {
+    public CartAdapter(Context context, List<OrderItem> orderItems) {
         this.context = context;
-        this.cartItems = cartItems;
+        this.orderItems = orderItems;
     }
 
     @NonNull
@@ -31,23 +31,34 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        OrderItem orderItem = cartItems.get(position);
-        holder.productName.setText("Producto ID: " + orderItem.getProduct());
-        holder.quantity.setText("Cantidad: " + orderItem.getQuantity());
+        OrderItem item = orderItems.get(position);
+        holder.productNameTextView.setText(item.getProductName()); // Mostrar solo el nombre del producto
+        holder.quantityTextView.setText("Cantidad: " + item.getQuantity());
     }
 
     @Override
     public int getItemCount() {
-        return cartItems.size();
+        return orderItems.size();
     }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder {
-        TextView productName, quantity;
+    public void updateCartItems(List<OrderItem> newOrderItems) {
+        orderItems = newOrderItems;
+        notifyDataSetChanged();
+    }
+
+    // Método para obtener la lista de OrderItems
+    public List<OrderItem> getOrderItems() {
+        return orderItems;
+    }
+
+    public class ViewHolder extends RecyclerView.ViewHolder {
+        TextView productNameTextView;
+        TextView quantityTextView;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            productName = itemView.findViewById(R.id.productName);
-            quantity = itemView.findViewById(R.id.quantity);
+            productNameTextView = itemView.findViewById(R.id.productNameTextView); // Asegúrate de que este ID coincida
+            quantityTextView = itemView.findViewById(R.id.quantity);
         }
     }
 }
