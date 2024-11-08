@@ -18,7 +18,9 @@ Los usuarios van a poder crear y personalizar sus perfiles, gestionar su informa
 
 ## 📹 DEMOS:
 
-👉 Video: https://www.canva.com/design/DAGSfosRAQs/fX8gHce9hmS7mrwoU_ci0Q/watch
+👉 Video Sprint #1: https://www.canva.com/design/DAGSfosRAQs/fX8gHce9hmS7mrwoU_ci0Q/watch
+
+👉 Video Sprint #2: [https://www.canva.com/design/DAGSfosRAQs/fX8gHce9hmS7mrwoU_ci0Q/watch](https://www.canva.com/design/DAGVwt7lvKg/Wqa6EiiJ44wLQzN6u8L7gw/watch?utm_content=DAGVwt7lvKg&utm_campaign=designshare&utm_medium=link&utm_source=editor)
 
 <br/>
 
@@ -40,9 +42,7 @@ Prototipo - Figma: https://acortar.link/pjmxBd
 ## 📌 MOCKUPS:
 
 [![mockup1.png](https://i.postimg.cc/MGxJrTt6/mockup1.png)](https://postimg.cc/bZ65ZqKW)
-
-[![mockup2.png](https://i.postimg.cc/ZR5t4M1X/mockup2.png)](https://postimg.cc/t1wmz2Rz)
-
+[![mockup2-1.png](https://i.postimg.cc/bwWCr7CZ/mockup2-1.png)](https://postimg.cc/180cYjZS)
 [![mockup3.png](https://i.postimg.cc/435RCgFz/mockup3.png)](https://postimg.cc/7CfW7p46)
 
 <br/>
@@ -108,7 +108,7 @@ Prototipo - Figma: https://acortar.link/pjmxBd
         <td style="width: 25%; padding: 10px;">
         <div align="center">
           <a href="https://www.linkedin.com/in/santiago-bertorello-6bb071166/" target="_blank" rel="author">
-            <img width="110" src="https://media.licdn.com/dms/image/v2/D4D03AQFMDBlCEUIGWA/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1724948385736?e=1730332800&v=beta&t=tpi0i1PCe6NfTEbR8ADrKaTgZOQ3LyVNzqYUqgt61mk"/>
+            <img width="110" src="https://media.licdn.com/dms/image/v2/D4D03AQFMDBlCEUIGWA/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1724948385736?e=1736380800&v=beta&t=lQO0_g6AZIV_jvYll7Xiopl51h9j8jErJsfpwYXRMvw"/>
           </a>
           <a href="https://www.linkedin.com/in/santiago-bertorello-6bb071166/" target="_blank" rel="author">
             <h4 style="margin-top: 1rem;">Bertorello, Santiago Nicolás</h4>
@@ -178,7 +178,7 @@ Prototipo - Figma: https://acortar.link/pjmxBd
       <td style="width: 25%; padding: 10px;">
         <div align="center">
           <a href="https://www.linkedin.com/in/gonzalo-olmedo-desweb?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BFNQ8iQGKQrK6ifWctMZCMg%3D%3D" target="_blank" rel="author">
-            <img width="110" src="https://media.licdn.com/dms/image/v2/C4D03AQFPG9SiKUIlnQ/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1659578735244?e=1729728000&v=beta&t=KCbDkSgPxxiy-JG5cxCzxXaDjFKdalOd9BEkIcMBGak">
+            <img width="110" src="https://media.licdn.com/dms/image/v2/D4D35AQFMzvAwyMCwcA/profile-framedphoto-shrink_100_100/profile-framedphoto-shrink_100_100/0/1728101736938?e=1731682800&v=beta&t=oyt5TZUM0IWHe3RnfSColOgKZ7J6-dAILfXtE_wr3T0">
           </a>
           <a href="https://www.linkedin.com/in/gonzalo-olmedo-desweb/" target="_blank" rel="author">
             <h4 style="margin-top: 1rem;">Gonzalo Olmedo</h4>
@@ -195,7 +195,7 @@ Prototipo - Figma: https://acortar.link/pjmxBd
       <td style="width: 25%; padding: 10px;">
         <div align="center">
           <a href=https://www.linkedin.com/in/noah-a-cassutti-99160b1b5/" target="_blank" rel="author">
-            <img width="110" src="https://media.licdn.com/dms/image/D4D03AQFrxX1FqWxQyA/profile-displayphoto-shrink_200_200/0/1677907874391?e=2147483647&v=beta&t=wRmE-nlxnkwZYjD2ABgQzeCtdw3cQF_Ek6fLsfDOt8o"/>
+            <img width="110" src="https://avatars.githubusercontent.com/u/119015674?v=4"/>
           </a>
           <a href="https://www.linkedin.com/in/noah-a-cassutti-99160b1b5/" target="_blank" rel="author">
             <h4 style="margin-top: 1rem;"> Cassutti, Noah Nicanor</h4>
@@ -214,7 +214,7 @@ Prototipo - Figma: https://acortar.link/pjmxBd
       <td style="width: 25%; padding: 10px;">
         <div align="center">
           <a href="https://www.linkedin.com/in/pamela-ponce-193095142/" target="_blank" rel="author">
-            <img width="110" src="https://media.licdn.com/dms/image/v2/D4E03AQFOr-BaV06Yvg/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1687573687507?e=1730332800&v=beta&t=EaE8Z-EoES9_evLXPq0xBW1mgZoWlqpG-2v4oLp_NEA"/>
+            <img width="110" src="https://avatars.githubusercontent.com/u/106570847?v=4"/>
           </a>
           <a href="https://www.linkedin.com/in/pamela-ponce-193095142/" target="_blank" rel="author">
             <h4 style="margin-top: 1rem;">Ponce, Pamela Grisel</h4>
@@ -299,3 +299,5 @@ dependencies {
 ```
 
 4. Ejecutar la aplicación desde el emulador, o por mirror screen con un dispositivo físico.
+
+## Muchas gracias por visitar nuestro proyecto! 🙌 
