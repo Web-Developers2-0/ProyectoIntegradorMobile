@@ -21,7 +21,8 @@
             android:layout_marginBottom="16dp"
             android:text="@string/historial_de_compras"
             android:textSize="24sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textColor="@color/text_secondary_dark"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerViewOrders"

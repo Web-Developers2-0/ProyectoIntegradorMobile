@@ -4,7 +4,9 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:background="@drawable/rounded_border_order"
+    >
 
     <!-- Order ID -->
     <TextView
@@ -40,7 +42,7 @@
         android:id="@+id/textViewShippingMethod"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Shipping Method"
+        android:text="Shipping Method: "
         android:textColor="@color/text_primary_dark"
         android:textSize="12sp" />
 
@@ -49,7 +51,7 @@
         android:id="@+id/textViewPaymentStatus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Payment Status"
+        android:text="Payment Status: "
         android:textColor="@color/text_primary_dark"
         android:textSize="12sp" />
 
@@ -58,7 +60,7 @@
         android:id="@+id/textViewOrderItems"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Order Items"
+        android:text="Order Items: "
         android:textColor="@color/text_primary_dark"
         android:textSize="12sp" />
 
@@ -68,7 +70,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
-        android:text="Payment Method"
+        android:text="Payment Method: "
         android:textColor="@color/text_primary_dark"
         android:textSize="14sp"
         android:textStyle="bold" />
