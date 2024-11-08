@@ -69,8 +69,8 @@
 
             <ImageButton
                 android:id="@+id/btnRemove"
-                android:layout_width="28dp"
-                android:layout_height="28dp"
+                android:layout_width="27dp"
+                android:layout_height="27dp"
                 android:background="?android:attr/selectableItemBackground"
                 android:src="@drawable/ic_remove"
                 android:contentDescription="@string/decrease_quantity"
@@ -83,12 +83,14 @@
                 android:text="@string/default_quantity"
                 android:textColor="#333333"
                 android:textSize="16sp"
+                android:paddingLeft="14dp"
+                android:paddingRight="14dp"
                 android:layout_marginHorizontal="8dp" />
 
             <ImageButton
                 android:id="@+id/btnAdd"
-                android:layout_width="28dp"
-                android:layout_height="28dp"
+                android:layout_width="27dp"
+                android:layout_height="27dp"
                 android:background="?android:attr/selectableItemBackground"
                 android:src="@drawable/ic_add"
                 android:contentDescription="@string/increase_quantity"
