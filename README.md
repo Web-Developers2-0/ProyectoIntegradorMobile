@@ -20,7 +20,7 @@ Los usuarios van a poder crear y personalizar sus perfiles, gestionar su informa
 
 👉 Video Sprint #1: https://www.canva.com/design/DAGSfosRAQs/fX8gHce9hmS7mrwoU_ci0Q/watch
 
-👉 Video Sprint #2: [https://www.canva.com/design/DAGSfosRAQs/fX8gHce9hmS7mrwoU_ci0Q/watch](https://www.canva.com/design/DAGVwt7lvKg/Wqa6EiiJ44wLQzN6u8L7gw/watch?utm_content=DAGVwt7lvKg&utm_campaign=designshare&utm_medium=link&utm_source=editor)
+👉 Video Sprint #2: https://www.canva.com/design/DAGV6hRm9vI/Q7p5fN7O5cH-C20lyWb6NA/watch?utm_content=DAGV6hRm9vI&utm_campaign=designshare&utm_medium=link&utm_source=editor
 
 <br/>
 
@@ -236,6 +236,11 @@ Prototipo - Figma: https://acortar.link/pjmxBd
 
 ## 📝 DOCUMENTACIÓN:
 Disponible en 👉 [WIKI del repositorio](https://github.com/Web-Developers2-0/ProyectoIntegradorMobile/wiki)
+
+<br/>
+
+## 📦 APK:
+Disponible en 👉[WIKI](https://github.com/Web-Developers2-0/ProyectoIntegradorMobile/wiki/Link-a-la-descarga-.apk)
 
 <br/>
 
