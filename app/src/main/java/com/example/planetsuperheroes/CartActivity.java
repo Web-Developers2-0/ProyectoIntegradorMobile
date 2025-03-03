@@ -104,7 +104,7 @@ public class CartActivity extends AppCompatActivity {
                     // Validar si hay productos en el carrito
                     if (!orderItems.isEmpty()) {
                         Intent intent = new Intent(CartActivity.this, CheckoutActivity.class);
-                        startActivityForResult(intent, CHECKOUT_REQUEST_CODE); // Cambiado para usar startActivityForResult
+                        startActivityForResult(intent, CHECKOUT_REQUEST_CODE);
                     } else {
                         Toast.makeText(CartActivity.this, "El carrito está vacío", Toast.LENGTH_SHORT).show();
                     }
