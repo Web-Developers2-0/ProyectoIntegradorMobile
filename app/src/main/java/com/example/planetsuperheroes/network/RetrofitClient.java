@@ -17,7 +17,7 @@ public class RetrofitClient {
 
         if (retrofit == null) {
             retrofit = new Retrofit.Builder()
-                    .baseUrl("https://planetsuperheroes.onrender.com/api/")
+                    .baseUrl("https://planetsuperheroes-vxb1.onrender.com/api/")
                     .addConverterFactory(GsonConverterFactory.create())
                     .client(client)
                     .build();
