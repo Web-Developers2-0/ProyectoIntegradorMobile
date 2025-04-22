@@ -4,7 +4,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ApiClient {
-    private static final String BASE_URL = "https://planetsuperheroes-vxb1.onrender.com/api/"; // Cambia por tu URL base
+    private static final String BASE_URL = "https://planetsuperheroes.onrender.com/api/"; // Cambia por tu URL base
     private static Retrofit retrofit;
 
     public static Retrofit getRetrofitInstance() {
